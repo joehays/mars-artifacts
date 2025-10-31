@@ -6,13 +6,13 @@
 **Date**: 2025-10-29
 **Reading Time**: 30-45 minutes
 
-**Purpose**: Educate leadership on the existential importance of adopting orchestrated AI teams for research and development, demonstrate the technology progression from chat to orchestration, and present MARS as a ready-made solution.
+**Purpose**: Educate leadership on the existential importance of adopting orchestrated AI teams for research and development, demonstrate the technology progression from chat to orchestration, and to present MARS, the Modular Agentic Research System---the bespoke operating system for AI accelerated R&D.
 
 ---
 
 ## Executive Summary
 
-**Our organization faces a critical decision**: Embrace orchestrated AI teams or risk becoming irrelevant in an increasingly AI-accelerated research landscape.
+**Our organization faces a critical decision**: Embrace human-directed R&D augemented with orchestrated AI teams or risk becoming irrelevant in an increasingly AI-accelerated research landscape.
 
 **The Stakes**:
 - Research organizations are splitting into two classes: those with orchestrated AI capabilities and those being left behind
@@ -28,7 +28,7 @@
 
 **My Primary Goal**: Convince you to invest in orchestrated AI adoption (people, resources, funding)
 
-**My Secondary Goal**: Show you MARS - a prototype I've been building that can accelerate our journey to "Starship Enterprise"
+**My Secondary Goal**: Show you MARS - a prototype I've been building that can accelerate our journey to "Starship Enterprise". I don't really care if you chose to support my MARS developments but I DO care significantly about leadership's decision to accelerate orchestrated AI based R&D (through human oversight and teaming)!
 
 **The Ask**:
 1. **Primary**: Commit to organizational investment in orchestrated AI capabilities
@@ -58,10 +58,14 @@
 3.4 [What is AI Orchestration? (No Jargon)](#34-what-is-ai-orchestration-no-jargon)
 3.5 [Why Orchestrated Teams Beat Single Agents](#35-why-orchestrated-teams-beat-single-agents)
 
+<!-- I'd like to always emphasize that it's human directed teaming of orchestrated AI. I know that's a mouthful so we can come up with a better way to say it but I never want to lose focus on the fact that the human is always involed. Humans are teamed up with a team of orchestrated AI agents. That is a critical point to always keep clear. -->
+
 ### Part 4: The Opportunity for Our Organization
 4.1 [Become a "Starship Enterprise" Research Organization](#41-become-a-starship-enterprise-research-organization)
 4.2 [Competitive Advantage Through AI](#42-competitive-advantage-through-ai)
 4.3 [Accelerating Breakthrough Discoveries](#43-accelerating-breakthrough-discoveries)
+
+<!-- Let's also make sure that we lead with the full name "Modular Agentic Research System (MARS)" in any new section. After reminding them what the acronym stands for it's okay to proceed using MARS. It *would be good* to always associate MARS with the point that it is an "operating system for research and development". Maybe make that reminder at the beinning of each section when you're defining the acrynom... -->
 
 ### Part 5: My Prototype Solution - MARS
 5.1 [How I've Been Preparing](#51-how-ive-been-preparing)
@@ -71,6 +75,8 @@
 5.5 [What's on the Roadmap](#55-whats-on-the-roadmap)
 5.6 [Use Cases MARS Accelerates Today](#56-use-cases-mars-accelerates-today)
 5.7 [How MARS Can Expand Across the Organization](#57-how-mars-can-expand-across-the-organization)
+
+<!-- Maybe for 5.8 (or earlier), its' critically important that we clearly drive home the differentiating architectural, design and vision differences in MARS compared to other open source and commercially available frameworks/tools that *could* be used for providing AI orchestration assistants to humans for R&D. What is unique to MARS. Why is it worth investing in it? That is a MUST for this document/presentation. --> 
 
 ### Part 6: The Investment Ask
 6.1 [Primary Ask: Invest in Orchestrated AI](#61-primary-ask-invest-in-orchestrated-ai)
@@ -122,6 +128,8 @@ The pace of scientific discovery is accelerating exponentially, while human rese
 
 ### What This Means
 
+<!-- We need to emphasize the rare speed of prudction with teamed orchestrated AI. All your points are valid but the ability for humans teamed with orchestrated AI can simply produce state-of-the-art results significantly faster. This is the main point we need to drive home and back it up with real trust-worthy data. This affects individuals and organizations. Your other points are important but...  --->
+
 **For Individual Researchers**:
 - Impossible to keep current with state-of-the-art
 - Critical papers discovered "after the fact" when already behind
@@ -148,7 +156,7 @@ The pace of scientific discovery is accelerating exponentially, while human rese
 - Subscribe to more databases → Exacerbates information overload
 
 **The New Reality**:
-Organizations that embrace orchestrated AI are operating at a fundamentally different velocity. They're not just working faster - they're **working differently**.
+Organizations that embrace orchestrated AI are operating at a fundamentally different velocity. They're not just working faster - they're **working differently**.  <!-- EXCELLENT!!! -->
 
 ---
 
@@ -175,6 +183,9 @@ This is not speculative. We can already see the pattern emerging in other indust
 
 ### The Research Sector Pattern (Emerging Now)
 
+<!-- This is great content! Do you have references to back these claims up? -->
+<!-- OK I see that you talk about references way down in the document. It would be good to add a inter-document link here to foreshadow actual content to backup your claims here. --> 
+
 **What We're Starting to See** (2024):
 
 1. **Publication Velocity Divergence**
@@ -197,8 +208,11 @@ This is not speculative. We can already see the pattern emerging in other indust
    - Traditional teams discovering "someone beat us to it"
    - **Timeline**: 6-12 month competitive advantage gaps
 
+
 ### The "Starship Enterprise" Organizations
 
+<!-- This is great content! Do you have references to back these claims up? -->
+<!-- OK I see that you talk about references way down in the document. It would be good to add a inter-document link here to foreshadow actual content to backup your claims here. --> 
 **Characteristics of organizations that make the leap**:
 
 - Research teams operate 3-5× above baseline productivity
@@ -217,6 +231,9 @@ This is not speculative. We can already see the pattern emerging in other indust
 
 ### The Critical Window
 
+<!-- This is great content! Do you have references to back these claims up? -->
+<!-- OK I see that you talk about references way down in the document. It would be good to add a inter-document link here to foreshadow actual content to backup your claims here. --> 
+
 **We have 12-18 months** before this becomes irreversible:
 
 - **Month 0-6**: Early adopters gain initial advantage
@@ -231,6 +248,9 @@ Every industry that has faced AI disruption follows this timeline. We're watchin
 ---
 
 ## 1.3 The Competitor Landscape
+
+<!-- This is great content! Do you have references to back these claims up? -->
+<!-- OK I see that you talk about references way down in the document. It would be good to add a inter-document link here to foreshadow actual content to backup your claims here. --> 
 
 **Who's already moving to orchestrated AI** (based on public information and industry analysis):
 
@@ -260,6 +280,9 @@ Every industry that has faced AI disruption follows this timeline. We're watchin
 
 ### What They're Building
 
+<!-- This is great content! Do you have references to back these claims up? -->
+<!-- OK I see that you talk about references way down in the document. It would be good to add a inter-document link here to foreshadow actual content to backup your claims here. --> 
+
 **Common Pattern** across successful implementations:
 
 1. **Literature Monitoring Agents**
@@ -288,6 +311,9 @@ Every industry that has faced AI disruption follows this timeline. We're watchin
    - Human-in-loop at critical junctures
 
 ### What We Risk If We Don't Match This
+
+<!-- This is great content! Do you have references to back these claims up? -->
+<!-- OK I see that you talk about references way down in the document. It would be good to add a inter-document link here to foreshadow actual content to backup your claims here. --> 
 
 **Short-Term** (6-12 months):
 - Grant proposals with 60% literature coverage vs. their 95%
@@ -1503,6 +1529,8 @@ Agent: "Analysis complete. Found 47 outliers (0.47%). Plot saved."
 
 ### MCP in MARS
 
+<!-- hum... emphasize that MARS has a long list of MCP servers to integrate. These are just the first two that we talked. The roadmap list is much larger. -->
+
 **MARS uses MCP extensively**:
 
 **Zotero MCP Server**:
@@ -1520,6 +1548,8 @@ Agent: "Analysis complete. Found 47 outliers (0.47%). Plot saved."
 **Future**: Any new tool that implements MCP → MARS agents can use it immediately
 
 ### Why MCP Matters for Leadership
+
+<!-- this is where we can revisit, or forshadow, the "modularity" topic of MARS... MCP significantly facilitates modularity and scalability. MARS has leveraged this in its architecture to allow it to scale. We don't want to focus on MARS too much at this point in the document... that comes later but touch on it. -->
 
 **Without MCP**:
 - Building orchestrated AI team = 6-12 months of custom integration work
@@ -1597,6 +1627,8 @@ Task: Design Next Experiment
 
 ### Why Orchestration is "Starship Enterprise"
 
+<!-- We need to keep the description focused on multiple humans teamed with multiple orchestrated AI agents. So, in your lab analogy... emphasize that there are multiple humans on the team.  -->
+
 **Parallels to Star Trek Enterprise**:
 
 | Enterprise Crew | MARS AI Team |
@@ -1627,6 +1659,8 @@ Task: Design Next Experiment
 **Same principle for AI agents.**
 
 ### Specialization Advantage
+
+<!-- We need to discuss AI profiles and how they can "shape" the AI specializations (e.g. pessimist vs optimist vs pragmatist vs dreamer) they all add value for different roles  (FYI: if here is not the best place to introduce this topic then that's fine. Let's just make sure that we address this somewhere appropriate.) -->
 
 **Example Task**: Validate new machine learning model
 
@@ -1718,6 +1752,8 @@ This concludes Part 3. You now understand:
 ### The Operational Vision
 
 **Daily Workflow for Researcher** (Starship Enterprise level):
+
+<!-- again, emphasize researchers (plural) --> 
 
 **Morning (15 min)**:
 - Review overnight literature digest from AI team
@@ -1828,6 +1864,8 @@ This concludes Part 3. You now understand:
 
 #### 1. Cross-Domain Synthesis
 
+<!-- again, emphasize researchers (plural) --> 
+
 **Problem**: Researcher in Materials Science can't keep up with Chemistry, Physics, AND Computer Science literature
 
 **Orchestrated AI Solution**:
@@ -1853,6 +1891,8 @@ This concludes Part 3. You now understand:
 **AI Advantage**: Analyzes 1,500+ papers/day, detects statistical trends
 
 #### 3. Rapid Prototyping
+
+<!-- Boom! This is a huge one to me! --> 
 
 **Problem**: Takes 6-12 months to implement new idea, test, realize it won't work
 
@@ -1922,6 +1962,8 @@ This concludes Part 4. The opportunity is clear:
 
 ### Background
 
+<!-- So, this is an important spot to talk about me: (1) I'm not an AI researcher for AI's sake. I'm a roboticist focused on researching ML/AI solutions to solve robotic autonomy. To use the analogy of a lumberjack needing to make and take time to sharpen his saw... I made and have taken time to sharpen my researcher's saw (i.e. the tools that I use to be an effective and productive researcher). During that effort, I discovered how my efforts could help the organization across nearly all groups.   -->
+
 While researching the AI orchestration landscape, I recognized that:
 1. Orchestrated AI teams are the future of research (evidence in Part 2)
 2. No existing system was designed for research environments (most are for software/enterprise)
@@ -1933,6 +1975,8 @@ While researching the AI orchestration landscape, I recognized that:
 
 **MARS** = Modular Agentic Research System
 
+<!-- If the below timeline is supposed to represent my actual timeline... well, I started in the beginning of August 2025 and have been aggressively refining the definition and implementation of MARS since then... -->
+
 **Development Timeline**:
 - **2024 Q2-Q3**: Research phase (evaluating LangGraph, MCP, agent frameworks)
 - **2024 Q3**: Foundation phase (Docker infrastructure, core services)
@@ -1941,13 +1985,20 @@ While researching the AI orchestration landscape, I recognized that:
 
 **Time Investment**: ~800-1,000 hours (nights/weekends over 6 months)
 
+<!-- all of August 2025 was self funded... however, starting in September I have been working on this at my organization --> 
+
 **Funding**: Self-funded on personal time (no organizational resources used)
 
+
 ### Why I Built It
+
+<!-- reference my sharpening the saw story above. That's the real reason... then I saw it's power and that my org wasn't seriously doing anything with it... --> 
 
 **Primary Motivation**: Prove orchestrated AI works for research (proof-of-concept)
 
 **Secondary Motivation**: Build institutional capability (not dependent on me)
+
+<!-- EXCELLENT! all true! -->
 
 **Key Principle**: Modular architecture
 - Not a monolithic system
@@ -1955,11 +2006,14 @@ While researching the AI orchestration landscape, I recognized that:
 - Easy for others to extend
 - **Anyone can add new agents/services** without needing to understand entire system
 
+
 ---
 
 ## 5.2 What is MARS? (High-Level Overview)
 
 ### The Simple Explanation
+
+<!-- again emphasize that MARS is to be teamed up with humans (plural) -->
 
 **MARS is a self-hosted orchestrated AI team** for research and development.
 
@@ -1974,6 +2028,8 @@ While researching the AI orchestration landscape, I recognized that:
 
 **Self-Hosted** = Runs on our infrastructure, not cloud vendor
 
+<!-- All true... however, for optimal performance we need access to commercial LLMs. So, we have somewhat of a spectrum of options: air-gapped, not air-gapped but entirely self-hosted (including LLMs), not air-gapped an using commercial LLMs) --> 
+
 **Strategic Reasons**:
 1. **Data Privacy**: Research data never leaves our network
 2. **Air-Gap Capable**: Can run fully disconnected (classified research environments)
@@ -1987,6 +2043,8 @@ While researching the AI orchestration landscape, I recognized that:
 3. **Performance**: Local processing for sensitive tasks
 
 ### The "Modular" Principle
+
+<!-- I've been using the process in which modern hotels are built to describe how i'm building MARS... once a hotel's foundation and primary skeletal strcture is in place, all the hotel rooms are modular "boxes" build offsite and are simply lifted into place, all ins & outs connected up  (eg. electrical, plumbing) and then it's fastened to the skeletal structure. It's very modular and much of the hotel could "technically" be used even before all the rooms were added to the structure. So it is with MARS. We've built a well defined architecture and skeletal structure. We've been rapidly adding "rooms" to our hotel and each time a new room is added we get more "capacity" (i.e. more capability for accelerating R&D). I've got a few graphics that we can consider adding in here to give a visual... not important at this point but... -->
 
 **What "Modular" Means**:
 - Each component is independent (can be added/removed/replaced)
@@ -2024,6 +2082,8 @@ While researching the AI orchestration landscape, I recognized that:
 
 ### Current Status: Foundation Complete
 
+<!-- um... tomorrow is Nov. 1 2025 --> 
+
 **What's Operational** (as of 2024 Q4):
 - ✅ Docker infrastructure (rootless, secure, multi-service)
 - ✅ LiteLLM integration (AskSage + CAPRA provider, unified API)
@@ -2037,10 +2097,15 @@ While researching the AI orchestration landscape, I recognized that:
 - ⏳ Literature Research System (research-orchestrator + literature-monitor)
 - ⏳ LangGraph orchestration layer (multi-agent coordination)
 
+<!-- we need to seriously expand this section using the latest `docs/wiki/ROADMAP.md` and `core/docs/AGENTS_SERVICES_INVENTORY.md` and `docs/wiki/ARCHITECTURAL_ENHANCEMENTS_RESEARCH.md`  --> 
+
+
 **What's Planned** (Q2+ 2025):
 - 🔵 TUI Mission Control (terminal UI for MARS management)
 - 🔵 Coder Agent (automated code refactoring, testing)
 - 🔵 Quality Gates (automated compliance validation)
+
+<!-- again, need to update this after S7 is done --> 
 
 ### The "Starship Enterprise" Capabilities Today
 
@@ -2081,7 +2146,11 @@ While researching the AI orchestration landscape, I recognized that:
 
 ## 5.4 What's Built Today
 
+<!-- again, this entire section will need to be significantly updated after S7 is completed --> 
+
 ### Component #1: LiteLLM Integration (C1)
+
+<!-- veriy significant to our organization! It's an approved commercial LLM that we can use -->
 
 **Purpose**: Unified AI API for AskSage + CAPRA + future LLM providers
 
@@ -2230,6 +2299,10 @@ While researching the AI orchestration landscape, I recognized that:
 
 ## 5.5 What's on the Roadmap
 
+<!-- we need to seriously expand this section using the latest `docs/wiki/ROADMAP.md` and `core/docs/AGENTS_SERVICES_INVENTORY.md` and `docs/wiki/ARCHITECTURAL_ENHANCEMENTS_RESEARCH.md`  --> 
+
+<!-- Let's take the actual years away and just make the timeline relative from "now" We're already in Q4 of 2025... we can make the document "timeless" --> 
+
 ### Q1 2025 (Next 3 Months)
 
 **C5: Literature Research System** (5-7 weeks)
@@ -2282,6 +2355,8 @@ While researching the AI orchestration landscape, I recognized that:
 ---
 
 ## 5.6 Use Cases MARS Accelerates Today
+
+<!-- again, this entire section will need to be significantly updated after S7 is completed --> 
 
 ### Use Case 1: Literature Review for Grant Proposal ✅
 
@@ -2365,6 +2440,8 @@ While researching the AI orchestration landscape, I recognized that:
 
 ### The Modular Expansion Model
 
+<!-- emphasize how we can make the git repository available across the organization and and group/section/branch/division can add to it --> 
+
 **Key Principle**: MARS is not a monolithic system - it's a **platform** for building domain-specific AI capabilities
 
 **How Expansion Works**:
@@ -2380,6 +2457,10 @@ While researching the AI orchestration landscape, I recognized that:
 - Anyone can create new agents/services following templates
 
 ---
+
+<!-- add the some automony, signal processing, vision processing, network security related research use cases as well (just because we can...) -->
+
+<!-- Tie some of these expansions to the items in these documents `docs/wiki/ROADMAP.md` and `core/docs/AGENTS_SERVICES_INVENTORY.md` and `docs/wiki/ARCHITECTURAL_ENHANCEMENTS_RESEARCH.md`  --> 
 
 ### Example: Materials Science Expansion
 
@@ -2430,6 +2511,7 @@ While researching the AI orchestration landscape, I recognized that:
 
 ### Scaling Model
 
+<!-- emphasize how we can make the git repository available across the organization and and group/section/branch/division can add to it --> 
 **Organization-Wide Rollout**:
 
 **Phase 1: Pilot Groups** (Months 1-3)
@@ -2558,12 +2640,15 @@ This concludes Part 5. MARS is:
 ### If You Choose MARS as the Platform
 
 **What I'm Offering**:
+<!-- need to update the hours estimate --> 
 - Foundation already built (800-1,000 hours invested)
 - Proven use cases operational today
 - Modular architecture (not dependent on me)
 - Documentation and templates for expansion
 
 **What I'm Asking**:
+<!-- hum... I think I want to be a bit more modest and more grass roots in the request. I'm happy to help the organization take this further but my main passion is still my robotics research. I just want to mature MARS to the point that I, and my team, can be extremely productive in using it toward our research objectives... --> 
+
 1. **Organizational Endorsement**: MARS as official AI research platform
 2. **Core Team**: 1-2 FTE to maintain foundation + support users
 3. **Infrastructure**: Servers/cloud budget for deployment
@@ -2575,6 +2660,8 @@ This concludes Part 5. MARS is:
 - Job guarantee (capability should outlive any individual)
 
 ### MARS-Specific Budget
+
+<!-- again, needs tweeking. Let's leave it for now. --> 
 
 **If MARS Adopted** (in addition to primary ask):
 
@@ -2591,6 +2678,8 @@ This concludes Part 5. MARS is:
 - **Estimate**: 0.5-1.0 FTE/year ($75K-150K/year)
 
 ### Why MARS vs. Build From Scratch
+
+<!-- HAHA! MARS is a "build from scratch" solution. :-) -->
 
 **If you're deciding platform**:
 
