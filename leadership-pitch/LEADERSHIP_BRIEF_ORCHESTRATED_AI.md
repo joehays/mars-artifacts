@@ -75,8 +75,7 @@
 5.5 [What's on the Roadmap](#55-whats-on-the-roadmap)
 5.6 [Use Cases MARS Accelerates Today](#56-use-cases-mars-accelerates-today)
 5.7 [How MARS Can Expand Across the Organization](#57-how-mars-can-expand-across-the-organization)
-
-<!-- Maybe for 5.8 (or earlier), its' critically important that we clearly drive home the differentiating architectural, design and vision differences in MARS compared to other open source and commercially available frameworks/tools that *could* be used for providing AI orchestration assistants to humans for R&D. What is unique to MARS. Why is it worth investing in it? That is a MUST for this document/presentation. --> 
+5.8 [What Makes MARS Different? (vs. Other Orchestration Frameworks)](#58-what-makes-mars-different-vs-other-orchestration-frameworks)
 
 ### Part 6: The Investment Ask
 6.1 [Primary Ask: Invest in Orchestrated AI](#61-primary-ask-invest-in-orchestrated-ai)
@@ -2890,11 +2889,17 @@ I chose the latter. MARS is designed for **institutional ownership**, not indivi
 
 ---
 
-This concludes Part 5. MARS is:
-- Foundation complete, operational for literature/docs/diagrams today
-- Orchestration layer in development (Q1 2025)
-- Modular architecture enables org-wide expansion without dependence on me
-- Proven time savings: 75-90% on literature, documentation, diagrams
+This concludes Part 5. You now understand:
+- How I've been preparing (personal backstory: sharpening my researcher's saw)
+- What MARS is (modular, self-hosted orchestrated AI for research)
+- How it maps to "Starship Enterprise" capabilities
+- What's operational today (6 agents, 21 services, literature/docs/diagrams)
+- What's on the roadmap (orchestration, ROS2, HPC, more agents)
+- Real use cases (lit review, experiment tracking, documentation)
+- How it can expand org-wide (modular, not dependent on me)
+- **Why MARS is different from LangGraph/AutoGen/CrewAI** (research-first architecture)
+
+**Key Takeaway**: MARS provides 6-12 months of avoided custom development for research-specific needs (literature + provenance + knowledge graph + air-gap + research tool integrations)
 
 **Next**: Part 6 - The Investment Ask
 
