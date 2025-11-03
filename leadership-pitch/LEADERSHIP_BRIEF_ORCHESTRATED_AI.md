@@ -2583,6 +2583,46 @@ I chose the latter. MARS is designed for **institutional ownership**, not indivi
 
 **The Answer**: MARS is purpose-built for **research workflows**, not software development or enterprise automation. This fundamental difference drives unique architectural decisions.
 
+**IMPORTANT CLARIFICATION**: MARS is **not competing** with LangGraph, AutoGen, or other orchestration frameworks. **MARS leverages them**. LangGraph is a core component of MARS's orchestration layer (C5 roadmap). MARS's philosophy is to use excellent open-source tools/frameworks wherever they accelerate development **without compromising research-specific goals**.
+
+---
+
+### MARS's "Leverage, Don't Reinvent" Philosophy
+
+**What MARS Builds On** (not competing with):
+
+- **LangGraph** (LangChain): MARS uses LangGraph for multi-agent orchestration (C5 Literature Research System)
+- **MCP Protocol** (Anthropic): MARS uses MCP extensively for tool integrations (Zotero, GitLab, future ROS2, HPC)
+- **Docker**: MARS uses Docker for containerization and deployment
+- **Neo4j**: MARS uses Neo4j for knowledge graphs (not custom graph database)
+- **MLflow**: MARS uses MLflow for experiment tracking (not custom tracking)
+- **Ollama**: MARS uses Ollama for local LLM inference (not custom LLM server)
+
+**What MARS Adds** (research-specific layers):
+
+- **Research-first integrations**: Self-hosted Zotero + literature management MCP servers
+- **Provenance architecture**: Research lineage tracking (paper → experiment → publication)
+- **Air-gap deployment patterns**: Configurations for classified/sensitive research
+- **Research tool ecosystem**: Integrations for arXiv, PubMed, ROS2, HPC, simulation tools
+- **Modular agent architecture**: Templates and scaffolding for domain-specific research agents
+- **Knowledge graph schema**: Research-specific graph model (papers, requirements, experiments, results)
+
+**The Key Distinction**:
+
+- **LangGraph/AutoGen/CrewAI** = Excellent orchestration frameworks (general-purpose)
+- **MARS** = Research platform **built using** those frameworks + research-specific integrations
+
+**Analogy**:
+- LangGraph is like the **engine** (orchestration)
+- MARS is like the **research vehicle** (engine + research-specific body, tools, instruments)
+
+You wouldn't build a custom car engine when Honda/Toyota make excellent ones - you'd use their engine and build the specialized vehicle around it. Similarly, MARS doesn't reinvent orchestration (LangGraph does that well) - it builds the research-specific platform around proven orchestration frameworks.
+
+**This means**:
+- MARS benefits from LangGraph improvements (upstream contributions, bug fixes, new features)
+- MARS isn't locked into a single framework (could swap LangGraph for AutoGen if needed - modular architecture)
+- MARS focuses development effort on **research-specific value** (literature, provenance, domain tools) rather than reinventing orchestration
+
 ---
 
 ### The Orchestration Framework Landscape
@@ -2795,6 +2835,8 @@ I chose the latter. MARS is designed for **institutional ownership**, not indivi
 
 ### Comparison Matrix: MARS vs. Alternatives
 
+**Important**: This table compares **out-of-the-box capabilities**, not theoretical possibilities. Remember: MARS **uses** LangGraph for orchestration (not competing), and adds research-specific integrations on top.
+
 | Capability | LangGraph | AutoGen | CrewAI | GitHub Copilot | MARS |
 |-----------|----------|---------|--------|----------------|------|
 | **Literature Integration** | ❌ Build yourself | ❌ Build yourself | ❌ Build yourself | ❌ Not designed for this | ✅ Zotero + MCP + Knowledge Graph (79 tools) |
@@ -2874,18 +2916,23 @@ I chose the latter. MARS is designed for **institutional ownership**, not indivi
 
 **The Problem**: Existing orchestration frameworks (LangGraph, AutoGen, CrewAI) are excellent for software development and business automation, but **research workflows have fundamentally different requirements**.
 
-**The Solution**: MARS is a **research-first orchestration platform** that treats literature, provenance, and knowledge synthesis as foundational infrastructure rather than custom extensions.
+**The Solution**: MARS is a **research-first platform** that **builds on top of** proven orchestration frameworks (like LangGraph) and adds research-specific integrations (literature, provenance, knowledge graphs, air-gap deployment, research tools).
 
-**The Trade-Off**: MARS is less mature than general-purpose frameworks, but provides 6-12 months of avoided custom development for research-specific needs.
+**The "Leverage, Don't Reinvent" Principle**:
+- MARS **uses** LangGraph for orchestration (not competing with it)
+- MARS **uses** MCP, Docker, Neo4j, MLflow, Ollama (proven open-source tools)
+- MARS **adds** research-specific layers that don't exist in general frameworks
 
-**The Investment Question**: Do you want to spend 6-12 months adapting a mature general-purpose framework to research (LangGraph/AutoGen), or adopt an early-stage research-specific platform that provides those integrations out-of-the-box (MARS)?
+**The Trade-Off**: MARS is less mature than general-purpose frameworks, but provides 6-12 months of avoided custom development for research-specific needs (literature + provenance + knowledge graph + air-gap patterns + research tool integrations).
+
+**The Investment Question**: Do you want to spend 6-12 months adapting a mature general-purpose framework to research (building all research-specific integrations yourself), or adopt an early-stage research-specific platform that provides those integrations out-of-the-box (MARS)?
 
 **My Recommendation**:
-- **If you're doing software development or business automation** → Use LangGraph, AutoGen, or CrewAI (mature, proven, excellent tools)
-- **If you're doing scientific research with literature/provenance/air-gap requirements** → Consider MARS (saves 6-12 months, research-specific integrations)
+- **If you're doing software development or business automation** → Use LangGraph, AutoGen, or CrewAI directly (mature, proven, excellent tools for those domains)
+- **If you're doing scientific research with literature/provenance/air-gap requirements** → Consider MARS (saves 6-12 months, research-specific integrations, built on LangGraph)
 - **If you're unsure** → Pilot both approaches with 1-2 research groups, measure time-to-value
 
-**The Meta-Point**: The **capability** (orchestrated AI for research) matters more than the **platform** (MARS vs. alternatives). My primary goal is organizational adoption of orchestrated AI - MARS is one path forward, not the only path.
+**The Meta-Point**: The **capability** (orchestrated AI for research) matters more than the **platform** (MARS vs. alternatives). My primary goal is organizational adoption of orchestrated AI - MARS is one path forward, not the only path. And MARS itself is built on excellent open-source foundations (LangGraph, MCP, Docker, Neo4j) - we're standing on the shoulders of giants, not reinventing wheels.
 
 ---
 
