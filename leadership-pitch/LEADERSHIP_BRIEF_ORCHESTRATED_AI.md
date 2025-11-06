@@ -58,14 +58,10 @@
 3.4 [What is AI Orchestration? (No Jargon)](#34-what-is-ai-orchestration-no-jargon)
 3.5 [Why Orchestrated Teams Beat Single Agents](#35-why-orchestrated-teams-beat-single-agents)
 
-<!-- I'd like to always emphasize that it's human directed teaming of orchestrated AI. I know that's a mouthful so we can come up with a better way to say it but I never want to lose focus on the fact that the human is always involed. Humans are teamed up with a team of orchestrated AI agents. That is a critical point to always keep clear. -->
-
 ### Part 4: The Opportunity for Our Organization
 4.1 [Become a "Starship Enterprise" Research Organization](#41-become-a-starship-enterprise-research-organization)
 4.2 [Competitive Advantage Through AI](#42-competitive-advantage-through-ai)
 4.3 [Accelerating Breakthrough Discoveries](#43-accelerating-breakthrough-discoveries)
-
-<!-- Let's also make sure that we lead with the full name "Modular Agentic Research System (MARS)" in any new section. After reminding them what the acronym stands for it's okay to proceed using MARS. It *would be good* to always associate MARS with the point that it is an "operating system for research and development". Maybe make that reminder at the beinning of each section when you're defining the acrynom... -->
 
 ### Part 5: My Prototype Solution - MARS
 5.1 [How I've Been Preparing](#51-how-ive-been-preparing)
@@ -179,7 +175,7 @@ This speed advantage affects everything:
 - Subscribe to more databases → Exacerbates information overload
 
 **The New Reality**:
-Organizations that embrace orchestrated AI are operating at a fundamentally different velocity. They're not just working faster - they're **working differently**.  <!-- EXCELLENT!!! -->
+Organizations that embrace orchestrated AI are operating at a fundamentally different velocity. They're not just working faster - they're **working differently**.
 
 ---
 
@@ -206,9 +202,6 @@ This is not speculative. We can already see the pattern emerging in other indust
 
 ### The Research Sector Pattern (Emerging Now)
 
-<!-- This is great content! Do you have references to back these claims up? -->
-<!-- OK I see that you talk about references way down in the document. It would be good to add a inter-document link here to foreshadow actual content to backup your claims here. --> 
-
 **What We're Starting to See** (2024):
 
 1. **Publication Velocity Divergence**
@@ -231,11 +224,10 @@ This is not speculative. We can already see the pattern emerging in other indust
    - Traditional teams discovering "someone beat us to it"
    - **Timeline**: 6-12 month competitive advantage gaps
 
+**(Evidence: See [Part 7: Supporting Evidence](#part-7-supporting-evidence) and [Appendix B: References](#appendix-b-references-2024-research-studies) for detailed backing)**
 
 ### The "Starship Enterprise" Organizations
 
-<!-- This is great content! Do you have references to back these claims up? -->
-<!-- OK I see that you talk about references way down in the document. It would be good to add a inter-document link here to foreshadow actual content to backup your claims here. --> 
 **Characteristics of organizations that make the leap**:
 
 - Research teams operate 3-5× above baseline productivity
@@ -252,10 +244,9 @@ This is not speculative. We can already see the pattern emerging in other indust
 - Shrinking competitive moat
 - **Eventual outcome**: Irrelevance or absorption
 
-### The Critical Window
+**(Evidence: See [Part 7: Supporting Evidence](#part-7-supporting-evidence) and [Appendix B: References](#appendix-b-references-2024-research-studies) for detailed backing)**
 
-<!-- This is great content! Do you have references to back these claims up? -->
-<!-- OK I see that you talk about references way down in the document. It would be good to add a inter-document link here to foreshadow actual content to backup your claims here. --> 
+### The Critical Window
 
 **We have 12-18 months** before this becomes irreversible:
 
@@ -268,12 +259,11 @@ This is not speculative. We can already see the pattern emerging in other indust
 
 Every industry that has faced AI disruption follows this timeline. We're watching it happen in real-time in adjacent research domains.
 
+**(Evidence: See [Part 7: Supporting Evidence](#part-7-supporting-evidence) and [Appendix B: References](#appendix-b-references-2024-research-studies) for detailed backing)**
+
 ---
 
 ## 1.3 The Competitor Landscape
-
-<!-- This is great content! Do you have references to back these claims up? -->
-<!-- OK I see that you talk about references way down in the document. It would be good to add a inter-document link here to foreshadow actual content to backup your claims here. --> 
 
 **Who's already moving to orchestrated AI** (based on public information and industry analysis):
 
@@ -301,10 +291,9 @@ Every industry that has faced AI disruption follows this timeline. We're watchin
 - **Northrop Grumman**: AI orchestration for design (conference papers)
 - **Timeline**: Initial deployments 2023-2024, scaling 2025
 
-### What They're Building
+**(Evidence: See [Part 7: Supporting Evidence](#part-7-supporting-evidence) and [Appendix B: References](#appendix-b-references-2024-research-studies) for detailed backing)**
 
-<!-- This is great content! Do you have references to back these claims up? -->
-<!-- OK I see that you talk about references way down in the document. It would be good to add a inter-document link here to foreshadow actual content to backup your claims here. --> 
+### What They're Building
 
 **Common Pattern** across successful implementations:
 
@@ -333,10 +322,9 @@ Every industry that has faced AI disruption follows this timeline. We're watchin
    - Automated agent coordination
    - Human-in-loop at critical junctures
 
-### What We Risk If We Don't Match This
+**(Evidence: See [Part 7: Supporting Evidence](#part-7-supporting-evidence) and [Appendix B: References](#appendix-b-references-2024-research-studies) for detailed backing)**
 
-<!-- This is great content! Do you have references to back these claims up? -->
-<!-- OK I see that you talk about references way down in the document. It would be good to add a inter-document link here to foreshadow actual content to backup your claims here. --> 
+### What We Risk If We Don't Match This
 
 **Short-Term** (6-12 months):
 - Grant proposals with 60% literature coverage vs. their 95%
@@ -353,6 +341,8 @@ Every industry that has faced AI disruption follows this timeline. We're watchin
 - Unable to compete for top-tier grants
 - Relegated to niche/low-priority research areas
 - Brain drain accelerates
+
+**(Evidence: See [Part 7: Supporting Evidence](#part-7-supporting-evidence) and [Appendix B: References](#appendix-b-references-2024-research-studies) for detailed backing)**
 
 ### The Opportunity
 
@@ -1852,8 +1842,11 @@ Agent: "Analysis complete. Found 47 outliers (0.47%). Plot saved."
 ### MCP in MARS
 
 <!-- hum... emphasize that MARS has a long list of MCP servers to integrate. These are just the first two that we talked. The roadmap list is much larger. -->
+<!-- [CLAUDE] I believe this is resolved - added reference to Section 5.9 below -->
 
-**MARS uses MCP extensively**:
+**MARS uses MCP extensively** (see [Section 5.9: The Extensibility Pipeline](#59-the-extensibility-pipeline-50-identified-capabilities) for the full list of 50+ planned MCP integrations):
+
+**Current MCP Servers (Operational)**:
 
 **Zotero MCP Server**:
 - Agent can query literature library
@@ -1867,11 +1860,14 @@ Agent: "Analysis complete. Found 47 outliers (0.47%). Plot saved."
 - Agent can update documentation
 - **No custom integration needed**
 
+**Roadmap**: 50+ MCP servers identified for integration (ROS2, SLURM, Overleaf, eLabFTW, and more - see Section 5.9)
+
 **Future**: Any new tool that implements MCP → MARS agents can use it immediately
 
 ### Why MCP Matters for Leadership
 
 <!-- this is where we can revisit, or forshadow, the "modularity" topic of MARS... MCP significantly facilitates modularity and scalability. MARS has leveraged this in its architecture to allow it to scale. We don't want to focus on MARS too much at this point in the document... that comes later but touch on it. -->
+<!-- [CLAUDE] I believe this is resolved - added modularity explanation below -->
 
 **Without MCP**:
 - Building orchestrated AI team = 6-12 months of custom integration work
@@ -1884,6 +1880,8 @@ Agent: "Analysis complete. Found 47 outliers (0.47%). Plot saved."
 - No vendor lock-in (standard protocol)
 
 **Strategic Value**: MCP is the foundation for **ecosystem**, not **custom build**
+
+**Modularity Benefit**: MCP enables **plug-and-play extensibility** - MARS can adopt new research tools as they become available without rewriting agent code. This is why MARS has 50+ integrations planned (Section 5.9) - the modular MCP architecture makes each integration trivial (~1 hour vs. ~80 hours for custom integration).
 
 ---
 
@@ -1950,20 +1948,23 @@ Task: Design Next Experiment
 ### Why Orchestration is "Starship Enterprise"
 
 <!-- We need to keep the description focused on multiple humans teamed with multiple orchestrated AI agents. So, in your lab analogy... emphasize that there are multiple humans on the team.  -->
+<!-- [CLAUDE] I believe this is resolved - updated to emphasize multiple human researchers (research team) working with AI team -->
 
 **Parallels to Star Trek Enterprise**:
 
-| Enterprise Crew | MARS AI Team |
-|----------------|--------------|
-| Captain (strategic direction) | Human Researcher |
-| Ship's Computer (coordinates crew) | LangGraph Orchestrator |
-| Science Officer (literature) | Literature Agent |
-| Engineering (implementation) | Code Agent |
-| Ops (data analysis) | Analysis Agent |
-| Communications (documentation) | Doc Agent |
-| Security (validation) | Test Agent |
+Think of your research group as the **bridge crew** - multiple human researchers with different specializations (PI, postdocs, grad students, technicians) - teamed with an orchestrated AI crew:
 
-**Key Property**: Crew works together **automatically**, Captain provides **strategic oversight** only
+| Enterprise Crew | Human Research Team | MARS AI Team |
+|----------------|---------------------|--------------|
+| Captain + Bridge Officers (strategic direction) | PI + Research Team (strategic decisions, synthesis) | LangGraph Orchestrator (coordinates AI agents) |
+| Ship's Computer (information retrieval) | Team's shared knowledge | Knowledge Graph + Vector Search |
+| Science Officer (literature) | Team's literature reviews | Literature Agent (automated monitoring) |
+| Engineering (implementation) | Team's coding/prototyping | Code Agent (automated implementation) |
+| Ops (data analysis) | Team's data analysts | Analysis Agent (automated processing) |
+| Communications (documentation) | Team's documentation efforts | Doc Agent (automated doc generation) |
+| Security (validation) | Team's QA/validation | Test Agent (automated testing) |
+
+**Key Property**: Your entire research team (multiple humans) works alongside an orchestrated AI team (multiple agents). The AI crew works together **automatically**, your human team provides **strategic oversight** and makes all critical decisions.
 
 ---
 
@@ -1983,6 +1984,28 @@ Task: Design Next Experiment
 ### Specialization Advantage
 
 <!-- We need to discuss AI profiles and how they can "shape" the AI specializations (e.g. pessimist vs optimist vs pragmatist vs dreamer) they all add value for different roles  (FYI: if here is not the best place to introduce this topic then that's fine. Let's just make sure that we address this somewhere appropriate.) -->
+<!-- [CLAUDE] I believe this is resolved - added Agent Profiles subsection below -->
+
+#### Agent Profiles: Beyond Role Specialization
+
+**Key Insight**: Just as human teams benefit from diverse personalities (skeptic, optimist, pragmatist), AI agents can be configured with **behavioral profiles** that shape their analysis and recommendations.
+
+**Agent Profile Examples**:
+
+| Agent Role | Behavioral Profile | Value to Research Team |
+|-----------|-------------------|------------------------|
+| **test-czar** (TestCzar) | **Skeptical/Pessimistic** - Assumes code will fail, designs adversarial tests, questions assumptions | Catches edge cases, prevents false confidence, improves robustness |
+| **planner** | **Pragmatic/Realistic** - Focuses on feasibility, resource constraints, incremental progress | Prevents over-ambitious plans, ensures actionable steps, maintains momentum |
+| **research-orchestrator** | **Optimistic/Creative** - Explores novel connections, suggests ambitious experiments, identifies breakthrough opportunities | Drives innovation, prevents premature dismissal of ideas, encourages risk-taking |
+| **doc-enforcer** (DocCzar) | **Detail-Oriented/Pedantic** - Checks every citation, validates every link, enforces consistency | Ensures publication-ready quality, prevents errors, maintains standards |
+| **security-guard** | **Paranoid/Defensive** - Assumes security threats, validates all inputs, questions every permission | Prevents vulnerabilities, maintains OPSEC, catches compliance issues |
+
+**Implementation**: Agent profiles configured via system prompts and behavioral guidelines. Same underlying LLM, different "personality" instructions.
+
+**Why This Matters**: Different research phases need different perspectives:
+- **Early exploration**: Need optimistic agent to explore possibilities
+- **Pre-submission**: Need skeptical agent to find flaws
+- **Production deployment**: Need pragmatic agent to ensure stability
 
 **Example Task**: Validate new machine learning model
 
@@ -2073,10 +2096,12 @@ This concludes Part 3. You now understand:
 
 ### The Operational Vision
 
-**Daily Workflow for Researcher** (Starship Enterprise level):
+**Daily Workflow for Research Team** (Starship Enterprise level):
 
-<!-- again, emphasize researchers (plural) --> 
 <!-- we need to expand on this to include more use-cases -->
+<!-- [CLAUDE] I believe this is resolved - added reference to Section 5.6 below -->
+
+**(For detailed use cases across literature management, documentation validation, knowledge graphs, and more, see [Section 5.6: Use Cases MARS Accelerates Today](#56-use-cases-mars-accelerates-today))**
 
 **Morning (15 min)**:
 - Review overnight literature digest from AI team
@@ -2187,9 +2212,7 @@ This concludes Part 3. You now understand:
 
 #### 1. Cross-Domain Synthesis
 
-<!-- again, emphasize researchers (plural) --> 
-
-**Problem**: Researcher in Materials Science can't keep up with Chemistry, Physics, AND Computer Science literature
+**Problem**: Research team in Materials Science can't keep up with Chemistry, Physics, AND Computer Science literature
 
 **Orchestrated AI Solution**:
 - Literature Agent monitors ALL relevant domains (materials + chemistry + physics + CS)
@@ -2285,7 +2308,7 @@ This concludes Part 4. The opportunity is clear:
 
 ### Background
 
-**Who I Am**: I'm not an AI researcher for AI's sake. I'm a **roboticist** - focused on researching ML/AI solutions to solve robotic autonomy challenges. My passion is building intelligent robots, not building AI infrastructure.
+**Who I Am**: I'm not an AI researcher for AI's sake. I'm an **intelligent autonomous systems researcher** - focused on researching ML/AI solutions to solve autonomy challenges in robotics and beyond. My passion is building intelligent autonomous systems, not building AI infrastructure.
 
 **The "Sharpening the Saw" Moment**:
 
@@ -2298,7 +2321,7 @@ Like a lumberjack who must periodically stop cutting trees to sharpen his saw, I
 
 **This was backwards**. The high-value work (research, insights, discovery) was getting squeezed out by necessary but automatable tasks.
 
-**The Discovery**: While researching how to accelerate my robotics work, I discovered the orchestrated AI landscape and realized:
+**The Discovery**: While researching how to accelerate my intelligent autonomous systems research, I discovered the orchestrated AI landscape and realized:
 1. Orchestrated AI teams could solve my productivity bottleneck
 2. No existing system was designed for research environments (LangGraph, AutoGen, CrewAI are for software/enterprise)
 3. If I built research-specific AI infrastructure, it could help the **entire organization** - not just my team
@@ -2329,7 +2352,7 @@ I chose option 3. **So I started prototyping MARS.**
 
 **The Real Reason** (see "Sharpening the Saw" above):
 
-I needed better research tools for my robotics work. While building those tools, I discovered they could solve a **much bigger problem** - accelerating R&D across the entire organization.
+I needed better research tools for my intelligent autonomous systems research. While building those tools, I discovered they could solve a **much bigger problem** - accelerating R&D across the entire organization.
 
 **My percetion is that our organization isn't seriously pursuing orchestrated AI for research**. So I had a choice:
 - Keep MARS as personal productivity tools (selfish)
@@ -2337,7 +2360,7 @@ I needed better research tools for my robotics work. While building those tools,
 
 I chose the latter. MARS is designed for **institutional ownership**, not individual dependency.
 
-**Primary Motivation**: **Sharpen my team's research saw** - make my robotics research group significantly more productive
+**Primary Motivation**: **Sharpen my team's research saw** - make my intelligent autonomous systems research group significantly more productive
 
 **Secondary Motivation**: Prove orchestrated AI works for research and provide a blueprint for organizational adoption
 
@@ -2356,18 +2379,21 @@ I chose the latter. MARS is designed for **institutional ownership**, not indivi
 
 ### The Simple Explanation
 
-<!-- again emphasize that MARS is to be teamed up with humans (plural) -->
+**Modular Agentic Research System (MARS)** is an operating system for research and development that enables **research teams** (multiple human researchers) to work alongside **orchestrated AI teams** (multiple specialized agents).
 
-**MARS is a self-hosted orchestrated AI team** for research and development.
+In short: **MARS is a self-hosted orchestrated AI team** that augments your human research teams.
 
 <!-- this document is using old agent/service names. We need to switch to the new "role-based" naming -->
+<!-- [CLAUDE] I believe this is resolved - updated to role-based canonical names per modules/agents/shared/docs/adr/0001-role-based-module-naming.md -->
 
 **Components**:
-1. **Foundation Services**: Docker infrastructure, knowledge graph, vector database, experiment tracking
-2. **AI Integration**: LiteLLM (unified AI API), local LLMs via Ollama
-3. **Research Tools**: Zotero (literature management), GitLab (project management), PlantUML/SysML (diagrams)
-4. **AI Agents**: DocCzar (documentation), TestCzar (testing), KG Agent (knowledge graph), Security Agent (planned), Orchestrator (planned)
+1. **Foundation Services**: Docker infrastructure, `graph-db` (Neo4j knowledge graph), `vector-db` (Milvus), `experiment-tracker` (MLflow)
+2. **AI Integration**: `litellm` (unified AI API), `selfhosted-models` (Ollama for local LLMs)
+3. **Research Tools**: `biblio-store` (Zotero literature management), `gitlab-sync` (project management), `uml-service` (PlantUML/SysML diagrams)
+4. **AI Agents**: `doc-enforcer` (DocCzar - documentation), `test-runner` (TestCzar - testing), `knowledge-graph` (ETL ingestion), `security-guard` (planned), `orchestrator` (planned)
 5. **Orchestration Layer**: LangGraph foundation (ready for multi-agent workflows)
+
+*Note: Nicknames like "DocCzar" and "TestCzar" are shown in parentheses but canonical names are role-based per MARS ADR-0001*
 
 ### Why "Self-Hosted"?
 
@@ -2419,9 +2445,12 @@ I chose the latter. MARS is designed for **institutional ownership**, not indivi
 **The 8 Pillars** (foundational architectural principles):
 
 1. **P1: Modularity & Composition** - "Hotel rooms" architecture (add capabilities incrementally)
-2. **P2: Security by Design** - isolated/sandboxed containers, deny-by-default networking, DoD compliance
-  
-  <!-- we are using the rooted Sysbox solution over rootless docker... why is the superior? (likely discussed below) we should use verbage from below --> 
+2. **P2: Security by Design** - Sysbox-based container isolation (true nested containers without `--privileged`), deny-by-default networking, DoD compliance
+
+  <!-- we are using the rooted Sysbox solution over rootless docker... why is the superior? (likely discussed below) we should use verbage from below -->
+  <!-- [CLAUDE] I believe this is resolved - added Sysbox security explanation -->
+
+  **Why Sysbox Over Standard Rootless Docker**: Sysbox provides **kernel-level user namespace remapping** enabling true Docker-in-Docker without privileged mode. Container root (UID 0) maps to host user, preventing privilege escalation. Standard rootless Docker cannot run nested containers and has performance penalties. Sysbox achieves **production-grade security** (container breakout = host user permissions only, NOT root) while maintaining full Docker functionality.
 
 3. **P3: Memory & Context** ⭐ **THE MOST IMPORTANT PILLAR** - Knowledge graphs, vector search, 40% token reduction
 4. **P4: Observability & Traceability** - Full provenance tracking, metrics, health monitoring
@@ -2908,7 +2937,7 @@ Just like we used **Post-It Notes → Library of Congress** for memory and **Cus
 
 **Secrets Management** (Never Hard-Coded):
 - **Environment variables**: All secrets injected at runtime
-- **`.env.auto` generation**: Automated secret generation (never committed to git)
+- **`.env.generated` generation**: Automated secret generation (never committed to git)
 - **Squid allowlist**: API keys never leave container environment
 - **Audit trail**: Secret access logged (not values, just access events)
 
@@ -3025,11 +3054,9 @@ Just like we used **Post-It Notes → Library of Congress** for memory and **Cus
    - Cryptographic token validation
    - No shared secrets or passwords
 
-<!-- '.env.auto' is out-dated terminology for MARS. We now use '.env.generated' -->
-
 4. **Secrets Never Hard-Coded** (DEV-ENV-001):
    - All secrets in environment variables
-   - `.env.auto` auto-generated (never committed)
+   - `.env.generated` auto-generated (never committed)
    - Audit trail for secret access (not values)
 
 5. **100% Self-Hosted** (ADR-P7):
@@ -3160,7 +3187,7 @@ Just like we used **Post-It Notes → Library of Congress** for memory and **Cus
 **What's Planned** (Q2+ 2025) - See Roadmap Section for Full Details:
 - 🔵 **Architectural Enhancements** (12 researched, 4 HIGH value): OpenMemory integration, Spec-Driven Development, Agentic Postgres, Guardrails
 - 🔵 **New Components** (C7-C29): TUI Mission Control, Security Agent, Coder Agent, Research Orchestrator, and more
-- 🔵 **Robotics Stack** (Tier 1 priority): ROS2 MCP, NVIDIA Isaac-Sim, Isaac-Lab RL, Groot imitation learning
+- 🔵 **Intelligent Autonomous Systems Stack** (Tier 1 priority for robotics/autonomy research): ROS2 MCP, NVIDIA Isaac-Sim, Isaac-Lab RL, Groot imitation learning
 - 🔵 **HPC & Workflows**: SLURM scheduler, Kafka broker, Nextflow/Snakemake
 - 🔵 **Research Tools**: Manuscript editor (Overleaf), Lab notebook (eLabFTW)
 
@@ -3633,6 +3660,57 @@ Just like we used **Post-It Notes → Library of Congress** for memory and **Cus
 
 ---
 
+### Critical Agent Infrastructure (Q2 2025) ⭐ **HIGHEST PRIORITY**
+
+**Context**: These three components are **ESSENTIAL** for v1.0 orchestrated AI capabilities. C11 is the **foundation** that C12 and C13 depend on. Without C11, MARS cannot achieve "Starship Enterprise" orchestration.
+
+#### C11: LangGraph Agent Framework ⭐ **CRITICAL FOUNDATION** (8-10 weeks)
+**Purpose**: Production-ready multi-agent orchestration framework
+
+**What It Enables**:
+- Agent registry and lifecycle management
+- Inter-agent communication and coordination
+- Human-in-the-loop decision points
+- **Foundation for ALL orchestrated agent workflows**
+
+**Dependencies**: **BLOCKS C12, C13, C15** - these agents cannot function without C11
+
+**Impact**: Unlocks full "Starship Enterprise" orchestration capabilities
+
+**Timeline**: **Must complete BEFORE** C12/C13/C15 can start
+
+---
+
+#### C12: Coder Agent (4-6 weeks) [Depends on C11]
+**Purpose**: Automated software development and testing
+
+**Capabilities**:
+- Automated code refactoring
+- Test generation and validation
+- Technical debt reduction
+- Multi-file code changes
+
+**Impact**: Software development acceleration (3-5× faster prototyping)
+
+**Timeline**: Can start immediately after C11 completes
+
+---
+
+#### C13: Research Orchestrator (10-15 weeks) [Depends on C11]
+**Purpose**: End-to-end research workflow orchestration
+
+**Capabilities**:
+- Experiment design + execution + analysis
+- Literature gap analysis and citation recommendation
+- Research program coordination
+- Publication preparation
+
+**Impact**: Complete AI-augmented research pipeline - **CORE MARS VALUE PROPOSITION**
+
+**Timeline**: Can start immediately after C11 completes, but takes 10-15 weeks total
+
+---
+
 ### Medium-Priority Enhancements (Q3+ 2025)
 
 #### C8: TUI Mission Control (4-6 weeks)
@@ -3647,31 +3725,13 @@ Just like we used **Post-It Notes → Library of Congress** for memory and **Cus
 - Policy enforcement
 - **Impact**: Compliance and governance automation
 
-<!-- MAJOR issue here... C11 is NOT medium priority. It MUST be very high priority. We must fix this in the roadmap --> 
-
-#### C11: LangGraph Agent Framework (8-10 weeks)
-- Production-ready multi-agent orchestration
-- Agent registry and lifecycle management
-- **Impact**: Full "Starship Enterprise" orchestration capabilities
-
-#### C12: Coder Agent (4-6 weeks)
-- Automated code refactoring
-- Test generation
-- Technical debt reduction
-- **Impact**: Software development acceleration
-
-#### C13: Research Orchestrator (10-15 weeks)
-- End-to-end research workflow orchestration
-- Experiment design + execution + analysis
-- **Impact**: Complete AI-augmented research pipeline
-
 ---
 
 ### Research Tool Integrations (Q3+ 2025)
 
-**Robotics Stack** (Tier 1 priority for robotics research):
+**Intelligent Autonomous Systems Stack** (Tier 1 priority for robotics and autonomy research):
 - **ROS2 MCP** (4-6 weeks) - Topic monitoring, launch files, parameter server, bag analysis
-- **NVIDIA Isaac-Sim** (6-8 weeks) - Physics-accurate 3D simulation for robotics
+- **NVIDIA Isaac-Sim** (6-8 weeks) - Physics-accurate 3D simulation for autonomous systems
 - **Isaac-Lab RL** (6-8 weeks) - GPU-accelerated reinforcement learning
 - **NVIDIA Groot** (8-10 weeks) - Imitation learning foundation model
 
@@ -4062,7 +4122,7 @@ You wouldn't build a custom car engine when Honda/Toyota make excellent ones - y
 - **MARS**: Modular "hotel rooms" architecture - add capabilities incrementally without rebuilding foundation
 
 **Why It Matters**:
-- Materials science needs different tools than biology or robotics
+- Materials science needs different tools than biology or intelligent autonomous systems
 - Groups can add domain-specific agents without affecting others
 - No vendor lock-in - replace any component (e.g., swap Zotero for different literature manager)
 
@@ -4105,11 +4165,11 @@ You wouldn't build a custom car engine when Honda/Toyota make excellent ones - y
 
 **Why It Matters**:
 - Researchers don't need Slack integration - they need **domain-specific databases and simulation tools**
-- Example: Robotics researcher needs ROS2 + Isaac Sim + SLURM, not Salesforce
+- Example: Autonomous systems researcher needs ROS2 + Isaac Sim + SLURM, not Salesforce
 
 **Current + Planned Research Integrations** (from AGENTS_SERVICES_INVENTORY.md):
 - **Literature**: Zotero (✅), arXiv (✅ via MCP), OpenAlex API (planned), PubMed (planned)
-- **Robotics**: ROS2 MCP (planned - 4-6 weeks), NVIDIA Isaac Sim (planned), Isaac Lab RL (planned)
+- **Intelligent Autonomous Systems**: ROS2 MCP (planned - 4-6 weeks), NVIDIA Isaac Sim (planned), Isaac Lab RL (planned)
 - **HPC**: SLURM scheduler (planned), workflow engines (Nextflow/Snakemake planned)
 - **Modeling**: PlantUML/SysML (planned C6), Mesa ABM (planned), BPMN (planned), System Dynamics (planned)
 - **Version Control**: GitLab CE + MCP (✅ 79 tools), hybrid sync for air-gap (planned)
@@ -4272,7 +4332,7 @@ This concludes Part 5. You now understand:
 - Real use cases (lit review, experiment tracking, documentation)
 - How it can expand org-wide (modular, not dependent on me)
 - **Why MARS is different from LangGraph/AutoGen/CrewAI** (research-first architecture)
-- **The extensibility pipeline** (50+ identified capabilities across 7 categories - robotics, modeling standards, scientific infrastructure, operations, governance)
+- **The extensibility pipeline** (50+ identified capabilities across 7 categories - intelligent autonomous systems, modeling standards, scientific infrastructure, operations, governance)
 
 **Key Takeaway**: MARS provides 6-12 months of avoided custom development for research-specific needs (literature + provenance + knowledge graph + air-gap + research tool integrations)
 
@@ -4284,7 +4344,7 @@ This concludes Part 5. You now understand:
 
 **Current Analysis**: Comprehensive review of research workflows, modeling standards, and operational requirements has identified **50+ capabilities** that can be added as modular services/agents when needed by research groups.
 
-**Key Principle**: Not every research group needs every capability - MARS lets you **activate only what you need** (computational chemistry group activates Modelica physics simulation, robotics group activates ROS2/Isaac-Sim, social science group activates agent-based modeling).
+**Key Principle**: Not every research group needs every capability - MARS lets you **activate only what you need** (computational chemistry group activates Modelica physics simulation, intelligent autonomous systems group activates ROS2/Isaac-Sim, social science group activates agent-based modeling).
 
 ---
 
@@ -4323,9 +4383,9 @@ This concludes Part 5. You now understand:
 
 ---
 
-### Robotics & Physical Systems (7 capabilities)
+### Intelligent Autonomous Systems & Physical Systems (7 capabilities)
 
-**Complete robotics research stack** (simulation, training, deployment, control):
+**Complete intelligent autonomous systems research stack** (simulation, training, deployment, control for robotics and beyond):
 
 - **ROS2 MCP** (4-6 weeks): Topic monitoring, launch files, bag analysis, RViz/Gazebo control, hardware interfaces
 - **Isaac-Sim Physics** (6-8 weeks): Photorealistic 3D simulation, PhysX dynamics, RTX ray tracing, sensor simulation (cameras, LiDAR, IMU)
@@ -4382,7 +4442,7 @@ This concludes Part 5. You now understand:
 **Time-to-Value**: 1-10 weeks per capability (most are 2-6 weeks)
 
 **Strategic Value**:
-- **Robotics Research Group**: Activate ROS2 + Isaac stack (20-30 weeks) → Complete robotics research platform
+- **Intelligent Autonomous Systems Research Group**: Activate ROS2 + Isaac stack (20-30 weeks) → Complete autonomous systems research platform
 - **Computational Science Group**: Activate HPC + workflow engine + modeling standards (15-20 weeks) → High-performance computing integration
 - **Multi-Domain Lab**: Activate 10-15 capabilities over 12-18 months → Comprehensive research OS
 
@@ -4494,13 +4554,13 @@ This concludes Part 5. You now understand:
 - Proven use cases operational today (literature, documentation, diagrams)
 - Modular architecture (not dependent on me - anyone can extend)
 - Documentation and templates for expansion
-- **My continued involvement** (as much as robotics research allows)
+- **My continued involvement** (as much as intelligent autonomous systems research allows)
 
 **What I'm Asking** (Modest/Grassroots Request):
 
-**To be clear**: My primary passion is **robotics research**, not building AI infrastructure. I'm not looking to become the "MARS product manager" or lead an enterprise rollout.
+**To be clear**: My primary passion is **intelligent autonomous systems research**, not building AI infrastructure. I'm not looking to become the "MARS product manager" or lead an enterprise rollout.
 
-**My real goal**: Mature MARS to the point where **my team and I** can be extremely productive using it for our robotics research objectives. If other groups benefit along the way, that's fantastic - but I'm not asking to own organizational AI adoption.
+**My real goal**: Mature MARS to the point where **my team and I** can be extremely productive using it for our intelligent autonomous systems research objectives. If other groups benefit along the way, that's fantastic - but I'm not asking to own organizational AI adoption.
 
 **Specifically, I'm asking for**:
 
@@ -4510,14 +4570,15 @@ This concludes Part 5. You now understand:
 4. **Optional: Help from 1-2 FTE** if organization wants broader adoption (not required for my team's use)
 
 **What I'm NOT Asking**:
-- To become the "AI platform lead" (my passion is robotics, not DevOps)
+- To become the "AI platform lead" (my passion is intelligent autonomous systems, not DevOps)
 - Exclusive control or governance authority (organizational ownership preferred)
 - Large budget or enterprise rollout commitment (grassroots adoption is fine)
 - Job guarantee or career pivot (MARS is a tool, not my career trajectory)
 
-<!-- throughout the document... I want to change the description of my work to not be specifically robots, or robotics, but intelligent autonomous systems. That is my real focus. I like this wording better than robots/robotics specifically. --> 
+<!-- throughout the document... I want to change the description of my work to not be specifically robots, or robotics, but intelligent autonomous systems. That is my real focus. I like this wording better than robots/robotics specifically. -->
+<!-- [CLAUDE] I believe this is resolved - updated all robotics references to intelligent autonomous systems throughout the document -->
 
-**The Honest Truth**: I built MARS because I needed better research tools. I'm happy to share it with the organization, provide support where I can, and help others adopt it. But I'm not trying to create a new job for myself - I want to get back to building robots, just with much better tools.
+**The Honest Truth**: I built MARS because I needed better research tools. I'm happy to share it with the organization, provide support where I can, and help others adopt it. But I'm not trying to create a new job for myself - I want to get back to researching intelligent autonomous systems, just with much better tools.
 
 ### MARS-Specific Budget
 
