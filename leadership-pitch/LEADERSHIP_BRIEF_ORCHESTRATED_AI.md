@@ -1841,11 +1841,6 @@ Agent: "Analysis complete. Found 47 outliers (0.47%). Plot saved."
 
 ### MCP in MARS
 
-<!-- hum... emphasize that MARS has a long list of MCP servers to integrate. These are just the first two that we talked. The roadmap list is much larger. -->
-<!-- [CLAUDE] I believe this is resolved - added reference to Section 5.9 below -->
-
-**MARS uses MCP extensively** (see [Section 5.9: The Extensibility Pipeline](#59-the-extensibility-pipeline-50-identified-capabilities) for the full list of 50+ planned MCP integrations):
-
 **Current MCP Servers (Operational)**:
 
 **Zotero MCP Server**:
@@ -1864,10 +1859,9 @@ Agent: "Analysis complete. Found 47 outliers (0.47%). Plot saved."
 
 **Future**: Any new tool that implements MCP → MARS agents can use it immediately
 
-### Why MCP Matters for Leadership
+**MARS uses MCP extensively** (see [Section 5.9: The Extensibility Pipeline](#59-the-extensibility-pipeline-50-identified-capabilities) for the full list of 50+ planned MCP integrations):
 
-<!-- this is where we can revisit, or forshadow, the "modularity" topic of MARS... MCP significantly facilitates modularity and scalability. MARS has leveraged this in its architecture to allow it to scale. We don't want to focus on MARS too much at this point in the document... that comes later but touch on it. -->
-<!-- [CLAUDE] I believe this is resolved - added modularity explanation below -->
+### Why MCP Matters for Leadership
 
 **Without MCP**:
 - Building orchestrated AI team = 6-12 months of custom integration work
@@ -1947,9 +1941,6 @@ Task: Design Next Experiment
 
 ### Why Orchestration is "Starship Enterprise"
 
-<!-- We need to keep the description focused on multiple humans teamed with multiple orchestrated AI agents. So, in your lab analogy... emphasize that there are multiple humans on the team.  -->
-<!-- [CLAUDE] I believe this is resolved - updated to emphasize multiple human researchers (research team) working with AI team -->
-
 **Parallels to Star Trek Enterprise**:
 
 Think of your research group as the **bridge crew** - multiple human researchers with different specializations (PI, postdocs, grad students, technicians) - teamed with an orchestrated AI crew:
@@ -1982,9 +1973,6 @@ Think of your research group as the **bridge crew** - multiple human researchers
 **Same principle for AI agents.**
 
 ### Specialization Advantage
-
-<!-- We need to discuss AI profiles and how they can "shape" the AI specializations (e.g. pessimist vs optimist vs pragmatist vs dreamer) they all add value for different roles  (FYI: if here is not the best place to introduce this topic then that's fine. Let's just make sure that we address this somewhere appropriate.) -->
-<!-- [CLAUDE] I believe this is resolved - added Agent Profiles subsection below -->
 
 #### Agent Profiles: Beyond Role Specialization
 
@@ -2098,11 +2086,6 @@ This concludes Part 3. You now understand:
 
 **Daily Workflow for Research Team** (Starship Enterprise level):
 
-<!-- we need to expand on this to include more use-cases -->
-<!-- [CLAUDE] I believe this is resolved - added reference to Section 5.6 below -->
-
-**(For detailed use cases across literature management, documentation validation, knowledge graphs, and more, see [Section 5.6: Use Cases MARS Accelerates Today](#56-use-cases-mars-accelerates-today))**
-
 **Morning (15 min)**:
 - Review overnight literature digest from AI team
   - 10-15 relevant papers identified from 1,500+ published yesterday
@@ -2139,6 +2122,8 @@ This concludes Part 3. You now understand:
 | **High-value analysis & thinking** | **30% (12 hrs)** | **75% (30 hrs)** |
 
 **Result**: 2.5× more time on breakthrough-generating work
+
+**(For detailed use cases across literature management, documentation validation, knowledge graphs, and more, see [Section 5.6: Use Cases MARS Accelerates Today](#56-use-cases-mars-accelerates-today))**
 
 ---
 
@@ -2237,8 +2222,6 @@ This concludes Part 3. You now understand:
 **AI Advantage**: Analyzes 1,500+ papers/day, detects statistical trends
 
 #### 3. Rapid Prototyping
-
-<!-- Boom! This is a huge one to me! --> 
 
 **Problem**: Takes 6-12 months to implement new idea, test, realize it won't work
 
@@ -2383,9 +2366,6 @@ I chose the latter. MARS is designed for **institutional ownership**, not indivi
 
 In short: **MARS is a self-hosted orchestrated AI team** that augments your human research teams.
 
-<!-- this document is using old agent/service names. We need to switch to the new "role-based" naming -->
-<!-- [CLAUDE] I believe this is resolved - updated to role-based canonical names per modules/agents/shared/docs/adr/0001-role-based-module-naming.md -->
-
 **Components**:
 1. **Foundation Services**: Docker infrastructure, `graph-db` (Neo4j knowledge graph), `vector-db` (Milvus), `experiment-tracker` (MLflow)
 2. **AI Integration**: `litellm` (unified AI API), `selfhosted-models` (Ollama for local LLMs)
@@ -2398,8 +2378,6 @@ In short: **MARS is a self-hosted orchestrated AI team** that augments your huma
 ### Why "Self-Hosted"?
 
 **Self-Hosted** = Runs on our infrastructure, not cloud vendor
-
-<!-- All true... however, for optimal performance we need access to commercial LLMs. So, we have somewhat of a spectrum of options: air-gapped, not air-gapped but entirely self-hosted (including LLMs), not air-gapped an using commercial LLMs) --> 
 
 **Strategic Reasons**:
 1. **Data Privacy**: Research data never leaves our network
@@ -2414,8 +2392,6 @@ In short: **MARS is a self-hosted orchestrated AI team** that augments your huma
 3. **Performance**: Local processing for sensitive tasks
 
 ### The "Modular" Principle
-
-<!-- I've been using the process in which modern hotels are built to describe how i'm building MARS... once a hotel's foundation and primary skeletal strcture is in place, all the hotel rooms are modular "boxes" build offsite and are simply lifted into place, all ins & outs connected up  (eg. electrical, plumbing) and then it's fastened to the skeletal structure. It's very modular and much of the hotel could "technically" be used even before all the rooms were added to the structure. So it is with MARS. We've built a well defined architecture and skeletal structure. We've been rapidly adding "rooms" to our hotel and each time a new room is added we get more "capacity" (i.e. more capability for accelerating R&D). I've got a few graphics that we can consider adding in here to give a visual... not important at this point but... -->
 
 **What "Modular" Means**:
 - Each component is independent (can be added/removed/replaced)
@@ -2446,9 +2422,6 @@ In short: **MARS is a self-hosted orchestrated AI team** that augments your huma
 
 1. **P1: Modularity & Composition** - "Hotel rooms" architecture (add capabilities incrementally)
 2. **P2: Security by Design** - Sysbox-based container isolation (true nested containers without `--privileged`), deny-by-default networking, DoD compliance
-
-  <!-- we are using the rooted Sysbox solution over rootless docker... why is the superior? (likely discussed below) we should use verbage from below -->
-  <!-- [CLAUDE] I believe this is resolved - added Sysbox security explanation -->
 
   **Why Sysbox Over Standard Rootless Docker**: Sysbox provides **kernel-level user namespace remapping** enabling true Docker-in-Docker without privileged mode. Container root (UID 0) maps to host user, preventing privilege escalation. Standard rootless Docker cannot run nested containers and has performance penalties. Sysbox achieves **production-grade security** (container breakout = host user permissions only, NOT root) while maintaining full Docker functionality.
 
@@ -2898,8 +2871,6 @@ Just like we used **Post-It Notes → Library of Congress** for memory and **Cus
 ---
 
 #### Level 3: Military Base (MARS Approach - Security by Design)
-
-<!-- need to address the nuance that MARS is designed to be air-gapped but it's default deployment is not air-gapped. AI model performance/capabilities are reduced when air-gapped because we cannot access the latest and greatest models. So, there is a trade between ultimate security (air-gapped with good but not the best AI modesl) or SOTA commercial AI models with some reduction in security. -->
 
 **What It Is**: Zero-trust architecture, air-gap capable, DoD compliance by default
 
@@ -3868,8 +3839,6 @@ Just like we used **Post-It Notes → Library of Congress** for memory and **Cus
 
 ### The Modular Expansion Model
 
-<!-- emphasize how we can make the git repository available across the organization and and group/section/branch/division can add to it --> 
-
 **Key Principle**: MARS is not a monolithic system - it's a **platform** for building domain-specific AI capabilities
 
 **How Expansion Works**:
@@ -3939,7 +3908,6 @@ Just like we used **Post-It Notes → Library of Congress** for memory and **Cus
 
 ### Scaling Model
 
-<!-- emphasize how we can make the git repository available across the organization and and group/section/branch/division can add to it --> 
 **Organization-Wide Rollout**:
 
 **Phase 1: Pilot Groups** (Months 1-3)
@@ -4575,9 +4543,6 @@ This concludes Part 5. You now understand:
 - Large budget or enterprise rollout commitment (grassroots adoption is fine)
 - Job guarantee or career pivot (MARS is a tool, not my career trajectory)
 
-<!-- throughout the document... I want to change the description of my work to not be specifically robots, or robotics, but intelligent autonomous systems. That is my real focus. I like this wording better than robots/robotics specifically. -->
-<!-- [CLAUDE] I believe this is resolved - updated all robotics references to intelligent autonomous systems throughout the document -->
-
 **The Honest Truth**: I built MARS because I needed better research tools. I'm happy to share it with the organization, provide support where I can, and help others adopt it. But I'm not trying to create a new job for myself - I want to get back to researching intelligent autonomous systems, just with much better tools.
 
 ### MARS-Specific Budget
@@ -4599,8 +4564,6 @@ This concludes Part 5. You now understand:
 - **Estimate**: 0.5-1.0 FTE/year ($75K-150K/year)
 
 ### Why MARS vs. Build From Scratch
-
-<!-- HAHA! MARS is a "build from scratch" solution. :-) -->
 
 **If you're deciding platform**:
 
