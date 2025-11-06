@@ -3107,6 +3107,15 @@ Just like we used **Post-It Notes → Library of Congress** for memory and **Cus
 - ✅ **2 Components Complete**: C6 (100% - Diagram capabilities)
 - ⏳ **19 High-Priority Capabilities Planned**: 2 agents + 17 services (roadmap)
 
+**By the Numbers** (Repository Statistics as of Nov 2025):
+- 📊 **Codebase Scale**: 363K lines of Python code across 32 modules
+- 📚 **Documentation**: 8.1M lines (comprehensive architectural documentation, ADRs, guides)
+- 🧪 **Test Coverage**: 376K lines of test code (1,591 test files)
+- 🏗️ **Architecture**: 37 ADRs documenting design decisions (19 core, 10 mars-dev, 8 modules)
+- 🐳 **Deployment**: 35 containers, 8 exposed ports, 29 volumes, 3 networks
+- ⚙️ **Automation**: 841 shell scripts for development workflows
+- 🔧 **Configuration**: 1,730 config files managing infrastructure
+
 **What's Operational** (Infrastructure):
 - ✅ Docker infrastructure (rootless, secure, multi-service)
 - ✅ LiteLLM integration (AskSage + CAPRA provider, unified API) - C1 75% complete
