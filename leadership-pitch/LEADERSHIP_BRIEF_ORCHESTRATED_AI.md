@@ -76,6 +76,7 @@
 5.6 [Use Cases MARS Accelerates Today](#56-use-cases-mars-accelerates-today)
 5.7 [How MARS Can Expand Across the Organization](#57-how-mars-can-expand-across-the-organization)
 5.8 [What Makes MARS Different? (vs. Other Orchestration Frameworks)](#58-what-makes-mars-different-vs-other-orchestration-frameworks)
+5.9 [The Extensibility Pipeline: 50+ Identified Capabilities](#59-the-extensibility-pipeline-50-identified-capabilities)
 
 ### Part 6: The Investment Ask
 6.1 [Primary Ask: Invest in Orchestrated AI](#61-primary-ask-invest-in-orchestrated-ai)
@@ -4257,8 +4258,123 @@ This concludes Part 5. You now understand:
 - Real use cases (lit review, experiment tracking, documentation)
 - How it can expand org-wide (modular, not dependent on me)
 - **Why MARS is different from LangGraph/AutoGen/CrewAI** (research-first architecture)
+- **The extensibility pipeline** (50+ identified capabilities across 7 categories - robotics, modeling standards, scientific infrastructure, operations, governance)
 
 **Key Takeaway**: MARS provides 6-12 months of avoided custom development for research-specific needs (literature + provenance + knowledge graph + air-gap + research tool integrations)
+
+---
+
+## 5.9 The Extensibility Pipeline: 50+ Identified Capabilities
+
+**The Modular Vision**: MARS architecture enables **plug-and-play expansion** to accelerate any research domain without core platform changes.
+
+**Current Analysis**: Comprehensive review of research workflows, modeling standards, and operational requirements has identified **50+ capabilities** that can be added as modular services/agents when needed by research groups.
+
+**Key Principle**: Not every research group needs every capability - MARS lets you **activate only what you need** (computational chemistry group activates Modelica physics simulation, robotics group activates ROS2/Isaac-Sim, social science group activates agent-based modeling).
+
+---
+
+### Agent Intelligence & Memory (4 capabilities)
+
+**Foundation for production-grade agents** (all v1.1+ agents require these):
+
+- **OpenMemory** (3-4 weeks): Multi-sector memory (episodic, semantic, procedural, emotional, reflective) - 30-70% token reduction, agents learn across sessions
+- **Spec-Driven Development** (1-2 weeks): Formal task specifications → 95%+ code accuracy (vs. 60-70% "vibe coding")
+- **Agentic Postgres** (4-6 weeks): Agent-optimized database with instant forking, hybrid search, MCP-first design
+- **Agent Guardrails** (5-7 weeks): Three-tier safety framework (data access, function authorization, behavioral constraints)
+
+---
+
+### Research Workflow & Governance (6 capabilities)
+
+**Structured research management** (align with systems engineering practices):
+
+- **Research Phase Framework** (4-5 weeks): Five-phase manifest (conceptual → design → empirical → analytic → dissemination) with quality gates
+- **Development Review Integration** (combined, 6-8 weeks): Systems engineering review gates (SRR/PDR/CDR/TRR/FRR) with GitLab milestone integration
+- **Capability Registry** (3-4 weeks): Semantic agent routing ("Which agent analyzes quantum computing papers?")
+- **Multi-LLM Bake-Off** (3-4 weeks): Parallel LLM arbitration (consensus answers, quality scoring, win rate tracking)
+- **Agent-Level Governance** (3-4 weeks): Runtime risk scoring, policy-driven containment, behavioral anomaly detection
+- **NIST Compliance Overlays** (2-3 weeks): NIST 800-53 control mapping for government deployments
+
+---
+
+### Operations & Production (4 capabilities)
+
+**Enterprise-grade operations** (production readiness for multi-user deployments):
+
+- **MLOps Foundations** (3-4 weeks): Dataset registry, version tracking, drift detection, automated alerts
+- **AIOps Foundations** (8-10 weeks): Anomaly detection, predictive analytics, self-healing, semantic telemetry
+- **Multi-User Workspaces** (6-8 weeks): Workspace isolation, RBAC, cost attribution, multi-user provenance
+- **Dogfooding Architecture** (6-8 weeks): Research projects use MARS as submodule/dependency (post-v1.0)
+
+---
+
+### Robotics & Physical Systems (7 capabilities)
+
+**Complete robotics research stack** (simulation, training, deployment, control):
+
+- **ROS2 MCP** (4-6 weeks): Topic monitoring, launch files, bag analysis, RViz/Gazebo control, hardware interfaces
+- **Isaac-Sim Physics** (6-8 weeks): Photorealistic 3D simulation, PhysX dynamics, RTX ray tracing, sensor simulation (cameras, LiDAR, IMU)
+- **Isaac-Lab RL Training** (6-8 weeks): GPU-accelerated RL (PPO, SAC, TD3), thousands of parallel environments, sim-to-real transfer
+- **Groot Imitation Learning** (8-10 weeks): Vision-language-action foundation model, few-shot learning, behavior cloning, zero-shot generalization
+- **HPC Scheduler (SLURM)** (3-4 weeks): Job submission, resource allocation, queue management, array jobs
+- **Kafka Event Streaming** (3-4 weeks): Real-time sensor data, ROS2 topic bridging, agent communication
+- **OpenModelica Physics** (4-5 weeks): Modelica continuous-time dynamics, control system design, thermal/mechanical/electrical modeling
+
+---
+
+### Modeling Standards (8 capabilities)
+
+**Domain-appropriate modeling beyond UML/SysML** (first multi-modeling-standard AI-assisted platform):
+
+- **Mesa ABM** (2-3 weeks): Agent-based modeling for multi-agent simulations, emergent behavior, spatial modeling, heterogeneous agents
+- **BPMN Workflows** (3-4 weeks): Research methodology documentation (more intuitive than SysML Activity Diagrams), process simulation
+- **System Dynamics (PySD)** (3-4 weeks): Feedback loops, stocks/flows, policy analysis, non-linear dynamics (Vensim/XMILE import)
+- **Ontology Management (RDFLib)** (3-4 weeks): OWL/RDF knowledge representation, semantic reasoning, SPARQL queries, linked data
+- **NetLogo ABM** (4-5 weeks): Mature ABM alternative to Mesa, 1000+ pre-built model library, BehaviorSpace experiments
+- **Petri Nets (SNAKES)** (4-5 weeks): Formal verification, concurrency modeling, deadlock detection, protocol verification
+- **SysML Extensions** (3-4 weeks): Enhanced SysML beyond PlantUML (requirements diagrams, parametric constraints)
+- **PlantUML Service** (6-8 weeks): Already designed (C6) - AI-driven diagram generation, registration system, multi-use case support
+
+---
+
+### Scientific Infrastructure (5 capabilities)
+
+**Domain-specific research tools** (manuscript writing, lab notebooks, workflow orchestration):
+
+- **Workflow Engine (Nextflow/Snakemake)** (4-5 weeks): Scientific pipeline orchestration, automatic parallelization, checkpoint/resume, provenance tracking
+- **Manuscript Editor (Overleaf)** (5-6 weeks): Collaborative LaTeX editing, journal templates, direct publisher submission, reference manager integration
+- **Lab Notebook (eLabFTW)** (4-5 weeks): Electronic lab notebook, sample tracking, equipment integration, quality control, GMP compliance
+- **Docker MCP** (1-2 weeks): Container lifecycle management, image operations, volume/network management (MCP server exists, integration only)
+- **Podman MCP** (2-3 weeks): Rootless alternative to Docker MCP, daemonless architecture, Kubernetes YAML compatibility
+
+---
+
+### Advanced Features (3 capabilities)
+
+**Cutting-edge enhancements** (future-proofing):
+
+- **Multimodal RAG** (4-5 weeks): CLIP embeddings (image search), Whisper (audio search), cross-modal queries
+- **Advanced Search** (3-4 weeks): Federated search across all data sources, query expansion, faceted filtering
+- **Template System** (2-3 weeks): Standardized templates for research artifacts (protocols, analyses, reports)
+
+---
+
+### Extensibility Summary
+
+**Total Pipeline**: 50+ identified capabilities across 7 categories
+**Total Effort**: ~250-300 weeks (5-6 person-years if built sequentially)
+**Modular Approach**: Activate only what research groups need
+**Time-to-Value**: 1-10 weeks per capability (most are 2-6 weeks)
+
+**Strategic Value**:
+- **Robotics Research Group**: Activate ROS2 + Isaac stack (20-30 weeks) → Complete robotics research platform
+- **Computational Science Group**: Activate HPC + workflow engine + modeling standards (15-20 weeks) → High-performance computing integration
+- **Multi-Domain Lab**: Activate 10-15 capabilities over 12-18 months → Comprehensive research OS
+
+**The "Hotel Rooms" Architecture**: Each capability is a self-contained module that plugs into MARS without modifying core platform - just like hotel rooms share plumbing/electricity but serve different guests with different needs.
+
+**Investment Thesis**: These 50+ capabilities represent **$2-3M of avoided R&D** if built by each research group independently. MARS enables **shared infrastructure investment** - build once, activate for any group needing that capability.
 
 **Next**: Part 6 - The Investment Ask
 
