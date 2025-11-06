@@ -2076,6 +2076,7 @@ This concludes Part 3. You now understand:
 **Daily Workflow for Researcher** (Starship Enterprise level):
 
 <!-- again, emphasize researchers (plural) --> 
+<!-- we need to expand on this to include more use-cases -->
 
 **Morning (15 min)**:
 - Review overnight literature digest from AI team
@@ -2293,6 +2294,7 @@ Like a lumberjack who must periodically stop cutting trees to sharpen his saw, I
 - 30% on documentation and experiment tracking
 - 20% on actual research (analysis, insights, discovery)
 - 10% on paper writing
+<!-- humm.... need to revise. -->
 
 **This was backwards**. The high-value work (research, insights, discovery) was getting squeezed out by necessary but automatable tasks.
 
@@ -2329,7 +2331,7 @@ I chose option 3. **So I started prototyping MARS.**
 
 I needed better research tools for my robotics work. While building those tools, I discovered they could solve a **much bigger problem** - accelerating R&D across the entire organization.
 
-**Then I discovered our organization wasn't seriously pursuing orchestrated AI for research**. So I had a choice:
+**My percetion is that our organization isn't seriously pursuing orchestrated AI for research**. So I had a choice:
 - Keep MARS as personal productivity tools (selfish)
 - **Share MARS as organizational capability** (multiplicative impact)
 
@@ -2357,6 +2359,8 @@ I chose the latter. MARS is designed for **institutional ownership**, not indivi
 <!-- again emphasize that MARS is to be teamed up with humans (plural) -->
 
 **MARS is a self-hosted orchestrated AI team** for research and development.
+
+<!-- this document is using old agent/service names. We need to switch to the new "role-based" naming -->
 
 **Components**:
 1. **Foundation Services**: Docker infrastructure, knowledge graph, vector database, experiment tracking
@@ -2415,7 +2419,10 @@ I chose the latter. MARS is designed for **institutional ownership**, not indivi
 **The 8 Pillars** (foundational architectural principles):
 
 1. **P1: Modularity & Composition** - "Hotel rooms" architecture (add capabilities incrementally)
-2. **P2: Security by Design** - Rootless containers, deny-by-default networking, DoD compliance
+2. **P2: Security by Design** - isolated/sandboxed containers, deny-by-default networking, DoD compliance
+  
+  <!-- we are using the rooted Sysbox solution over rootless docker... why is the superior? (likely discussed below) we should use verbage from below --> 
+
 3. **P3: Memory & Context** ⭐ **THE MOST IMPORTANT PILLAR** - Knowledge graphs, vector search, 40% token reduction
 4. **P4: Observability & Traceability** - Full provenance tracking, metrics, health monitoring
 5. **P5: Reproducibility** - Containerized environments, versioned dependencies, experiment replay
@@ -2863,6 +2870,8 @@ Just like we used **Post-It Notes → Library of Congress** for memory and **Cus
 
 #### Level 3: Military Base (MARS Approach - Security by Design)
 
+<!-- need to address the nuance that MARS is designed to be air-gapped but it's default deployment is not air-gapped. AI model performance/capabilities are reduced when air-gapped because we cannot access the latest and greatest models. So, there is a trade between ultimate security (air-gapped with good but not the best AI modesl) or SOTA commercial AI models with some reduction in security. -->
+
 **What It Is**: Zero-trust architecture, air-gap capable, DoD compliance by default
 
 **The Experience**:
@@ -3015,6 +3024,8 @@ Just like we used **Post-It Notes → Library of Congress** for memory and **Cus
    - DoD PKI/CAC card support
    - Cryptographic token validation
    - No shared secrets or passwords
+
+<!-- '.env.auto' is out-dated terminology for MARS. We now use '.env.generated' -->
 
 4. **Secrets Never Hard-Coded** (DEV-ENV-001):
    - All secrets in environment variables
@@ -3195,6 +3206,7 @@ Just like we used **Post-It Notes → Library of Congress** for memory and **Cus
 ## 5.4 What's Built Today
 
 <!-- again, this entire section will need to be significantly updated after S7 is completed --> 
+<!-- the entire document needs to be scrubbed so legacy terminology is updated -->
 
 ### Component #1: LiteLLM Integration (C1)
 
@@ -3634,6 +3646,8 @@ Just like we used **Post-It Notes → Library of Congress** for memory and **Cus
 - Secrets scanning
 - Policy enforcement
 - **Impact**: Compliance and governance automation
+
+<!-- MAJOR issue here... C11 is NOT medium priority. It MUST be very high priority. We must fix this in the roadmap --> 
 
 #### C11: LangGraph Agent Framework (8-10 weeks)
 - Production-ready multi-agent orchestration
@@ -4397,6 +4411,8 @@ This concludes Part 5. You now understand:
 - **Alternative**: Organization could build different system, adopt commercial solution (if one existed), or partner with another lab
 - **Key Point**: The **capability** matters, not the specific implementation
 
+<!-- this section needs to be heavily updated based on my orgs working model/costs -->
+
 ### The Primary Investment
 
 **Organizational Commitment to Orchestrated AI**:
@@ -4498,6 +4514,8 @@ This concludes Part 5. You now understand:
 - Exclusive control or governance authority (organizational ownership preferred)
 - Large budget or enterprise rollout commitment (grassroots adoption is fine)
 - Job guarantee or career pivot (MARS is a tool, not my career trajectory)
+
+<!-- throughout the document... I want to change the description of my work to not be specifically robots, or robotics, but intelligent autonomous systems. That is my real focus. I like this wording better than robots/robotics specifically. --> 
 
 **The Honest Truth**: I built MARS because I needed better research tools. I'm happy to share it with the organization, provide support where I can, and help others adopt it. But I'm not trying to create a new job for myself - I want to get back to building robots, just with much better tools.
 
@@ -5232,6 +5250,8 @@ I'm trying to help our organization adopt **orchestrated AI teams** for research
 ---
 
 ### 6. How much will it cost?
+
+<!-- need significant updates here... Ignore for now. -->
 
 **Answer**:
 
