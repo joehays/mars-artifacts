@@ -9,7 +9,16 @@
 % Emoji font
 \newfontfamily\emoji{Noto Color Emoji}[Renderer=Harfbuzz]
 
-% Image scaling - fit all images within page margins
+% Image scaling - fit all images within page margins and center them
 \usepackage{graphicx}
 \setkeys{Gin}{width=\linewidth,height=0.9\textheight,keepaspectratio}
+
+% Center all figures
+\makeatletter
+\g@addto@macro\@floatboxreset\centering
+\makeatother
+
+% Also center images that aren't in float environments
+\usepackage{etoolbox}
+\AtBeginEnvironment{figure}{\centering}
 

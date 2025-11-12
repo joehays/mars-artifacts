@@ -26,12 +26,20 @@ DIAGRAM_MAPPING = {
     'Pre-commit Hook': 'diagrams/precommit-hook-flow.pdf',
 }
 
-def identify_diagram(mermaid_content):
-    """Identify which diagram based on content keywords."""
-    content_lower = mermaid_content.lower()
+def identify_diagram(content_text):
+    """Identify which diagram based on content keywords and context."""
+    content_lower = content_text.lower()
 
-    # Check for specific keywords in the diagram (order matters - more specific first)
-    if 'pre-commit' in content_lower or 'precommit' in content_lower or 'git commit' in content_lower or 'hook' in content_lower:
+    # Check for architecture diagrams (ASCII art in plain code blocks)
+    if 'mars runtime architecture' in content_lower or 'mars-rt architecture' in content_lower:
+        return 'diagrams/mars-rt-architecture.pdf'
+    elif 'mars-dev infrastructure' in content_lower or 'development tools & processes' in content_lower:
+        return 'diagrams/mars-dev-architecture.pdf'
+    elif 'design next experiment' in content_lower and 'orchestrator' in content_lower and ('literature agent' in content_lower or 'data agent' in content_lower):
+        return 'diagrams/orchestration-flow.pdf'
+
+    # Check for mermaid diagrams
+    elif 'pre-commit' in content_lower or 'precommit' in content_lower or 'git commit' in content_lower or 'hook' in content_lower:
         return 'diagrams/precommit-hook-flow.pdf'
     elif 'merge request' in content_lower or 'peer review' in content_lower or 'code review' in content_lower:
         return 'diagrams/merge-request-workflow.pdf'
@@ -49,6 +57,69 @@ def identify_diagram(mermaid_content):
         return 'diagrams/a2a-protocol.pdf'
     else:
         return None
+
+def convert_plain_code_blocks(content):
+    """Replace plain code blocks (ASCII art) with image references."""
+
+    # Pattern to match plain code blocks (no language specifier) that might be diagrams
+    # The negative lookahead (?![a-z]) ensures we don't match ```mermaid or other language specifiers
+    # Only convert if they contain box-drawing characters or are architecture diagrams
+    pattern = r'(.{0,500})```(?![a-z])\n(.*?)```'
+
+    diagram_count = 0
+    identified_count = 0
+
+    def replacer(match):
+        nonlocal diagram_count, identified_count
+        context_before = match.group(1)
+        code_content = match.group(2)
+
+        # Only try to convert if it looks like an ASCII art diagram
+        # Check for box-drawing characters
+        has_box_chars = ('┌' in code_content or '│' in code_content or '└' in code_content)
+
+        # Check if it's in a known architecture section
+        has_arch_header = ('### The Complete MARS-RT Architecture' in context_before or
+                          '### The Complete mars-dev Architecture' in context_before)
+
+        # Check for orchestration flow diagram (section 3.5)
+        is_orch_flow = ('Task: Design Next Experiment' in code_content and
+                       'Orchestrator' in code_content and has_box_chars)
+
+        # For large diagrams, require both box chars and size
+        is_large_diagram = has_box_chars and len(code_content) > 500
+
+        if is_large_diagram or has_arch_header or is_orch_flow:
+            diagram_count += 1
+            # Combine context and content for identification
+            combined_text = context_before + "\n" + code_content
+            diagram_path = identify_diagram(combined_text)
+
+            if diagram_path:
+                identified_count += 1
+                # Return markdown image reference (preserve context before)
+                # Center-aligned with width constraint
+                return f'{context_before}\n\n![Architecture Diagram {diagram_count}]({diagram_path}){{ width=100% }}\n'
+            else:
+                # Keep original if we can't identify
+                print(f"Warning: Could not identify ASCII diagram {diagram_count}", file=sys.stderr)
+                headers = re.findall(r'(###? .*)', context_before)
+                if headers:
+                    print(f"  Header: {headers[-1]}", file=sys.stderr)
+                return match.group(0)
+        else:
+            # Not a diagram, keep original
+            return match.group(0)
+
+    result = re.sub(pattern, replacer, content, flags=re.DOTALL)
+
+    if diagram_count > 0:
+        print(f"Found {diagram_count} plain code block diagrams", file=sys.stderr)
+        print(f"Identified {identified_count} ASCII diagrams", file=sys.stderr)
+        if diagram_count > identified_count:
+            print(f"Warning: {diagram_count - identified_count} ASCII diagrams could not be identified", file=sys.stderr)
+
+    return result
 
 def convert_mermaid_blocks(content):
     """Replace mermaid code blocks with image references."""
@@ -74,10 +145,11 @@ def convert_mermaid_blocks(content):
             identified_count += 1
             # Return markdown image reference (preserve context before)
             # Using width=100% to fill available space (LaTeX will scale via header.tex)
-            return f'{context_before}![Diagram {diagram_count}]({diagram_path}){{ width=100% }}'
+            # Centered with extra newlines for proper spacing
+            return f'{context_before}\n\n![Diagram {diagram_count}]({diagram_path}){{ width=100% }}\n'
         else:
             # Keep original if we can't identify
-            print(f"Warning: Could not identify diagram {diagram_count}", file=sys.stderr)
+            print(f"Warning: Could not identify mermaid diagram {diagram_count}", file=sys.stderr)
             # Extract last header from context
             headers = re.findall(r'(###? .*)', context_before)
             if headers:
@@ -88,9 +160,9 @@ def convert_mermaid_blocks(content):
     result = re.sub(pattern, replacer, content, flags=re.DOTALL)
 
     print(f"Found {diagram_count} mermaid diagrams", file=sys.stderr)
-    print(f"Identified {identified_count} diagrams", file=sys.stderr)
+    print(f"Identified {identified_count} mermaid diagrams", file=sys.stderr)
     if diagram_count > identified_count:
-        print(f"Warning: {diagram_count - identified_count} diagrams could not be identified", file=sys.stderr)
+        print(f"Warning: {diagram_count - identified_count} mermaid diagrams could not be identified", file=sys.stderr)
 
     return result
 
@@ -108,9 +180,17 @@ def main():
         print(f"Error: File '{input_file}' not found", file=sys.stderr)
         sys.exit(1)
 
-    converted = convert_mermaid_blocks(content)
+    # Convert plain code blocks FIRST (before mermaid conversion)
+    # This ensures ASCII art diagrams are detected correctly before mermaid blocks are removed
+    print("Converting ASCII art diagrams...", file=sys.stderr)
+    content = convert_plain_code_blocks(content)
 
-    print(converted)
+    print("\nConverting mermaid diagrams...", file=sys.stderr)
+    content = convert_mermaid_blocks(content)
+
+    print("\nConversion complete!", file=sys.stderr)
+
+    print(content)
 
 if __name__ == '__main__':
     main()

@@ -28,7 +28,10 @@ for diagram in \
     mcp-protocol \
     merge-request-workflow \
     opentelemetry-trace \
-    precommit-hook-flow
+    precommit-hook-flow \
+    orchestration-flow \
+    mars-rt-architecture \
+    mars-dev-architecture
 do
     if [ ! -f "diagrams/${diagram}.pdf" ]; then
         echo "❌ Missing: diagrams/${diagram}.pdf"
@@ -47,12 +50,12 @@ fi
 echo "✅ All diagram PDFs found"
 echo ""
 
-# Step 1: Convert mermaid code blocks to image references
-echo "📝 Converting mermaid code blocks to image references..."
-python3 convert_mermaid_to_images.py LEADERSHIP_BRIEF_ORCHESTRATED_AI.md > LEADERSHIP_BRIEF_WITH_IMAGES.md
+# Step 1: Convert all diagrams (architecture, mermaid, orchestration) to image references
+echo "📝 Converting all diagrams to image references..."
+python3 convert_all_diagrams.py LEADERSHIP_BRIEF_ORCHESTRATED_AI.md > LEADERSHIP_BRIEF_WITH_IMAGES.md
 
 if [ $? -ne 0 ]; then
-    echo "❌ Failed to convert mermaid blocks"
+    echo "❌ Failed to convert diagrams"
     exit 1
 fi
 

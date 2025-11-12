@@ -1,0 +1,26 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#f3e5f5', 'primaryTextColor': '#000', 'primaryBorderColor': '#6a1b9a', 'lineColor': '#6a1b9a', 'secondaryColor': '#fff3e0', 'tertiaryColor': '#e1f5ff'}}}%%
+flowchart TD
+    Task[Task:<br/>Design Next Experiment]
+    Task --> Orch
+
+    Orch[Orchestrator<br/>Coordinates agents]
+
+    Orch --> Lit[Literature Agent]
+    Orch --> Data[Data Agent]
+    Orch --> KG[Knowledge Graph Agent]
+
+    Lit --> |Recent papers<br/>suggest Method A| Design
+    Data --> |Our data shows<br/>Trend B| Design
+    KG --> |Prior work used<br/>Parameters C| Design
+
+    Design[Experiment Design Agent<br/>Synthesizes all inputs]
+
+    Design --> Human[Present synthesis to<br/>Human Researcher]
+
+    style Task fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    style Orch fill:#fce4ec,stroke:#c2185b,stroke-width:3px
+    style Lit fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style Data fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    style KG fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px
+    style Design fill:#ffebee,stroke:#c62828,stroke-width:2px
+    style Human fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px

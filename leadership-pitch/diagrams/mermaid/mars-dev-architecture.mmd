@@ -1,0 +1,74 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#e8f5e9', 'primaryTextColor': '#000', 'primaryBorderColor': '#2e7d32', 'lineColor': '#2e7d32', 'secondaryColor': '#fff3e0', 'tertiaryColor': '#e1f5ff'}}}%%
+graph TD
+    subgraph DEV[" DEVELOPER WORKSPACE "]
+        Dev[Developer Machine<br/>IDE + Git + Docker]
+        Dev -->|1. Clone| Repo[git clone mars-v2]
+        Repo -->|2. Setup| Env[source mars-env.config]
+        Env -->|3. Start| DevInfra[mars-dev up -d]
+        DevInfra -->|4. Edit| Code[Make Changes]
+    end
+
+    Code --> Validate
+
+    subgraph VALIDATE[" LOCAL VALIDATION "]
+        Validate[git commit]
+        Validate --> Hook1[Pre-Commit Hooks<br/>5 checks, ~4s]
+        Hook1 -->|PASS| LocalTest[pytest tests/<br/>434 tests, 2s]
+        LocalTest -->|PASS| Build[mars-dev build<br/>Docker builds]
+    end
+
+    Build -->|5. Push| Push[git push origin]
+
+    Push --> GitLabCI
+
+    subgraph CI[" GITLAB CI/CD PIPELINE "]
+        GitLabCI[7-Stage Pipeline]
+        GitLabCI --> Stage1[Stage 1: Lint<br/>3 parallel jobs]
+        Stage1 --> Stage2[Stage 2: Validate<br/>3 parallel jobs]
+        Stage2 --> Stage3[Stage 3: Test Fast<br/>Unit tests]
+        Stage3 --> Stage4[Stage 4: Test Full<br/>Integration tests]
+        Stage4 --> Stage5[Stage 5: Analyze<br/>Coverage + SonarQube]
+        Stage5 --> Stage6[Stage 6: Audit<br/>Security + compliance]
+        Stage6 --> Stage7[Stage 7: Build<br/>Docker images]
+    end
+
+    Stage7 -->|Merge Request| Review
+
+    subgraph REVIEW[" PEER REVIEW "]
+        Review[MR Review Process]
+        Review --> Checks{Automated Checks}
+        Checks -->|✅ CI passed| Approve
+        Checks -->|✅ 1 approval| Approve
+        Checks -->|✅ No conflicts| Approve
+        Checks -->|✅ Up-to-date| Approve[Ready to Merge]
+    end
+
+    Approve --> Main[Merge to main]
+
+    Main --> Deploy
+
+    subgraph DEPLOY[" DEPLOYMENT "]
+        Deploy[Container Registry]
+        Deploy --> Prod1[Research Project A]
+        Deploy --> Prod2[Research Project B]
+        Deploy --> Prod3[Research Project C]
+    end
+
+    subgraph OBS[" OBSERVABILITY "]
+        Prom[Prometheus<br/>Metrics]
+        Grafana[Grafana<br/>Dashboards]
+        Trace[OpenTelemetry<br/>Distributed Traces]
+
+        Prod1 --> Prom
+        Prod2 --> Prom
+        Prod3 --> Prom
+        Prom --> Grafana
+        Prod1 --> Trace
+    end
+
+    style DEV fill:#e3f2fd,stroke:#1976d2,stroke-width:3px
+    style VALIDATE fill:#fff3e0,stroke:#e65100,stroke-width:3px
+    style CI fill:#f3e5f5,stroke:#6a1b9a,stroke-width:3px
+    style REVIEW fill:#ffebee,stroke:#c62828,stroke-width:3px
+    style DEPLOY fill:#e8f5e9,stroke:#2e7d32,stroke-width:3px
+    style OBS fill:#e0f7fa,stroke:#00838f,stroke-width:3px

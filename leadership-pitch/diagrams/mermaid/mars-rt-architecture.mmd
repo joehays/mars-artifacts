@@ -1,0 +1,68 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#e1f5ff', 'primaryTextColor': '#000', 'primaryBorderColor': '#0277bd', 'lineColor': '#0277bd', 'secondaryColor': '#fff3e0', 'tertiaryColor': '#f3e5f5'}}}%%
+graph TD
+    subgraph UI[" USER INTERFACE LAYER "]
+        Researcher[Human Researcher]
+        Researcher -->|CLI| CLI[mars commands]
+        Researcher -->|Web| WebUI[Web UI :8000]
+        Researcher -->|MCP| CCC[Claude Code CLI]
+    end
+
+    CLI --> Orch
+    WebUI --> Orch
+    CCC --> Orch
+
+    subgraph AGENTS[" AGENT ORCHESTRATION LAYER "]
+        Orch[Orchestrator Agent<br/>LangGraph + A2A]
+        Orch -.A2A.-> LitMon[Literature Monitor]
+        Orch -.A2A.-> ProvLog[Provenance Logger]
+        Orch -.A2A.-> SecGuard[Security Guard]
+        Orch -.A2A.-> TestRun[Test Runner]
+        Orch -.A2A.-> DocEnf[Doc Enforcer]
+        Orch -.A2A.-> Sync[Sync Coordinator]
+
+        LitMon -.MCP.-> Zotero
+        ProvLog -.MCP.-> Neo4j
+        SecGuard -.MCP.-> Neo4j
+        TestRun -.MCP.-> GitLab
+        DocEnf -.MCP.-> GitLab
+        Sync -.MCP.-> All[All Services]
+    end
+
+    subgraph MCP[" MCP PROTOCOL LAYER "]
+        direction LR
+        Zotero[Zotero MCP<br/>79 tools]
+        Neo4j[Neo4j MCP<br/>Graph queries]
+        GitLab[GitLab MCP<br/>40+ tools]
+        RAG[RAG MCP<br/>Vector search]
+    end
+
+    subgraph INFRA[" INFRASTRUCTURE SERVICES "]
+        direction TB
+        LiteLLM[LiteLLM Proxy<br/>AskSage/CAPRA/Ollama]
+        Neo4jDB[(Neo4j<br/>Knowledge Graph)]
+        Milvus[(Milvus<br/>Vector DB)]
+        ZoteroDB[(Zotero<br/>Library)]
+        MLflow[MLflow<br/>Experiments]
+        MinIO[(MinIO<br/>Object Store)]
+        Prom[Prometheus<br/>Metrics]
+        GitLabDB[GitLab API]
+    end
+
+    Zotero --> ZoteroDB
+    Neo4j --> Neo4jDB
+    GitLab --> GitLabDB
+    RAG --> Milvus
+
+    Orch --> LiteLLM
+    LitMon --> LiteLLM
+    ProvLog --> LiteLLM
+
+    Orch --> MLflow
+    Orch --> MinIO
+    All --> Prom
+
+    style UI fill:#e3f2fd,stroke:#1976d2,stroke-width:3px
+    style AGENTS fill:#f3e5f5,stroke:#6a1b9a,stroke-width:3px
+    style MCP fill:#fff3e0,stroke:#e65100,stroke-width:3px
+    style INFRA fill:#e8f5e9,stroke:#2e7d32,stroke-width:3px
+    style Orch fill:#fce4ec,stroke:#c2185b,stroke-width:2px
