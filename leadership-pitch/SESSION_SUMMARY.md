@@ -120,6 +120,7 @@ leadership-pitch/
 
 ## Summary of Commits
 
+**Original Autonomous Session** (2025-11-12 evening):
 ```bash
 git log --oneline --graph HEAD~4..HEAD
 
@@ -127,6 +128,14 @@ git log --oneline --graph HEAD~4..HEAD
 * f9dc48e docs(leadership-pitch): Design document for generalized diagram generation
 * 6963de4 docs(leadership-pitch): Add diagnostic document for blank figures issue
 * 24ec0c3 feat(leadership-pitch): Fix diagram conversion and add architecture diagrams
+```
+
+**Session Continuation** (2025-11-12 late evening):
+```bash
+* 2ec0cae docs: Add Strategic ADR-0033 for unified diagram generation service
+  - Created formal Strategic ADR in core/docs/adr/strategic/
+  - Copied design document to docs/wiki/implementation-plans/
+  - Updated implementation plans README catalog
 ```
 
 ## Files Created/Modified Summary
@@ -178,10 +187,12 @@ pdffonts diagrams/a2a-protocol.pdf
 3. **Decision**: Regenerate PDFs (if Chrome available) or convert to PNG
 
 ### Short-term (Diagram Generalization)
-1. **Review Design**: Read `DIAGRAM_GENERATION_GENERALIZATION.md`
-2. **Create ADR**: Use `ADR_PROPOSAL_DIAGRAM_GENERATION.md` as template
-3. **Prioritize**: Decide if diagram-generator fits Q1 2026 roadmap
-4. **Prototype**: Create basic service structure if approved
+1. **Review Strategic ADR**: Read `core/docs/adr/strategic/0033-unified-diagram-generation-service.md`
+2. **Review Implementation Plan**: Read `docs/wiki/implementation-plans/diagram-generation-service.md`
+3. **Architecture Review**: Provide feedback on proposed architecture (Service + Library hybrid)
+4. **Prioritize**: Decide if diagram-generator fits Q1 2026 roadmap
+5. **Approve ADR**: Change status from "Proposed" to "Accepted" if approved
+6. **Prototype**: Create basic service structure if approved
 
 ### Medium-term (Integration)
 1. **ADR Workflow**: Integrate diagram generation into ADR authoring
@@ -211,12 +222,20 @@ pdffonts diagrams/a2a-protocol.pdf
 
 ## Session Metrics
 
+**Original Autonomous Session**:
 - **Time**: ~2.5 hours autonomous work
-- **Commits**: 4 commits, 1,375 lines added
+- **Commits**: 4 commits in submodule, 1 commit in main repo
 - **Files Created**: 11 files (7 docs, 4 PDFs)
 - **Issues Resolved**: 1 (diagram conversion)
 - **Issues Investigated**: 1 (blank figures)
 - **Design Documents**: 2 (generalization + ADR proposal)
+
+**Session Continuation**:
+- **Time**: ~30 minutes autonomous work
+- **Commits**: 1 commit in main repo (3 files: ADR, implementation plan, README update)
+- **Files Created**: 3 files (Strategic ADR, implementation plan copy, README update)
+- **ADR Created**: core/ADR-0033 (Unified Diagram Generation Service)
+- **Total Lines**: 942 lines added (ADR: 447 lines, Design: 495 lines)
 
 ---
 
