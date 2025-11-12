@@ -1,0 +1,69 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#fce4ec', 'primaryTextColor': '#000', 'primaryBorderColor': '#c2185b', 'lineColor': '#c2185b', 'secondaryColor': '#fff3e0', 'tertiaryColor': '#f3e5f5'}}}%%
+flowchart TD
+    Push([Developer pushes:<br/>git push origin<br/>feat/new-agent]) --> Pipeline
+
+    Pipeline[GitLab CI Pipeline<br/>7 Stages] --> Stage1
+
+    subgraph Stage1[" Stage 1: lint - Parallel 3 jobs "]
+        Lint1[Job 1.1:<br/>flake8<br/>Python linting<br/>2s]
+        Lint2[Job 1.2:<br/>shellcheck<br/>Bash linting<br/>1s]
+        Lint3[Job 1.3:<br/>yamllint<br/>YAML validation<br/>1s]
+    end
+
+    Stage1 -->|PASS| Stage2
+
+    subgraph Stage2[" Stage 2: validate "]
+        Val1[Job 2.1:<br/>mars-dev validate<br/>• Check ADR-022 schema<br/>• Validate compose fragments<br/>• Check manifest.yaml<br/>5s]
+    end
+
+    Stage2 -->|PASS| Stage3
+
+    subgraph Stage3[" Stage 3: test-fast - Parallel 5 jobs "]
+        Test1[Job 3.1:<br/>core unit tests<br/>2s]
+        Test2[Job 3.2:<br/>mars-dev tests<br/>2s]
+        Test3[Job 3.3:<br/>agent unit tests<br/>3s]
+        Test4[Job 3.4:<br/>service unit tests<br/>3s]
+        Test5[Job 3.5:<br/>ADR-028 compliance<br/>2s]
+    end
+
+    Stage3 -->|PASS| Stage4
+
+    subgraph Stage4[" Stage 4: test-full "]
+        Full1[Job 4.1:<br/>Integration tests<br/>• Start Neo4j container<br/>• Start Zotero container<br/>• Run end-to-end tests<br/>45s]
+    end
+
+    Stage4 -->|PASS| Stage5
+
+    subgraph Stage5[" Stage 5: analyze "]
+        Analyze1[Job 5.1:<br/>Coverage report<br/>• Generate cobertura XML<br/>• Check coverage > 80%<br/>5s]
+    end
+
+    Stage5 -->|PASS| Stage6
+
+    subgraph Stage6[" Stage 6: audit "]
+        Audit1[Job 6.1:<br/>mars audit communication<br/>• Validate ADR-028 patterns<br/>• Check hardcoded URLs<br/>• Verify MCP manifests<br/>3s]
+    end
+
+    Stage6 -->|PASS| Stage7
+
+    subgraph Stage7[" Stage 7: build - Parallel 3 jobs "]
+        Build1[Job 7.1:<br/>Build agent images<br/>120s]
+        Build2[Job 7.2:<br/>Build service images<br/>180s]
+        Build3[Job 7.3:<br/>Build mars-dev image<br/>90s]
+    end
+
+    Stage7 -->|PASS| Complete
+
+    Complete([Pipeline Complete ✅<br/>Merge Request Status:<br/>All checks passed<br/>Ready for peer review])
+
+    style Push fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    style Pipeline fill:#fce4ec,stroke:#c2185b,stroke-width:2px
+    style Complete fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px
+
+    style Stage1 fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    style Stage2 fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px
+    style Stage3 fill:#e1f5ff,stroke:#0277bd,stroke-width:2px
+    style Stage4 fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style Stage5 fill:#fff9c4,stroke:#f57f17,stroke-width:2px
+    style Stage6 fill:#ffebee,stroke:#c62828,stroke-width:2px
+    style Stage7 fill:#e0f2f1,stroke:#00695c,stroke-width:2px

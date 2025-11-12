@@ -10,7 +10,7 @@ local filter_name = 'emoji-direct'
 local show_log = true
 
 --- The default emoji font
-local default_emojifont = 'TwemojiMozilla.ttf'
+local default_emojifont = 'Noto Color Emoji'
 
 --- The emoji font to use
 local emojifont = nil

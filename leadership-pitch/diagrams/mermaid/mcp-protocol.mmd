@@ -1,0 +1,20 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#e1f5ff', 'primaryTextColor': '#000', 'primaryBorderColor': '#0277bd', 'lineColor': '#0277bd', 'secondaryColor': '#fff3e0', 'tertiaryColor': '#f3e5f5'}}}%%
+sequenceDiagram
+    participant Agent as Literature Monitor<br/>(MARS Agent)
+    participant MCP as Zotero MCP Server<br/>(Tool Provider)
+    participant DB as Zotero Database
+
+    Note over Agent,DB: MCP Request/Response Protocol
+
+    Agent->>MCP: 1. MCP Request
+    Note right of Agent: {<br/>  "tool": "search_papers",<br/>  "params": {<br/>    "query": "neuromorphic computing",<br/>    "limit": 10<br/>  }<br/>}
+
+    MCP->>DB: 2. Execute Query<br/>(Search Zotero DB)
+    DB-->>MCP: [10 papers found]
+
+    MCP->>Agent: 3. MCP Response
+    Note left of MCP: {<br/>  "results": [<br/>    {"title": "...", ...},<br/>    {"title": "...", ...}<br/>  ],<br/>  "count": 10<br/>}
+
+    Agent->>Agent: Process results
+
+    Note over Agent,DB: Key Features:<br/>• Standard request/response<br/>• Error handling<br/>• Streaming support<br/>• Tool abstraction

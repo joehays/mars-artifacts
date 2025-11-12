@@ -1,0 +1,44 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#e8eaf6', 'primaryTextColor': '#000', 'primaryBorderColor': '#3f51b5', 'lineColor': '#3f51b5', 'secondaryColor': '#fff3e0', 'tertiaryColor': '#f3e5f5'}}}%%
+flowchart TD
+    Start([Developer Creates MR:<br/>feat: Add Literature<br/>Monitor Agent]) --> CI
+
+    CI[CI Pipeline Runs<br/>must pass first]
+    CI -->|PASS| Review
+
+    Review[Peer Reviewer Assigned<br/>Required: 1 approval]
+    Review --> Review1
+
+    subgraph Reviews[" Peer Review Process "]
+        Review1[Review 1:<br/>Code Quality<br/>• Check MARS patterns<br/>• Verify test coverage<br/>• Validate ADR references]
+
+        Review2[Review 2:<br/>Architecture Alignment<br/>• Confirm ADR-022 schema<br/>• Check ADR-028 patterns<br/>• Verify no security anti-patterns]
+    end
+
+    Reviews --> Decision{Decision}
+
+    Decision -->|Approve ✅| Checks
+    Decision -->|Request Changes ❌| Changes
+
+    Changes[Developer addresses<br/>feedback]
+    Changes --> CI
+
+    Checks{Automated Checks}
+    Checks --> Check1[✅ CI pipeline passed]
+    Checks --> Check2[✅ At least 1 approval]
+    Checks --> Check3[✅ No merge conflicts]
+    Checks --> Check4[✅ Branch up-to-date]
+
+    Check1 & Check2 & Check3 & Check4 --> Merge
+
+    Merge[Developer clicks Merge]
+    Merge --> Complete([Code integrated to main ✅])
+
+    style Start fill:#e8eaf6,stroke:#3f51b5,stroke-width:2px
+    style CI fill:#e1f5ff,stroke:#0277bd,stroke-width:2px
+    style Review fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px
+    style Reviews fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    style Decision fill:#ffebee,stroke:#c62828,stroke-width:2px
+    style Changes fill:#fff9c4,stroke:#f57f17,stroke-width:2px
+    style Checks fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style Merge fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px
+    style Complete fill:#a5d6a7,stroke:#2e7d32,stroke-width:3px

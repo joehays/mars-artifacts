@@ -1,0 +1,23 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#e3f2fd', 'primaryTextColor': '#000', 'primaryBorderColor': '#1976d2', 'lineColor': '#1976d2', 'secondaryColor': '#fff3e0', 'tertiaryColor': '#f3e5f5'}}}%%
+flowchart TD
+    Start([Developer executes:<br/>git commit -m<br/>feat: Add new agent]) --> Hook1
+
+    Hook1[Hook 1:<br/>Trailing Whitespace Check<br/>0.1s]
+    Hook1 -->|PASS| Hook2
+
+    Hook2[Hook 2:<br/>YAML Syntax Validation<br/>0.2s]
+    Hook2 -->|PASS| Hook3
+
+    Hook3[Hook 3:<br/>Python Linting<br/>flake8<br/>1.5s]
+    Hook3 -->|Found 2 style issues| Fail
+    Hook3 -.->|If passed| Success
+
+    Fail([Commit Aborted<br/>❌ Fix linting issues first])
+    Success([All hooks passed ✅<br/>Commit created<br/>Ready to push])
+
+    style Start fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    style Hook1 fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style Hook2 fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style Hook3 fill:#ffebee,stroke:#c62828,stroke-width:2px
+    style Fail fill:#ffcdd2,stroke:#c62828,stroke-width:3px
+    style Success fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px

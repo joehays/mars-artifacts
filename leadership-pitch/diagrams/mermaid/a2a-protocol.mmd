@@ -1,0 +1,32 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#e8f5e9', 'primaryTextColor': '#000', 'primaryBorderColor': '#2e7d32', 'lineColor': '#2e7d32', 'secondaryColor': '#fff3e0', 'tertiaryColor': '#f3e5f5'}}}%%
+sequenceDiagram
+    participant User
+    participant Orch as Orchestrator Agent
+    participant LitMon as Literature Monitor
+    participant Analysis as Analysis Agent
+
+    Note over User,Analysis: A2A Protocol: Shared Context Example
+
+    User->>Orch: "Analyze neuromorphic papers<br/>and identify gaps"
+
+    Note over Orch: Context:<br/>• User query<br/>• Task: Analysis<br/>• Domain: Neuromorphic
+
+    Orch->>LitMon: 1. A2A Delegation Request
+    Note right of Orch: {<br/>  "task": "find_papers",<br/>  "context": {<br/>    "query": "neuromorphic computing",<br/>    "user_intent": "gap analysis",<br/>    "previous_results": []<br/>  }<br/>}
+
+    Note over LitMon: Context (received):<br/>• User wants gaps<br/>• Focus: neuromorphic<br/>• No prior results
+
+    LitMon->>LitMon: 2. Execute<br/>(Search + Filter)
+    Note right of LitMon: [50 papers found]
+
+    LitMon->>Orch: 3. A2A Response
+    Note left of LitMon: {<br/>  "papers": [...],<br/>  "context_update": {<br/>    "search_performed": "✓",<br/>    "papers_count": 50,<br/>    "next_suggested": "analyze_citations"<br/>  }<br/>}
+
+    Note over Orch: Context (updated):<br/>• User query<br/>• Task: Analysis<br/>• Papers: 50 found ✓<br/>• Next: Analyze
+
+    Orch->>Analysis: 4. Next A2A Delegation
+    Note right of Orch: {<br/>  "task": "analyze_trends",<br/>  "context": {<br/>    "papers": [50 papers],<br/>    "user_intent": "gap analysis",<br/>    "search_complete": true<br/>  }<br/>}
+
+    Note over Analysis: Context (received):<br/>• 50 papers input<br/>• Find gaps<br/>• Search done ✓
+
+    Note over User,Analysis: Key Features:<br/>• Stateful workflows (cumulative context)<br/>• Intent preservation<br/>• Suggested next steps<br/>• Provenance tracking

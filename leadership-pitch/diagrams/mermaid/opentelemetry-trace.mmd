@@ -1,0 +1,26 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#fff3e0', 'primaryTextColor': '#000', 'primaryBorderColor': '#e65100', 'lineColor': '#e65100', 'secondaryColor': '#e1f5ff', 'tertiaryColor': '#f3e5f5'}}}%%
+flowchart TD
+    Trace[Trace ID: abc123<br/>Research Query:<br/>neuromorphic computing]
+
+    Trace --> Span1[Span 1: orchestrator.receive_query<br/>Duration: 2ms<br/>user: researcher, query: neuro]
+
+    Span1 --> Span2[Span 2: a2a.delegate_to_litmonitor<br/>Duration: 300ms<br/>agent: lit-monitor]
+
+    Span2 --> Span3[Span 3: mcp.call_zotero<br/>Duration: 250ms<br/>tool: search_papers]
+
+    Span3 --> Span4[Span 4: zotero.query_database<br/>Duration: 200ms<br/>results: 50 papers]
+
+    Span2 --> Span5[Span 5: litmonitor.filter_relevant<br/>Duration: 40ms<br/>filtered: 10 papers]
+
+    Span1 --> Span6[Span 6: orchestrator.synthesize_summary<br/>Duration: 50ms<br/>llm_tokens: 1500]
+
+    Span6 --> Summary[Total Duration: 350ms<br/>Cost: $0.02 LLM tokens]
+
+    style Trace fill:#fff3e0,stroke:#e65100,stroke-width:3px
+    style Span1 fill:#e1f5ff,stroke:#0277bd,stroke-width:2px
+    style Span2 fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px
+    style Span3 fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style Span4 fill:#fff9c4,stroke:#f57f17,stroke-width:2px
+    style Span5 fill:#ffebee,stroke:#c62828,stroke-width:2px
+    style Span6 fill:#e0f2f1,stroke:#00695c,stroke-width:2px
+    style Summary fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px

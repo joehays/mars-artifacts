@@ -4622,8 +4622,8 @@ flowchart TD
     Node2 --> |"State Update:<br/>relevant_papers = [10 filtered]<br/>current_step = 'summarize'"| Decision
 
     Decision{Conditional Logic:<br/>Papers > 5?}
-    Decision -->|Yes<br/>(10 papers found)| Node3[Node 3:<br/>Summarize Results]
-    Decision -->|No<br/>(< 5 papers)| End1([END:<br/>Insufficient results])
+    Decision -->|Yes<br/>10 papers found| Node3[Node 3:<br/>Summarize Results]
+    Decision -->|No<br/>Less than 5 papers| End1([END:<br/>Insufficient results])
 
     Node3 --> |"State Update:<br/>summary = '...'<br/>current_step = 'complete'"| End2([END:<br/>Summary complete])
 

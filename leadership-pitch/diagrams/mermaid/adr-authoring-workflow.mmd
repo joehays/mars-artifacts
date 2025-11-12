@@ -1,0 +1,52 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#e0f7fa', 'primaryTextColor': '#000', 'primaryBorderColor': '#00838f', 'lineColor': '#00838f', 'secondaryColor': '#fff3e0', 'tertiaryColor': '#f3e5f5'}}}%%
+flowchart TD
+    Start([Developer Proposes<br/>Architectural Change]) --> Step1
+
+    Step1[Step 1:<br/>Create ADR Draft<br/>Use template]
+    Step1 --> Template
+
+    subgraph Template[" ADR Template Sections "]
+        T1[• Context:<br/>What problem are we solving?]
+        T2[• Decision:<br/>What solution did we choose?]
+        T3[• Rationale:<br/>Why this solution?<br/>Alternatives considered?]
+        T4[• Consequences:<br/>What are the trade-offs?]
+    end
+
+    Template --> Step2
+
+    Step2[Step 2:<br/>Draft Review<br/>Technical Lead]
+    Step2 --> Feedback1[Feedback:<br/>Consider security<br/>implications of choice A]
+
+    Feedback1 --> Step3
+
+    Step3[Step 3:<br/>Stakeholder Review<br/>Affected Teams]
+    Step3 --> Feedback2[Feedback:<br/>This impacts our<br/>deployment pipeline...]
+
+    Feedback2 --> Step4
+
+    Step4[Step 4:<br/>Finalize ADR<br/>• Address feedback<br/>• Assign ADR number<br/>• Commit to git]
+
+    Step4 --> Step5
+
+    Step5[Step 5:<br/>Implementation Begins<br/>ADR referenced in commits]
+    Step5 --> Commit
+
+    Commit([Example commit:<br/>feat: Implement ADR-042<br/>MCP-based literature search])
+
+    subgraph Categories[" ADR Categories "]
+        Cat1[Strategic ADRs:<br/>docs/wiki/adr/<br/>High-level architecture]
+        Cat2[Core ADRs:<br/>core/docs/adr/<br/>SDK/framework decisions]
+        Cat3[mars-dev ADRs:<br/>mars-dev/docs/adr/<br/>Development infrastructure]
+    end
+
+    style Start fill:#e0f7fa,stroke:#00838f,stroke-width:2px
+    style Step1 fill:#e1f5ff,stroke:#0277bd,stroke-width:2px
+    style Template fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px
+    style Step2 fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    style Feedback1 fill:#fff9c4,stroke:#f57f17,stroke-width:2px
+    style Step3 fill:#ffebee,stroke:#c62828,stroke-width:2px
+    style Feedback2 fill:#fff9c4,stroke:#f57f17,stroke-width:2px
+    style Step4 fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style Step5 fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px
+    style Commit fill:#a5d6a7,stroke:#2e7d32,stroke-width:3px
+    style Categories fill:#e0f2f1,stroke:#00695c,stroke-width:2px

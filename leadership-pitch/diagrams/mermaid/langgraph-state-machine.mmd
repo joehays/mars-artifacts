@@ -1,0 +1,29 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#f3e5f5', 'primaryTextColor': '#000', 'primaryBorderColor': '#6a1b9a', 'lineColor': '#6a1b9a', 'secondaryColor': '#fff3e0', 'tertiaryColor': '#e1f5ff'}}}%%
+flowchart TD
+    Start([User Query:<br/>neuromorphic papers]) --> InitState
+
+    InitState[Initialize State]
+    InitState --> |"State = {<br/>  user_query: 'neuromorphic papers',<br/>  papers: [],<br/>  relevant_papers: [],<br/>  summary: null,<br/>  current_step: 'search'<br/>}"| Node1
+
+    Node1[Node 1:<br/>Search Papers]
+    Node1 --> |"State Update:<br/>papers = [50 results]<br/>current_step = 'filter'"| Node2
+
+    Node2[Node 2:<br/>Filter Relevant]
+    Node2 --> |"State Update:<br/>relevant_papers = [10 filtered]<br/>current_step = 'summarize'"| Decision
+
+    Decision{Conditional Logic:<br/>Papers > 5?}
+    Decision -->|Yes<br/>10 papers found| Node3[Node 3:<br/>Summarize Results]
+    Decision -->|No<br/>Less than 5 papers| End1([END:<br/>Insufficient results])
+
+    Node3 --> |"State Update:<br/>summary = '...'<br/>current_step = 'complete'"| End2([END:<br/>Summary complete])
+
+    style InitState fill:#e1f5ff
+    style Node1 fill:#f3e5f5
+    style Node2 fill:#fff3e0
+    style Decision fill:#ffebee
+    style Node3 fill:#e8f5e9
+    style End1 fill:#ffcdd2
+    style End2 fill:#c8e6c9
+
+    classDef stateBox fill:#fff,stroke:#333,stroke-width:2px
+    class InitState,Node1,Node2,Node3 stateBox
