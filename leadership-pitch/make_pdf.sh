@@ -14,8 +14,31 @@
 #   npm install -g @mermaid-js/mermaid-cli
 #   apt-get install google-chrome-stable
 
-# Configure puppeteer to use system Chrome
-export PUPPETEER_EXECUTABLE_PATH=/usr/bin/google-chrome-stable
+# Configure puppeteer to use system Chrome/Chromium
+# Try multiple common browser locations (works on both container and host)
+if [ -x /usr/bin/google-chrome-stable ]; then
+    export PUPPETEER_EXECUTABLE_PATH=/usr/bin/google-chrome-stable
+elif [ -x /usr/bin/google-chrome ]; then
+    export PUPPETEER_EXECUTABLE_PATH=/usr/bin/google-chrome
+elif [ -x /usr/bin/chromium-browser ]; then
+    export PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
+elif [ -x /usr/bin/chromium ]; then
+    export PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
+elif command -v google-chrome-stable &> /dev/null; then
+    export PUPPETEER_EXECUTABLE_PATH=$(command -v google-chrome-stable)
+elif command -v google-chrome &> /dev/null; then
+    export PUPPETEER_EXECUTABLE_PATH=$(command -v google-chrome)
+elif command -v chromium-browser &> /dev/null; then
+    export PUPPETEER_EXECUTABLE_PATH=$(command -v chromium-browser)
+elif command -v chromium &> /dev/null; then
+    export PUPPETEER_EXECUTABLE_PATH=$(command -v chromium)
+else
+    echo "❌ Error: No Chrome/Chromium browser found!"
+    echo "Please install one of: google-chrome, chromium-browser, chromium"
+    exit 1
+fi
+
+echo "Using browser: $PUPPETEER_EXECUTABLE_PATH"
 
 pandoc -f markdown+emoji \
   --pdf-engine=lualatex \
