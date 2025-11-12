@@ -47,7 +47,20 @@ fi
 echo "✅ All diagram PDFs found"
 echo ""
 
-# Build PDF without mermaid-filter (diagrams already converted to PDF)
+# Step 1: Convert mermaid code blocks to image references
+echo "📝 Converting mermaid code blocks to image references..."
+python3 convert_mermaid_to_images.py LEADERSHIP_BRIEF_ORCHESTRATED_AI.md > LEADERSHIP_BRIEF_WITH_IMAGES.md
+
+if [ $? -ne 0 ]; then
+    echo "❌ Failed to convert mermaid blocks"
+    exit 1
+fi
+
+echo "✅ Conversion complete"
+echo ""
+
+# Step 2: Build PDF from converted markdown
+echo "🔨 Building PDF..."
 pandoc -f markdown+emoji \
   --pdf-engine=lualatex \
   -L emoji-direct.lua \
@@ -58,8 +71,11 @@ pandoc -f markdown+emoji \
   -V geometry:bottom=0.75in \
   -V geometry:left=0.75in \
   -V geometry:right=0.75in \
-  LEADERSHIP_BRIEF_ORCHESTRATED_AI.md \
+  LEADERSHIP_BRIEF_WITH_IMAGES.md \
   -o orchestrated_ai_draft.pdf
+
+# Clean up temporary file
+rm -f LEADERSHIP_BRIEF_WITH_IMAGES.md
 
 if [ $? -eq 0 ]; then
     echo "✅ PDF generated: orchestrated_ai_draft.pdf"
