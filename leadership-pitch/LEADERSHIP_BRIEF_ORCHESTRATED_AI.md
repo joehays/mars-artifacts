@@ -4471,42 +4471,27 @@ MCP is like **USB-C for AI agents** - a standardized way for agents to connect t
 
 #### How MCP Protocol Works
 
-```
-┌────────────────────────────────────────────────────────┐
-│          MCP Request/Response Protocol                  │
-├────────────────────────────────────────────────────────┤
-│                                                         │
-│  Agent (Literature Monitor)                             │
-│     │                                                   │
-│     │  1. MCP Request                                   │
-│     │  {                                                │
-│     │    "tool": "search_papers",                       │
-│     │    "params": {                                    │
-│     │      "query": "neuromorphic computing",           │
-│     │      "limit": 10                                  │
-│     │    }                                              │
-│     │  }                                                │
-│     ├──────────────────────────────────►                │
-│     │                          Zotero MCP Server        │
-│     │                              │                    │
-│     │                              │  2. Execute Query  │
-│     │                              │  (Search Zotero DB)│
-│     │                              ▼                    │
-│     │                          [10 papers found]        │
-│     │                              │                    │
-│     │  3. MCP Response             │                    │
-│     │  {                           │                    │
-│     │    "results": [              │                    │
-│     │      {"title": "...", ...},  │                    │
-│     │      {"title": "...", ...}   │                    │
-│     │    ],                         │                   │
-│     │    "count": 10                │                   │
-│     │  }                            │                   │
-│     │◄─────────────────────────────                    │
-│     ▼                                                   │
-│  Agent processes results                                │
-│                                                         │
-└─────────────────────────────────────────────────────────┘
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#e1f5ff', 'primaryTextColor': '#000', 'primaryBorderColor': '#0277bd', 'lineColor': '#0277bd', 'secondaryColor': '#fff3e0', 'tertiaryColor': '#f3e5f5'}}}%%
+sequenceDiagram
+    participant Agent as Literature Monitor<br/>(MARS Agent)
+    participant MCP as Zotero MCP Server<br/>(Tool Provider)
+    participant DB as Zotero Database
+
+    Note over Agent,DB: MCP Request/Response Protocol
+
+    Agent->>MCP: 1. MCP Request
+    Note right of Agent: {<br/>  "tool": "search_papers",<br/>  "params": {<br/>    "query": "neuromorphic computing",<br/>    "limit": 10<br/>  }<br/>}
+
+    MCP->>DB: 2. Execute Query<br/>(Search Zotero DB)
+    DB-->>MCP: [10 papers found]
+
+    MCP->>Agent: 3. MCP Response
+    Note left of MCP: {<br/>  "results": [<br/>    {"title": "...", ...},<br/>    {"title": "...", ...}<br/>  ],<br/>  "count": 10<br/>}
+
+    Agent->>Agent: Process results
+
+    Note over Agent,DB: Key Features:<br/>• Standard request/response<br/>• Error handling<br/>• Streaming support<br/>• Tool abstraction
 ```
 
 **Key Protocol Features**:
@@ -4557,90 +4542,39 @@ A2A is like **Slack for AI agents** - a standardized way for agents to communica
 
 #### How A2A Protocol Works (with Shared Context)
 
-```
-┌──────────────────────────────────────────────────────────┐
-│       A2A Protocol: Shared Context Example                │
-├──────────────────────────────────────────────────────────┤
-│                                                           │
-│  User: "Analyze neuromorphic papers and identify gaps"   │
-│     │                                                     │
-│     ▼                                                     │
-│  ┌─────────────────────────┐                             │
-│  │  Orchestrator Agent     │                             │
-│  │  ─────────────────      │                             │
-│  │  Context:               │                             │
-│  │  • User query           │                             │
-│  │  • Task: Analysis       │                             │
-│  │  • Domain: Neuromorphic │                             │
-│  └──────────┬──────────────┘                             │
-│             │  1. A2A Delegation Request                 │
-│             │  {                                          │
-│             │    "task": "find_papers",                   │
-│             │    "context": {                             │
-│             │      "query": "neuromorphic computing",     │
-│             │      "user_intent": "gap analysis",         │
-│             │      "previous_results": []                 │
-│             │    }                                        │
-│             │  }                                          │
-│             ├────────────────────────►                    │
-│             │                  ┌──────────────────────┐  │
-│             │                  │ Literature Monitor   │  │
-│             │                  │ ──────────────       │  │
-│             │                  │ Context (received):  │  │
-│             │                  │ • User wants gaps    │  │
-│             │                  │ • Focus: neuro       │  │
-│             │                  │ • No prior results   │  │
-│             │                  └──────────┬───────────┘  │
-│             │                             │  2. Execute  │
-│             │                             │  (Search +   │
-│             │                             │   Filter)    │
-│             │                             ▼              │
-│             │                      [50 papers found]     │
-│             │                             │              │
-│             │  3. A2A Response            │              │
-│             │  {                          │              │
-│             │    "papers": [...],         │              │
-│             │    "context_update": {      │              │
-│             │      "search_performed": "✓",│             │
-│             │      "papers_count": 50,    │              │
-│             │      "next_suggested":       │              │
-│             │        "analyze_citations"   │              │
-│             │    }                         │              │
-│             │  }                           │              │
-│             │◄────────────────────────────                │
-│             ▼                                             │
-│  ┌─────────────────────────┐                             │
-│  │  Orchestrator Agent     │                             │
-│  │  ─────────────────      │                             │
-│  │  Context (updated):     │                             │
-│  │  • User query           │                             │
-│  │  • Task: Analysis       │                             │
-│  │  • Papers: 50 found ✓   │                             │
-│  │  • Next: Analyze        │                             │
-│  └──────────┬──────────────┘                             │
-│             │  4. Next A2A Delegation                    │
-│             │  {                                          │
-│             │    "task": "analyze_trends",                │
-│             │    "context": {                             │
-│             │      "papers": [50 papers],                 │
-│             │      "user_intent": "gap analysis",         │
-│             │      "search_complete": true                │
-│             │    }                                        │
-│             │  }                                          │
-│             ├────────────────────────►                    │
-│             │                  ┌──────────────────────┐  │
-│             │                  │ Analysis Agent       │  │
-│             │                  │ ──────────            │  │
-│             │                  │ Context (received):  │  │
-│             │                  │ • 50 papers input    │  │
-│             │                  │ • Find gaps          │  │
-│             │                  │ • Search done ✓      │  │
-│             │                  └──────────────────────┘  │
-│             │                                            │
-│             ▼                                            │
-│    [Workflow continues with shared context...]          │
-│                                                          │
-└──────────────────────────────────────────────────────────┘
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#e8f5e9', 'primaryTextColor': '#000', 'primaryBorderColor': '#2e7d32', 'lineColor': '#2e7d32', 'secondaryColor': '#fff3e0', 'tertiaryColor': '#f3e5f5'}}}%%
+sequenceDiagram
+    participant User
+    participant Orch as Orchestrator Agent
+    participant LitMon as Literature Monitor
+    participant Analysis as Analysis Agent
+
+    Note over User,Analysis: A2A Protocol: Shared Context Example
+
+    User->>Orch: "Analyze neuromorphic papers<br/>and identify gaps"
+
+    Note over Orch: Context:<br/>• User query<br/>• Task: Analysis<br/>• Domain: Neuromorphic
+
+    Orch->>LitMon: 1. A2A Delegation Request
+    Note right of Orch: {<br/>  "task": "find_papers",<br/>  "context": {<br/>    "query": "neuromorphic computing",<br/>    "user_intent": "gap analysis",<br/>    "previous_results": []<br/>  }<br/>}
+
+    Note over LitMon: Context (received):<br/>• User wants gaps<br/>• Focus: neuromorphic<br/>• No prior results
+
+    LitMon->>LitMon: 2. Execute<br/>(Search + Filter)
+    Note right of LitMon: [50 papers found]
+
+    LitMon->>Orch: 3. A2A Response
+    Note left of LitMon: {<br/>  "papers": [...],<br/>  "context_update": {<br/>    "search_performed": "✓",<br/>    "papers_count": 50,<br/>    "next_suggested": "analyze_citations"<br/>  }<br/>}
+
+    Note over Orch: Context (updated):<br/>• User query<br/>• Task: Analysis<br/>• Papers: 50 found ✓<br/>• Next: Analyze
+
+    Orch->>Analysis: 4. Next A2A Delegation
+    Note right of Orch: {<br/>  "task": "analyze_trends",<br/>  "context": {<br/>    "papers": [50 papers],<br/>    "user_intent": "gap analysis",<br/>    "search_complete": true<br/>  }<br/>}
+
+    Note over Analysis: Context (received):<br/>• 50 papers input<br/>• Find gaps<br/>• Search done ✓
+
+    Note over User,Analysis: Key Features:<br/>• Stateful workflows (cumulative context)<br/>• Intent preservation<br/>• Suggested next steps<br/>• Provenance tracking
 ```
 
 **Key Protocol Features (Shared Context)**:
@@ -4673,57 +4607,36 @@ LangGraph is like **Visio for AI workflows** - you design agent workflows as flo
 
 #### How LangGraph Protocol Works
 
-```
-┌───────────────────────────────────────────────────────┐
-│     LangGraph State Machine Protocol                  │
-├───────────────────────────────────────────────────────┤
-│                                                        │
-│  Research Workflow State:                             │
-│  ┌──────────────────────────────────────────┐         │
-│  │ State = {                                 │         │
-│  │   "user_query": "neuromorphic papers",    │         │
-│  │   "papers": [],                           │         │
-│  │   "relevant_papers": [],                  │         │
-│  │   "summary": null,                        │         │
-│  │   "current_step": "search"                │         │
-│  │ }                                         │         │
-│  └──────────────────────────────────────────┘         │
-│     │                                                  │
-│     ▼                                                  │
-│  ┌──────────────┐                                     │
-│  │  Node 1:     │                                     │
-│  │  Search      │                                     │
-│  │  Papers      │                                     │
-│  └───────┬──────┘                                     │
-│          │ State Update:                              │
-│          │ papers = [50 results]                      │
-│          │ current_step = "filter"                    │
-│          ▼                                            │
-│  ┌──────────────┐                                    │
-│  │  Node 2:     │                                    │
-│  │  Filter      │                                    │
-│  │  Relevant    │                                    │
-│  └───────┬──────┘                                    │
-│          │ State Update:                             │
-│          │ relevant_papers = [10 filtered]           │
-│          │ current_step = "summarize"                │
-│          ▼                                           │
-│  ┌──────────────┐       Decision Point               │
-│  │  Conditional │                                    │
-│  │  Logic       │──Yes (>5 papers)────►             │
-│  └───────┬──────┘                  ┌──────────────┐ │
-│          │                         │  Node 3:     │ │
-│          │                         │  Summarize   │ │
-│          │                         └──────┬───────┘ │
-│          │                                │         │
-│          │                                │ State:  │
-│          │                                │ summary="..." │
-│          │                                ▼         │
-│          No (<5 papers)              ┌─────────┐   │
-│          └──────────────────────────►│  END    │   │
-│                                      └─────────┘   │
-│                                                    │
-└────────────────────────────────────────────────────┘
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#f3e5f5', 'primaryTextColor': '#000', 'primaryBorderColor': '#6a1b9a', 'lineColor': '#6a1b9a', 'secondaryColor': '#fff3e0', 'tertiaryColor': '#e1f5ff'}}}%%
+flowchart TD
+    Start([User Query:<br/>neuromorphic papers]) --> InitState
+
+    InitState[Initialize State]
+    InitState --> |"State = {<br/>  user_query: 'neuromorphic papers',<br/>  papers: [],<br/>  relevant_papers: [],<br/>  summary: null,<br/>  current_step: 'search'<br/>}"| Node1
+
+    Node1[Node 1:<br/>Search Papers]
+    Node1 --> |"State Update:<br/>papers = [50 results]<br/>current_step = 'filter'"| Node2
+
+    Node2[Node 2:<br/>Filter Relevant]
+    Node2 --> |"State Update:<br/>relevant_papers = [10 filtered]<br/>current_step = 'summarize'"| Decision
+
+    Decision{Conditional Logic:<br/>Papers > 5?}
+    Decision -->|Yes<br/>(10 papers found)| Node3[Node 3:<br/>Summarize Results]
+    Decision -->|No<br/>(< 5 papers)| End1([END:<br/>Insufficient results])
+
+    Node3 --> |"State Update:<br/>summary = '...'<br/>current_step = 'complete'"| End2([END:<br/>Summary complete])
+
+    style InitState fill:#e1f5ff
+    style Node1 fill:#f3e5f5
+    style Node2 fill:#fff3e0
+    style Decision fill:#ffebee
+    style Node3 fill:#e8f5e9
+    style End1 fill:#ffcdd2
+    style End2 fill:#c8e6c9
+
+    classDef stateBox fill:#fff,stroke:#333,stroke-width:2px
+    class InitState,Node1,Node2,Node3 stateBox
 ```
 
 **Key Protocol Features**:
@@ -4755,47 +4668,33 @@ OpenTelemetry is like **FedEx tracking for AI requests** - trace every step of a
 
 #### How OpenTelemetry Protocol Works
 
-```
-┌────────────────────────────────────────────────────────────┐
-│        OpenTelemetry Trace: Research Query                  │
-├────────────────────────────────────────────────────────────┤
-│                                                             │
-│  Trace ID: abc123 (tracks entire request)                  │
-│     │                                                       │
-│     ├─ Span 1: orchestrator.receive_query                  │
-│     │  Duration: 2ms                                       │
-│     │  Attributes: {user: "researcher", query: "neuro"}    │
-│     │     │                                                 │
-│     │     ├─ Span 2: a2a.delegate_to_litmonitor            │
-│     │     │  Parent: Span 1                                │
-│     │     │  Duration: 300ms                               │
-│     │     │  Attributes: {agent: "lit-monitor"}            │
-│     │     │     │                                           │
-│     │     │     ├─ Span 3: mcp.call_zotero                 │
-│     │     │     │  Parent: Span 2                          │
-│     │     │     │  Duration: 250ms                         │
-│     │     │     │  Attributes: {tool: "search_papers"}     │
-│     │     │     │     │                                     │
-│     │     │     │     ├─ Span 4: zotero.query_database     │
-│     │     │     │     │  Parent: Span 3                    │
-│     │     │     │     │  Duration: 200ms                   │
-│     │     │     │     │  Attributes: {results: 50}         │
-│     │     │     │     └─ [Query complete]                  │
-│     │     │     │                                           │
-│     │     │     └─ Span 5: litmonitor.filter_relevant      │
-│     │     │        Parent: Span 2                          │
-│     │     │        Duration: 40ms                          │
-│     │     │        Attributes: {filtered: 10}              │
-│     │     │                                                 │
-│     │     └─ Span 6: orchestrator.synthesize_summary       │
-│     │        Parent: Span 1                                │
-│     │        Duration: 50ms                                │
-│     │        Attributes: {llm_tokens: 1500}                │
-│     │                                                       │
-│     └─ Total Duration: 350ms                               │
-│        Cost: $0.02 (LLM tokens)                            │
-│                                                             │
-└─────────────────────────────────────────────────────────────┘
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#fff3e0', 'primaryTextColor': '#000', 'primaryBorderColor': '#e65100', 'lineColor': '#e65100', 'secondaryColor': '#e1f5ff', 'tertiaryColor': '#f3e5f5'}}}%%
+flowchart TD
+    Trace[Trace ID: abc123<br/>Research Query:<br/>neuromorphic computing]
+
+    Trace --> Span1[Span 1: orchestrator.receive_query<br/>Duration: 2ms<br/>user: researcher, query: neuro]
+
+    Span1 --> Span2[Span 2: a2a.delegate_to_litmonitor<br/>Duration: 300ms<br/>agent: lit-monitor]
+
+    Span2 --> Span3[Span 3: mcp.call_zotero<br/>Duration: 250ms<br/>tool: search_papers]
+
+    Span3 --> Span4[Span 4: zotero.query_database<br/>Duration: 200ms<br/>results: 50 papers]
+
+    Span2 --> Span5[Span 5: litmonitor.filter_relevant<br/>Duration: 40ms<br/>filtered: 10 papers]
+
+    Span1 --> Span6[Span 6: orchestrator.synthesize_summary<br/>Duration: 50ms<br/>llm_tokens: 1500]
+
+    Span6 --> Summary[Total Duration: 350ms<br/>Cost: $0.02 LLM tokens]
+
+    style Trace fill:#fff3e0,stroke:#e65100,stroke-width:3px
+    style Span1 fill:#e1f5ff,stroke:#0277bd,stroke-width:2px
+    style Span2 fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px
+    style Span3 fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style Span4 fill:#fff9c4,stroke:#f57f17,stroke-width:2px
+    style Span5 fill:#ffebee,stroke:#c62828,stroke-width:2px
+    style Span6 fill:#e0f2f1,stroke:#00695c,stroke-width:2px
+    style Summary fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px
 ```
 
 **Key Protocol Features**:
@@ -4996,25 +4895,30 @@ Developer Workflow (Using mars-dev Standards)
 **Why**: Catch issues locally before pushing to GitLab (faster feedback)
 **How**: `.pre-commit-config.yaml` defines hooks executed via `husky` or `pre-commit`
 
-```
-Developer Executes: git commit -m "feat: Add new agent"
-    │
-    ├─ Hook 1: Trailing Whitespace Check (0.1s)
-    │  └─ [PASS]
-    │
-    ├─ Hook 2: YAML Syntax Validation (0.2s)
-    │  └─ [PASS]
-    │
-    ├─ Hook 3: Python Linting (flake8) (1.5s)
-    │  ├─ Found 2 style issues
-    │  └─ [FAIL] → Commit blocked, fix required
-    │
-    └─ [Commit Aborted - Fix linting issues first]
-```
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#e3f2fd', 'primaryTextColor': '#000', 'primaryBorderColor': '#1976d2', 'lineColor': '#1976d2', 'secondaryColor': '#fff3e0', 'tertiaryColor': '#f3e5f5'}}}%%
+flowchart TD
+    Start([Developer executes:<br/>git commit -m<br/>feat: Add new agent]) --> Hook1
 
-**If All Pass**:
-```
-All hooks passed → Commit created → Ready to push
+    Hook1[Hook 1:<br/>Trailing Whitespace Check<br/>0.1s]
+    Hook1 -->|PASS| Hook2
+
+    Hook2[Hook 2:<br/>YAML Syntax Validation<br/>0.2s]
+    Hook2 -->|PASS| Hook3
+
+    Hook3[Hook 3:<br/>Python Linting<br/>flake8<br/>1.5s]
+    Hook3 -->|Found 2 style issues| Fail
+    Hook3 -.->|If passed| Success
+
+    Fail([Commit Aborted<br/>❌ Fix linting issues first])
+    Success([All hooks passed ✅<br/>Commit created<br/>Ready to push])
+
+    style Start fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    style Hook1 fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style Hook2 fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style Hook3 fill:#ffebee,stroke:#c62828,stroke-width:2px
+    style Fail fill:#ffcdd2,stroke:#c62828,stroke-width:3px
+    style Success fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px
 ```
 
 **Business Value**: Prevents 80% of CI failures by catching issues locally (faster iteration, less GitLab CI cost)
@@ -5027,72 +4931,76 @@ All hooks passed → Commit created → Ready to push
 **Why**: Multi-stage validation (lint → test → build) with parallelization
 **How**: `.gitlab-ci.yml` defines 7 stages executed by GitLab Runners
 
-```
-Developer Pushes: git push origin feat/new-agent
-    │
-    ▼
-┌───────────────────────────────────────────────┐
-│     GitLab CI Pipeline (7 Stages)             │
-├───────────────────────────────────────────────┤
-│                                                │
-│  Stage 1: lint (Parallel: 3 jobs)             │
-│  ├─ Job 1.1: flake8 (Python linting)    [2s]  │
-│  ├─ Job 1.2: shellcheck (Bash linting)  [1s]  │
-│  └─ Job 1.3: yamllint (YAML validation) [1s]  │
-│  Result: [PASS] → Continue to Stage 2          │
-│         │                                      │
-│         ▼                                      │
-│  Stage 2: validate                             │
-│  └─ Job 2.1: mars-dev validate          [5s]  │
-│     • Check ADR-022 module schema              │
-│     • Validate compose fragments               │
-│     • Check manifest.yaml syntax               │
-│  Result: [PASS] → Continue to Stage 3          │
-│         │                                      │
-│         ▼                                      │
-│  Stage 3: test-fast (Parallel: 5 jobs)        │
-│  ├─ Job 3.1: core unit tests           [2s]   │
-│  ├─ Job 3.2: mars-dev tests            [2s]   │
-│  ├─ Job 3.3: agent unit tests          [3s]   │
-│  ├─ Job 3.4: service unit tests        [3s]   │
-│  └─ Job 3.5: ADR-028 compliance         [2s]   │
-│  Result: [PASS] → Continue to Stage 4          │
-│         │                                      │
-│         ▼                                      │
-│  Stage 4: test-full (Sequential, needs services)│
-│  └─ Job 4.1: Integration tests         [45s]  │
-│     • Start Neo4j container                    │
-│     • Start Zotero container                   │
-│     • Run end-to-end tests                     │
-│  Result: [PASS] → Continue to Stage 5          │
-│         │                                      │
-│         ▼                                      │
-│  Stage 5: analyze                              │
-│  └─ Job 5.1: Coverage report            [5s]   │
-│     • Generate cobertura XML                   │
-│     • Check coverage > 80%                     │
-│  Result: [PASS] → Continue to Stage 6          │
-│         │                                      │
-│         ▼                                      │
-│  Stage 6: audit                                │
-│  └─ Job 6.1: mars audit communication   [3s]   │
-│     • Validate ADR-028 patterns                │
-│     • Check hardcoded URLs                     │
-│     • Verify MCP manifests                     │
-│  Result: [PASS] → Continue to Stage 7          │
-│         │                                      │
-│         ▼                                      │
-│  Stage 7: build (Parallel: 3 jobs)            │
-│  ├─ Job 7.1: Build agent images       [120s]  │
-│  ├─ Job 7.2: Build service images     [180s]  │
-│  └─ Job 7.3: Build mars-dev image     [90s]   │
-│  Result: [PASS] → Pipeline Complete ✅         │
-│                                                │
-└────────────────────────────────────────────────┘
-    │
-    ▼
-Merge Request Status: All checks passed ✅
-Ready for peer review → Can merge to main
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#fce4ec', 'primaryTextColor': '#000', 'primaryBorderColor': '#c2185b', 'lineColor': '#c2185b', 'secondaryColor': '#fff3e0', 'tertiaryColor': '#f3e5f5'}}}%%
+flowchart TD
+    Push([Developer pushes:<br/>git push origin<br/>feat/new-agent]) --> Pipeline
+
+    Pipeline[GitLab CI Pipeline<br/>7 Stages] --> Stage1
+
+    subgraph Stage1[" Stage 1: lint - Parallel 3 jobs "]
+        Lint1[Job 1.1:<br/>flake8<br/>Python linting<br/>2s]
+        Lint2[Job 1.2:<br/>shellcheck<br/>Bash linting<br/>1s]
+        Lint3[Job 1.3:<br/>yamllint<br/>YAML validation<br/>1s]
+    end
+
+    Stage1 -->|PASS| Stage2
+
+    subgraph Stage2[" Stage 2: validate "]
+        Val1[Job 2.1:<br/>mars-dev validate<br/>• Check ADR-022 schema<br/>• Validate compose fragments<br/>• Check manifest.yaml<br/>5s]
+    end
+
+    Stage2 -->|PASS| Stage3
+
+    subgraph Stage3[" Stage 3: test-fast - Parallel 5 jobs "]
+        Test1[Job 3.1:<br/>core unit tests<br/>2s]
+        Test2[Job 3.2:<br/>mars-dev tests<br/>2s]
+        Test3[Job 3.3:<br/>agent unit tests<br/>3s]
+        Test4[Job 3.4:<br/>service unit tests<br/>3s]
+        Test5[Job 3.5:<br/>ADR-028 compliance<br/>2s]
+    end
+
+    Stage3 -->|PASS| Stage4
+
+    subgraph Stage4[" Stage 4: test-full "]
+        Full1[Job 4.1:<br/>Integration tests<br/>• Start Neo4j container<br/>• Start Zotero container<br/>• Run end-to-end tests<br/>45s]
+    end
+
+    Stage4 -->|PASS| Stage5
+
+    subgraph Stage5[" Stage 5: analyze "]
+        Analyze1[Job 5.1:<br/>Coverage report<br/>• Generate cobertura XML<br/>• Check coverage > 80%<br/>5s]
+    end
+
+    Stage5 -->|PASS| Stage6
+
+    subgraph Stage6[" Stage 6: audit "]
+        Audit1[Job 6.1:<br/>mars audit communication<br/>• Validate ADR-028 patterns<br/>• Check hardcoded URLs<br/>• Verify MCP manifests<br/>3s]
+    end
+
+    Stage6 -->|PASS| Stage7
+
+    subgraph Stage7[" Stage 7: build - Parallel 3 jobs "]
+        Build1[Job 7.1:<br/>Build agent images<br/>120s]
+        Build2[Job 7.2:<br/>Build service images<br/>180s]
+        Build3[Job 7.3:<br/>Build mars-dev image<br/>90s]
+    end
+
+    Stage7 -->|PASS| Complete
+
+    Complete([Pipeline Complete ✅<br/>Merge Request Status:<br/>All checks passed<br/>Ready for peer review])
+
+    style Push fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    style Pipeline fill:#fce4ec,stroke:#c2185b,stroke-width:2px
+    style Complete fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px
+
+    style Stage1 fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    style Stage2 fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px
+    style Stage3 fill:#e1f5ff,stroke:#0277bd,stroke-width:2px
+    style Stage4 fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style Stage5 fill:#fff9c4,stroke:#f57f17,stroke-width:2px
+    style Stage6 fill:#ffebee,stroke:#c62828,stroke-width:2px
+    style Stage7 fill:#e0f2f1,stroke:#00695c,stroke-width:2px
 ```
 
 **If Any Stage Fails**: Pipeline stops, developer notified, fix required before merge
@@ -5107,30 +5015,51 @@ Ready for peer review → Can merge to main
 **Why**: Catch logic errors, ensure code quality, knowledge sharing
 **How**: GitLab Merge Request workflow with required approvals
 
-```
-Developer Creates MR: "feat: Add Literature Monitor Agent"
-    │
-    ├─ CI Pipeline Runs (must pass first)
-    │  └─ [PASS] → MR ready for review
-    │
-    ├─ Peer Reviewer Assigned (required: 1 approval)
-    │  │
-    │  ├─ Review 1: Code Quality
-    │  │  • Check code follows MARS patterns
-    │  │  • Verify tests cover new functionality
-    │  │  • Validate ADR references if applicable
-    │  │
-    │  ├─ Review 2: Architecture Alignment
-    │  │  • Confirm follows ADR-022 module schema
-    │  │  • Check ADR-028 communication patterns
-    │  │  • Verify no security anti-patterns
-    │  │
-    │  └─ Decision: Approve ✅ or Request Changes ❌
-    │
-    ├─ If Approved: Merge button enabled
-    │  └─ Developer clicks "Merge" → Code integrated to main
-    │
-    └─ If Changes Requested: Developer addresses feedback → CI re-runs → Re-review
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#e8eaf6', 'primaryTextColor': '#000', 'primaryBorderColor': '#3f51b5', 'lineColor': '#3f51b5', 'secondaryColor': '#fff3e0', 'tertiaryColor': '#f3e5f5'}}}%%
+flowchart TD
+    Start([Developer Creates MR:<br/>feat: Add Literature<br/>Monitor Agent]) --> CI
+
+    CI[CI Pipeline Runs<br/>must pass first]
+    CI -->|PASS| Review
+
+    Review[Peer Reviewer Assigned<br/>Required: 1 approval]
+    Review --> Review1
+
+    subgraph Reviews[" Peer Review Process "]
+        Review1[Review 1:<br/>Code Quality<br/>• Check MARS patterns<br/>• Verify test coverage<br/>• Validate ADR references]
+
+        Review2[Review 2:<br/>Architecture Alignment<br/>• Confirm ADR-022 schema<br/>• Check ADR-028 patterns<br/>• Verify no security anti-patterns]
+    end
+
+    Reviews --> Decision{Decision}
+
+    Decision -->|Approve ✅| Checks
+    Decision -->|Request Changes ❌| Changes
+
+    Changes[Developer addresses<br/>feedback]
+    Changes --> CI
+
+    Checks{Automated Checks}
+    Checks --> Check1[✅ CI pipeline passed]
+    Checks --> Check2[✅ At least 1 approval]
+    Checks --> Check3[✅ No merge conflicts]
+    Checks --> Check4[✅ Branch up-to-date]
+
+    Check1 & Check2 & Check3 & Check4 --> Merge
+
+    Merge[Developer clicks Merge]
+    Merge --> Complete([Code integrated to main ✅])
+
+    style Start fill:#e8eaf6,stroke:#3f51b5,stroke-width:2px
+    style CI fill:#e1f5ff,stroke:#0277bd,stroke-width:2px
+    style Review fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px
+    style Reviews fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    style Decision fill:#ffebee,stroke:#c62828,stroke-width:2px
+    style Changes fill:#fff9c4,stroke:#f57f17,stroke-width:2px
+    style Checks fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style Merge fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px
+    style Complete fill:#a5d6a7,stroke:#2e7d32,stroke-width:3px
 ```
 
 **Automated Checks Before Merge**:
@@ -5149,27 +5078,59 @@ Developer Creates MR: "feat: Add Literature Monitor Agent"
 **Why**: Institutional knowledge, prevent architecture drift, compliance
 **How**: Structured ADR template + review process
 
-```
-Developer Proposes Architectural Change
-    │
-    ├─ Step 1: Create ADR Draft
-    │  └─ Use template (docs/wiki/templates/ADR_TEMPLATE.md)
-    │     • Context: What problem are we solving?
-    │     • Decision: What solution did we choose?
-    │     • Rationale: Why this solution? (alternatives considered)
-    │     • Consequences: What are the trade-offs?
-    │
-    ├─ Step 2: Draft Review (Technical Lead)
-    │  └─ Feedback: "Consider security implications of choice A"
-    │
-    ├─ Step 3: Stakeholder Review (Affected Teams)
-    │  └─ Feedback: "This impacts our deployment pipeline - can we..."
-    │
-    ├─ Step 4: Finalize ADR
-    │  └─ Address feedback → Assign ADR number → Commit to git
-    │
-    └─ Step 5: Implementation Begins (ADR referenced in commits)
-       └─ Commit message: "feat: Implement ADR-042 (MCP-based literature search)"
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#e0f7fa', 'primaryTextColor': '#000', 'primaryBorderColor': '#00838f', 'lineColor': '#00838f', 'secondaryColor': '#fff3e0', 'tertiaryColor': '#f3e5f5'}}}%%
+flowchart TD
+    Start([Developer Proposes<br/>Architectural Change]) --> Step1
+
+    Step1[Step 1:<br/>Create ADR Draft<br/>Use template]
+    Step1 --> Template
+
+    subgraph Template[" ADR Template Sections "]
+        T1[• Context:<br/>What problem are we solving?]
+        T2[• Decision:<br/>What solution did we choose?]
+        T3[• Rationale:<br/>Why this solution?<br/>Alternatives considered?]
+        T4[• Consequences:<br/>What are the trade-offs?]
+    end
+
+    Template --> Step2
+
+    Step2[Step 2:<br/>Draft Review<br/>Technical Lead]
+    Step2 --> Feedback1[Feedback:<br/>Consider security<br/>implications of choice A]
+
+    Feedback1 --> Step3
+
+    Step3[Step 3:<br/>Stakeholder Review<br/>Affected Teams]
+    Step3 --> Feedback2[Feedback:<br/>This impacts our<br/>deployment pipeline...]
+
+    Feedback2 --> Step4
+
+    Step4[Step 4:<br/>Finalize ADR<br/>• Address feedback<br/>• Assign ADR number<br/>• Commit to git]
+
+    Step4 --> Step5
+
+    Step5[Step 5:<br/>Implementation Begins<br/>ADR referenced in commits]
+    Step5 --> Commit
+
+    Commit([Example commit:<br/>feat: Implement ADR-042<br/>MCP-based literature search])
+
+    subgraph Categories[" ADR Categories "]
+        Cat1[Strategic ADRs:<br/>docs/wiki/adr/<br/>High-level architecture]
+        Cat2[Core ADRs:<br/>core/docs/adr/<br/>SDK/framework decisions]
+        Cat3[mars-dev ADRs:<br/>mars-dev/docs/adr/<br/>Development infrastructure]
+    end
+
+    style Start fill:#e0f7fa,stroke:#00838f,stroke-width:2px
+    style Step1 fill:#e1f5ff,stroke:#0277bd,stroke-width:2px
+    style Template fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px
+    style Step2 fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    style Feedback1 fill:#fff9c4,stroke:#f57f17,stroke-width:2px
+    style Step3 fill:#ffebee,stroke:#c62828,stroke-width:2px
+    style Feedback2 fill:#fff9c4,stroke:#f57f17,stroke-width:2px
+    style Step4 fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style Step5 fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px
+    style Commit fill:#a5d6a7,stroke:#2e7d32,stroke-width:3px
+    style Categories fill:#e0f2f1,stroke:#00695c,stroke-width:2px
 ```
 
 **ADR Categories**:
