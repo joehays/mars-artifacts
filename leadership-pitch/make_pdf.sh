@@ -40,6 +40,10 @@ fi
 
 echo "Using browser: $PUPPETEER_EXECUTABLE_PATH"
 
+# Configure puppeteer for headless operation
+# These flags are critical for running in containers or headless environments
+export PUPPETEER_ARGS="--no-sandbox --disable-setuid-sandbox --disable-dev-shm-usage --disable-gpu"
+
 pandoc -f markdown+emoji \
   --pdf-engine=lualatex \
   --filter mermaid-filter \
