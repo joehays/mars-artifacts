@@ -3251,7 +3251,7 @@ Just like we used **Post-It Notes → Library of Congress** for memory and **Cus
 
 **Purpose**: Self-hosted reference management + AI integration
 
-**Status**: ✅ **95% COMPLETE** (Infrastructure deployed, Desktop Client validated)
+**Status**: ✅ **100% COMPLETE** (All phases complete including Desktop Client sync)
 
 **What It Provides**:
 - ✅ **79 MCP tools** for literature management (not 40+ - updated count!)
@@ -3293,7 +3293,7 @@ Just like we used **Post-It Notes → Library of Congress** for memory and **Cus
 
 **Purpose**: Self-hosted project management + AI integration
 
-**Status**: ✅ **50% COMPLETE** (Foundation + Phase 6A operational, agent integration deferred)
+**Status**: ✅ **55% COMPLETE** (Foundation + Phase 6A sync architecture 100% complete with 260 tests, agent integration deferred)
 
 **What It Provides**:
 - ✅ **79 MCP tools** for project/code management (62 base + 5 wiki + 12 pipeline)
@@ -3332,7 +3332,7 @@ Just like we used **Post-It Notes → Library of Congress** for memory and **Cus
 
 **Purpose**: Core MARS infrastructure and development workflows
 
-**Status**: ⏳ **85% COMPLETE** (16/20 core enhancements complete, E4 at 80%, E21 at 40%, E2 blocked, 2 core planned + 4 additional planned)
+**Status**: ⏳ **87% COMPLETE** (16/20 core enhancements complete, E4 at 100%, E21 at 40%, E2 blocked, 2 core planned + 4 additional planned)
 
 **What It Provides** (Operational):
 - ✅ Docker rootless deployment (security)
@@ -3347,7 +3347,7 @@ Just like we used **Post-It Notes → Library of Congress** for memory and **Cus
 **Completed Enhancements** (16 total):
 - ✅ **E2**: Vector Database (Milvus) - 80% complete (infra ready, search blocked by upstream MCP bug #226)
 - ✅ **E3**: MCP Integration Architecture
-- ⏳ **E4**: Context Document Organization - 80% complete (E4/E7/E15 unified context)
+- ✅ **E4**: Context Document Organization - 100% complete (E4/E7/E15 unified context)
 - ✅ **E5**: Ollama Self-Hosted Models (host + containerized modes)
 - ✅ **E6**: Containerized Dev Environment (Docker-in-Docker, E6 super-container)
 - ✅ **E7**: Policy Bundle System (E4/E7/E15 architecture)
@@ -3447,9 +3447,61 @@ Just like we used **Post-It Notes → Library of Congress** for memory and **Cus
 
 ---
 
+### Component #11: LangGraph Orchestration (C11)
+
+**Purpose**: State machine-based agent orchestration framework for complex multi-agent workflows
+
+**Status**: ✅ **Phase 4 Foundation 100% COMPLETE** (HITL + MCP integration operational)
+
+**What It Provides**:
+- LangGraph integration for agent state machines
+- Human-in-the-loop (HITL) controls
+- MCP tool integration foundation
+- Agent coordination infrastructure
+
+**Foundation Capabilities**:
+- State machine orchestration patterns
+- Multi-agent workflow coordination
+- Tool calling and response handling
+- Error recovery and state persistence
+
+**Use Cases**:
+- Research orchestration (C13 Research Program Orchestrator)
+- Literature workflows (C5 Literature Research System)
+- Code development (C12 Coder Agent)
+- Publication generation (C15 Publication-Writer)
+
+**Current Status**: Foundation complete and operational. Phase 1 agent migration ready to start (migrate existing agents to LangGraph orchestration pattern).
+
+---
+
+### Component #16: RAG-Indexer (C16)
+
+**Purpose**: Memory and context management services for agent knowledge augmentation
+
+**Status**: ⏳ **S6.7A Phase 1-5 Wave 1 COMPLETE** (167+ tests, merged to main)
+
+**What's Been Delivered**:
+- **rag-semantic service**: Vector embeddings and semantic search (Milvus + Ollama)
+- **context-persistence service**: Agent memory storage and retrieval
+- **literature-synthesis agent**: Automated literature analysis and synthesis
+- 167+ tests validating quality
+
+**Capabilities**:
+- Semantic code/document search (~40% token reduction via claude-context MCP)
+- Agent context augmentation (memory across sessions)
+- Literature knowledge base (integration with C2 Zotero)
+- Automatic indexing infrastructure
+
+**Next Phase (Wave 2)**: Integration with C15 (publication-writer) and C13 (research-orchestrator) for E2E workflows.
+
+**Strategic Value**: Enables agents to leverage institutional knowledge, reducing hallucinations and improving output quality.
+
+---
+
 ## 5.5 What's on the Roadmap
 
-**Roadmap Overview**: MARS development follows a prioritized roadmap with **12 researched architectural enhancements** (4 HIGH value for v1.0) and **23 new components** (C7-C29) identified from gap analysis and research framework design.
+**Roadmap Overview**: MARS development follows a prioritized roadmap with **12 researched architectural enhancements** (4 HIGH value for v1.0) and **27 new components** (C7-C33) identified from gap analysis, research framework design, and domain-specific extension planning.
 
 **Key Insight**: The roadmap is informed by comprehensive research (ARCHITECTURAL_ENHANCEMENTS_RESEARCH.md) evaluating 12 enhancement opportunities from external AI research + internal MARS documentation review, plus gap triage of 10 capabilities from mars-v1 analysis (GAP_TRIAGE_DECISIONS.md).
 
@@ -3638,22 +3690,22 @@ Just like we used **Post-It Notes → Library of Congress** for memory and **Cus
 
 ### Critical Agent Infrastructure (Q2 2025) ⭐ **HIGHEST PRIORITY**
 
-**Context**: These three components are **ESSENTIAL** for v1.0 orchestrated AI capabilities. C11 is the **foundation** that C12 and C13 depend on. Without C11, MARS cannot achieve "Starship Enterprise" orchestration.
+**Context**: These three components are **ESSENTIAL** for v1.0 orchestrated AI capabilities. C11 **foundation is now complete**, unblocking C12 and C13 implementation. With C11 operational, MARS is ready for "Starship Enterprise" orchestration.
 
-#### C11: LangGraph Agent Framework ⭐ **CRITICAL FOUNDATION** (8-10 weeks)
-**Purpose**: Production-ready multi-agent orchestration framework
+#### C11: LangGraph Orchestration ✅ **Phase 4 Foundation COMPLETE**
+**Purpose**: State machine-based agent orchestration framework
 
-**What It Enables**:
-- Agent registry and lifecycle management
-- Inter-agent communication and coordination
-- Human-in-the-loop decision points
-- **Foundation for ALL orchestrated agent workflows**
+**Status**: ✅ **Phase 4 Foundation 100% COMPLETE** (HITL + MCP integration operational)
 
-**Dependencies**: **BLOCKS C12, C13, C15** - these agents cannot function without C11
+**What's Been Delivered**:
+- LangGraph integration for agent state machines
+- Human-in-the-loop (HITL) controls operational
+- MCP tool integration foundation complete
+- State machine orchestration patterns established
 
-**Impact**: Unlocks full "Starship Enterprise" orchestration capabilities
+**Impact**: Foundation ready for agent migration - **UNBLOCKS C12, C13, C15**
 
-**Timeline**: **Must complete BEFORE** C12/C13/C15 can start
+**Next Phase**: Phase 1 agent migration (migrate existing agents to LangGraph orchestration pattern)
 
 ---
 
@@ -3687,6 +3739,34 @@ Just like we used **Post-It Notes → Library of Congress** for memory and **Cus
 
 ---
 
+#### C14: Agent Session Management (4-6 weeks) [v1.0 Required]
+**Purpose**: Persistent agent sessions with state management and recovery
+
+**Capabilities**:
+- Session state persistence across restarts
+- Agent context preservation
+- Session recovery and replay
+- Multi-session coordination
+
+**Impact**: Enables long-running research workflows without losing context
+
+---
+
+#### C15: Publication-Writer Agent (4-6 weeks) [v1.0 Required]
+**Purpose**: Automated research publication generation
+
+**Capabilities**:
+- NRL 5500 6.1 white paper template support
+- Literature synthesis from C2 (Zotero)
+- Context augmentation from C16 (RAG-indexer)
+- Automated submission to C3 (GitLab research repos)
+
+**Dependencies**: Requires C11 (LangGraph), C2 (Zotero), C16 (RAG-indexer), C3 (GitLab)
+
+**Impact**: Accelerates research dissemination and proposal generation
+
+---
+
 ### Medium-Priority Enhancements (Q3+ 2025)
 
 #### C8: TUI Mission Control (4-6 weeks)
@@ -3703,18 +3783,98 @@ Just like we used **Post-It Notes → Library of Congress** for memory and **Cus
 
 ---
 
-### Research Tool Integrations (Q3+ 2025)
+### Additional v1.0+ Components
+
+#### C7: Quality Gate System (6-8 weeks) [v1.1]
+**Purpose**: 4-stage progressive quality assurance for research workflows
+
+**Capabilities**:
+- Stage 1: Fast local validation (pre-commit hooks, unit tests)
+- Stage 2: Integration validation (service tests, API contracts)
+- Stage 3: Research validation (reproducibility checks, data provenance)
+- Stage 4: Publication validation (citation completeness, figure quality)
+
+**Impact**: Systematic quality control preventing downstream failures
+
+---
+
+#### C9: NVIDIA Omniverse Integration (8-10 weeks) [Post-v1.0]
+**Purpose**: Conversational robotics and ML workflows via Omniverse
+
+**Capabilities**:
+- Physics-accurate simulation integration
+- Reinforcement learning environment management
+- Imitation learning workflows
+- Autonomous systems research support
+
+**Impact**: Enables cutting-edge robotics and autonomy research
+
+---
+
+#### C17: Module Compliance & Technical Debt (4-6 weeks) [v1.1]
+**Purpose**: Automated compliance validation and technical debt tracking
+
+**Capabilities**:
+- ADR compliance checking (core/ADR-0009 Module Directory Schema)
+- Technical debt identification and prioritization
+- Code quality metrics and trends
+- Automated remediation recommendations
+
+**Impact**: Maintains code quality at scale as MARS grows
+
+---
+
+#### C18: Capability Registry (4-6 weeks) [Post-v1.0]
+**Purpose**: Service discovery and semantic routing for agent capabilities
+
+**Capabilities**:
+- Dynamic service registration and discovery
+- Semantic capability matching
+- Load-balanced routing
+- Health-aware service selection
+
+**Impact**: Enables elastic scaling and intelligent workload distribution
+
+---
+
+#### C19: Research Phase Framework (4-6 weeks) [Post-v1.0]
+**Purpose**: Structured research methodology support (conceptual → design → empirical → analytic → dissemination)
+
+**Capabilities**:
+- Phase templates and validation gates
+- Progress tracking and milestone management
+- Phase transition automation
+- Methodology compliance checking
+
+**Impact**: Ensures rigorous research methodology and reproducibility
+
+---
+
+#### C20: Development Review Integration (3-4 weeks) [Post-v1.0]
+**Purpose**: SRR/PDR/CDR/TRR/FRR review gates for research projects
+
+**Capabilities**:
+- Automated review gate preparation
+- Requirements traceability validation
+- Design documentation generation
+- Test readiness assessment
+
+**Impact**: Ensures DoD-compliant development rigor
+
+---
+
+### Domain-Specific Extensions (Q3+ 2025)
 
 **Intelligent Autonomous Systems Stack** (Tier 1 priority for robotics and autonomy research):
-- **ROS2 MCP** (4-6 weeks) - Topic monitoring, launch files, parameter server, bag analysis
-- **NVIDIA Isaac-Sim** (6-8 weeks) - Physics-accurate 3D simulation for autonomous systems
-- **Isaac-Lab RL** (6-8 weeks) - GPU-accelerated reinforcement learning
-- **NVIDIA Groot** (8-10 weeks) - Imitation learning foundation model
+- **C30: ROS2 MCP Service** (4-6 weeks) - Topic monitoring, launch files, parameter server, bag analysis
+- **NVIDIA Isaac-Sim** (6-8 weeks) - Physics-accurate 3D simulation for autonomous systems (supports C9)
+- **Isaac-Lab RL** (6-8 weeks) - GPU-accelerated reinforcement learning (supports C9)
+- **NVIDIA Groot** (8-10 weeks) - Imitation learning foundation model (supports C9)
 
-**HPC & Workflows**:
-- **SLURM Scheduler** (3-4 weeks) - HPC job scheduling and cluster management
-- **Kafka Broker** (3-4 weeks) - Event streaming for real-time data (ROS2 synergy)
-- **Nextflow/Snakemake** (4-5 weeks) - Scientific workflow management
+**HPC & Workflow Engines**:
+- **C32: HPC Scheduler** (3-4 weeks) - SLURM integration for HPC job scheduling and cluster management
+- **C31: Kafka Broker** (3-4 weeks) - Event streaming for real-time data (ROS2 synergy with C30)
+- **C33: Workflow Engine** (4-5 weeks) - Nextflow/Snakemake integration for scientific workflow management
 
 **Research Support**:
 - **Manuscript Editor** (Overleaf - 5-6 weeks) - Collaborative LaTeX editing
@@ -4790,7 +4950,7 @@ test(rag): Add integration tests for vector search
 
 **What**: Unit tests, integration tests, end-to-end tests
 **Why**: Prevent regressions, enable confident refactoring
-**How MARS Uses It**: Pytest with markers (unit/integration), 434+ tests
+**How MARS Uses It**: Pytest with markers (unit/integration), 1,596 tests
 
 **Test Organization**:
 ```
@@ -4803,7 +4963,7 @@ modules/services/*/tests/  # Service-specific tests
   └─ gitlab-sync: 260 tests
 ```
 
-**Business Value**: 434+ tests catch bugs before production, enable rapid iteration
+**Business Value**: 1,596 tests catch bugs before production, enable rapid iteration
 
 ---
 
@@ -4870,7 +5030,7 @@ Developer Workflow (Using mars-dev Standards)
 |----------|------|---------|--------------|
 | **Infrastructure as Code** | Docker Compose | Reproducible deployments | 2-command setup |
 | **Version Control** | Git + GitLab | Collaborative development | Clear change history |
-| **Testing** | Pytest | Prevent regressions | 434+ tests guard quality |
+| **Testing** | Pytest | Prevent regressions | 1,596 tests guard quality |
 | **ADRs** | Markdown docs | Document decisions | Institutional knowledge |
 | **CI/CD** | GitLab CI | Automated validation | Catch issues before merge |
 
@@ -5561,7 +5721,7 @@ This diagram shows **everything** in MARS-RT (runtime system) - current, planned
 - **LangGraph**: Orchestrator uses state machines for complex workflows
 - **OpenTelemetry**: Planned Q1 2025 for distributed tracing
 
-**Business Value**: Complete system diagram shows **production-ready architecture** - not a prototype. 434+ tests validate all integration points.
+**Business Value**: Complete system diagram shows **production-ready architecture** - not a prototype. 1,596 tests validate all integration points.
 
 **Next**: Part 5.14 - Comprehensive mars-dev Architecture (Development Infrastructure)
 
@@ -5573,7 +5733,7 @@ This diagram shows **everything** in MARS-RT (runtime system) - current, planned
 
 This diagram shows **mars-dev infrastructure** - the tools and processes used to **build MARS itself**:
 - CI/CD pipelines (GitLab CI)
-- Testing infrastructure (pytest, 434+ tests)
+- Testing infrastructure (pytest, 1,596 tests)
 - Development workflows (git, merge requests, ADRs)
 - Build systems (Docker builds, compose fragments)
 
@@ -5642,7 +5802,7 @@ This diagram shows **mars-dev infrastructure** - the tools and processes used to
 │  │  │                                                                                       │  │   │
 │  │  │  Developer Runs: pytest tests/                                                       │  │   │
 │  │  │      │                                                                                │  │   │
-│  │  │      ├─ Unit Tests (pytest -m unit)                  [434 passed, 2s]                │  │   │
+│  │  │      ├─ Unit Tests (pytest -m unit)                  [1,596 passed, 2s]              │  │   │
 │  │  │      ├─ Integration Tests (pytest -m integration)    [Skip - needs services]         │  │   │
 │  │  │      └─ Coverage Report                              [85% coverage]                  │  │   │
 │  │  │                                                                                       │  │   │
@@ -5776,7 +5936,7 @@ This diagram shows **mars-dev infrastructure** - the tools and processes used to
 │  │  Pipeline Summary                                                                            │   │
 │  │  ├─ Total Duration: 3m 45s (parallelization reduces from ~10m)                              │   │
 │  │  ├─ Total Jobs: 17 jobs across 7 stages                                                     │   │
-│  │  ├─ Total Tests Run: 434+ tests                                                             │   │
+│  │  ├─ Total Tests Run: 1,596 tests                                                              │   │
 │  │  └─ Result: [PASS] → Merge Request approved for merging ✅                                  │   │
 │  │                                                                                             │   │
 │  └─────────────────────────────────────────────────────────────────────────────────────────────┘   │
@@ -5795,7 +5955,7 @@ This diagram shows **mars-dev infrastructure** - the tools and processes used to
 │  │  │  ───────────────────────────────────────────                                         │  │   │
 │  │  │                                                                                       │  │   │
 │  │  │  ✅ CI Pipeline Passed (all 7 stages, 17 jobs)                                       │  │   │
-│  │  │  ✅ 434+ tests passed                                                                │  │   │
+│  │  │  ✅ 1,596 tests passed                                                               │  │   │
 │  │  │  ✅ 85% code coverage                                                                │  │   │
 │  │  │  ✅ ADR-028 compliance validated                                                     │  │   │
 │  │  │  ✅ No merge conflicts                                                               │  │   │
@@ -5900,13 +6060,13 @@ This diagram shows **mars-dev infrastructure** - the tools and processes used to
 
                                       MARS-DEV SUMMARY
                                  ───────────────────────────
-    Total Tests:        434+ tests (18 core, 56 mars-dev, 360+ modules)
+    Total Tests:        1,596 tests (179 core, 542 mars-dev, 288 agents, 422 services, 165 other)
     CI Pipeline:        7 stages, 17 jobs, 3m 45s duration (parallelized)
-    ADRs:               37 architectural decisions documented
+    ADRs:               65 architectural decisions documented
     E15 Constraints:    18 development rules (4 ADR-028 communication rules)
     Pre-Commit Hooks:   5 hooks (catch 80% of CI failures locally)
     Code Coverage:      85% (enforced via CI)
-    Development Time:   2-command setup (mars-dev up -d), 434+ tests validate quality
+    Development Time:   2-command setup (mars-dev up -d), 1,596 tests validate quality
 ```
 
 ---
@@ -5916,8 +6076,8 @@ This diagram shows **mars-dev infrastructure** - the tools and processes used to
 **Development Standards in Action**:
 1. **Docker Compose** - Reproducible infrastructure (`mars-dev up -d`)
 2. **Git Workflows** - Feature branches, conventional commits, merge requests
-3. **Testing** - 434+ tests (unit/integration), 85% coverage
-4. **ADRs** - 37 architectural decisions documented (institutional knowledge)
+3. **Testing** - 1,596 tests (unit/integration), 85% coverage
+4. **ADRs** - 65 architectural decisions documented (institutional knowledge)
 5. **CI/CD** - 7-stage GitLab pipeline (automated quality gates)
 
 **Development Protocols in Action**:
@@ -5931,7 +6091,7 @@ This diagram shows **mars-dev infrastructure** - the tools and processes used to
 - **14 other development rules** (compose, CLI, environment, build, style, git, file org)
 - **Enforced via**: Pre-commit hooks + GitLab CI + `mars-dev validate` + `mars audit communication`
 
-**Business Value**: Development infrastructure enables **safe, rapid iteration** - multiple developers can contribute without breaking production. 434+ tests + 7-stage CI pipeline + peer review = **high-quality, reliable software**.
+**Business Value**: Development infrastructure enables **safe, rapid iteration** - multiple developers can contribute without breaking production. 1,596 tests + 7-stage CI pipeline + peer review = **high-quality, reliable software**.
 
 ---
 
@@ -6423,7 +6583,7 @@ This diagram shows **mars-dev infrastructure** - the tools and processes used to
 
 **Mitigation Strategies**:
 1. **Modular Architecture**: Not monolithic, easy for others to maintain
-2. **Comprehensive Documentation**: 36+ ADRs, extensive README files
+2. **Comprehensive Documentation**: 65 ADRs, extensive README files
 3. **Core Team**: 1-2 FTE trained to maintain (not just me)
 4. **Open-Source**: All code in git, no proprietary dependencies
 5. **Templates**: Module scaffolding templates for new agents
