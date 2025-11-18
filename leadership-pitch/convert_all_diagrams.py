@@ -26,24 +26,47 @@ def main():
 
     print(f"Total lines in input: {len(lines)}", file=sys.stderr)
 
-    # Step 1: Replace MARS-RT architecture diagram (lines 5187-5542)
-    # Line 5187: ### The Complete MARS-RT Architecture
-    # Line 5188: (blank)
-    # Line 5189: ```
-    # Lines 5190-5541: ASCII art
-    # Line 5542: ```
-    print("\nReplacing MARS-RT architecture diagram (lines 5187-5542)...", file=sys.stderr)
+    # Step 1: Replace MARS-RT architecture diagram (find dynamically)
+    print("\nReplacing MARS-RT architecture diagram...", file=sys.stderr)
     replacement_mars_rt = [
         "### The Complete MARS-RT Architecture\n",
         "\n",
-        "![MARS Runtime Architecture](diagrams/mars-rt-architecture.pdf){ width=100% }\n",
+        "![MARS Runtime Architecture](diagrams/mars-rt-architecture.pdf)\n",
         "\n"
     ]
 
-    # Replace lines 5186-5541 (0-indexed: 5186-5541)
-    lines[5186:5542] = replacement_mars_rt
-    print(f"  Replaced {5542-5186} lines with {len(replacement_mars_rt)} lines", file=sys.stderr)
-    print(f"  New total lines: {len(lines)}", file=sys.stderr)
+    # Find MARS-RT architecture header dynamically
+    mars_rt_header_line = None
+    for i, line in enumerate(lines):
+        if '### The Complete MARS-RT Architecture' in line:
+            mars_rt_header_line = i
+            break
+
+    if mars_rt_header_line is not None:
+        print(f"Found MARS-RT architecture header at line {mars_rt_header_line + 1}", file=sys.stderr)
+
+        # Find the closing backticks
+        start_backtick = None
+        end_backtick = None
+
+        # Start searching from header line
+        for i in range(mars_rt_header_line, min(len(lines), mars_rt_header_line + 500)):
+            if '```' in lines[i] and start_backtick is None:
+                start_backtick = i
+            elif '```' in lines[i] and start_backtick is not None and i > start_backtick:
+                end_backtick = i
+                break
+
+        if start_backtick and end_backtick:
+            print(f"  Diagram from line {start_backtick + 1} to {end_backtick + 1}", file=sys.stderr)
+            # Replace from header to end of diagram
+            lines[mars_rt_header_line:end_backtick+1] = replacement_mars_rt
+            print(f"  Replaced {end_backtick - mars_rt_header_line + 1} lines with {len(replacement_mars_rt)} lines", file=sys.stderr)
+            print(f"  New total lines: {len(lines)}", file=sys.stderr)
+        else:
+            print("  ⚠️ Could not find MARS-RT diagram backticks", file=sys.stderr)
+    else:
+        print("  ⚠️ MARS-RT architecture header not found", file=sys.stderr)
 
     # Step 2: Replace mars-dev architecture diagram
     # After step 1, line numbers have shifted
@@ -79,7 +102,7 @@ def main():
             replacement_mars_dev = [
                 "### The Complete mars-dev Architecture\n",
                 "\n",
-                "![mars-dev Architecture](diagrams/mars-dev-architecture.pdf){ width=100% }\n",
+                "![mars-dev Architecture](diagrams/mars-dev-architecture.pdf)\n",
                 "\n"
             ]
 
@@ -123,13 +146,18 @@ def main():
             diagram_path = 'diagrams/merge-request-workflow.pdf'
         elif 'protocol 4: adr' in context_lower or 'adr authoring' in context_lower:
             diagram_path = 'diagrams/adr-authoring-workflow.pdf'
+        elif 'system architecture' in context_lower and ('appendix c' in context_lower or 'technical architecture' in context_lower):
+            diagram_path = 'diagrams/appendix-c-architecture.pdf'
         else:
             # Keep original if we can't identify
             print(f"  Warning: Could not identify mermaid diagram {mermaid_count}", file=sys.stderr)
             print(f"    Context: {context_before[-100:]}", file=sys.stderr)
             return match.group(0)
 
-        return f'{context_before}\n\n![Diagram]({diagram_path}){{ width=100% }}\n'
+        # Remove trailing whitespace from context, add exactly one blank line before image
+        context_clean = context_before.rstrip()
+        # Don't specify width - let header.tex defaults handle it (with keepaspectratio)
+        return f'{context_clean}\n\n![Diagram]({diagram_path})\n\n'
 
     content = re.sub(mermaid_pattern, mermaid_replacer, content, flags=re.DOTALL)
     print(f"  Converted {mermaid_count} mermaid diagrams", file=sys.stderr)
@@ -147,7 +175,8 @@ def main():
         # Check if it's the orchestration flow
         if 'Task: Design Next Experiment' in code_content and 'Orchestrator' in code_content:
             orch_count += 1
-            return f'{context_before}\n\n![Orchestration Flow](diagrams/orchestration-flow.pdf){{ width=100% }}\n'
+            # Don't specify width - let header.tex defaults handle it (with keepaspectratio)
+            return f'{context_before}\n\n![Orchestration Flow](diagrams/orchestration-flow.pdf)\n'
         else:
             return match.group(0)
 
