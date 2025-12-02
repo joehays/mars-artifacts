@@ -1360,244 +1360,6 @@ The question is not "will this work?" - it's **"can we afford to be late?"**
 
 ---
 
-# Part 2.7: What Orchestrated AI Can Do For You - Concrete Use Cases
-
-**Purpose**: Before diving into technical details, let's ground the discussion in concrete, practical use cases. This section shows you **exactly what orchestrated AI can do for your research today** and what's coming soon.
-
-**Reading Time**: 10-15 minutes
-
----
-
-## Complete Use Case List
-
-This list represents **real capabilities** that orchestrated AI systems can provide for research organizations. The first 6 are **operational today** in MARS, the next 7 are **planned for v1.0** (Q1-Q2 2025), and the final 2+ are **future expansion areas**.
-
-**Important Note**: This list is just the beginning. As MARS grows and matures, additional use cases and ideas will be conceived, planned, and implemented. The platform's modular architecture means that new capabilities can be added in 3-7 weeks by domain experts working with the core team. Every research group that adopts MARS will likely identify 5-10 additional use cases specific to their domain that we haven't even imagined yet.
-
----
-
-**Operational (6 Use Cases)**:
-- **Literature Management Workflow**: Automated literature search, review synthesis, and citation management (85-90% time savings)
-
-  *Think of this as your personal librarian.*
-
-  When you already know what topic you're researching, this helps you:
-  - **Find** papers you need (search by topic, author, date)
-  - **Organize** them in collections (like folders on your computer)
-  - **Read and cite** them properly (generates bibliographies automatically)
-  - **Summarize** them (AI reads 20-30 papers and writes a literature review for you)
-
-  Example: You're writing a proposal on "lithium battery electrodes" and need to review relevant papers. You tell MARS what you need, and it finds papers, organizes them, reads them, and writes a summary with proper citations. Instead of taking you 20-25 hours, it takes 2-3 hours.
-
-- **Documentation Validation Workflow**: Auto-generated docs from code with citation insertion and diagram generation (75-85% reduction)
-
-  *Think of this as a technical writer that never sleeps.*
-
-  After you finish coding, this automatically:
-  - **Generates** documentation by reading your code
-  - **Adds citations** to the papers your approach is based on
-  - **Creates diagrams** showing architecture and data flow
-  - **Checks** for broken links and missing sections
-  - **Formats** everything to your organization's standards
-
-  Example: You finish writing code for a new algorithm. MARS reads your code, generates documentation explaining what it does, adds citations to the papers you based it on, and creates architecture diagrams—all automatically. You just review and approve instead of spending 8-12 hours writing docs.
-
-- **Knowledge Graph Integration**: Structured tracking of paper→requirement→design→experiment relationships with provenance
-
-  *Think of this as a research detective that connects the dots.*
-
-  This tracks the complete research lineage so you can:
-  - **Trace** which paper inspired which design decision
-  - **Connect** requirements to experiments to results
-  - **Discover** relationships across different research domains
-  - **Preserve** institutional knowledge when researchers leave
-  - **Answer** questions like "why did we make this choice 6 months ago?"
-
-  Example: You're looking at experimental results and wondering "which paper inspired this approach?" MARS shows you the complete chain: Paper A → Design Requirement B → Experiment C → Result D, with all relationships tracked automatically.
-
-- **Experiment Tracking Workflow**: Automated experiment metadata logging with reproducibility infrastructure (90% reduction)
-
-  *Think of this as a lab notebook that writes itself.*
-
-  Every time you run an experiment, MARS automatically:
-  - **Logs** all parameters, settings, and configurations
-  - **Records** results, metrics, and artifacts
-  - **Timestamps** everything with full provenance
-  - **Stores** data in organized, searchable format
-  - **Enables** perfect reproducibility months or years later
-
-  Example: You run 50 experiments testing different parameters. MARS automatically logs every parameter, result, and setting. Six months later, you (or a colleague) can reproduce experiment #23 exactly because MARS recorded everything. No more "how did we run that experiment again?"
-
-- **Semantic Code Search**: Vector-based code/document search with ~40% token reduction and memory across sessions
-
-  *Think of this as a search engine that understands meaning, not just keywords.*
-
-  This helps you find code and documentation by:
-  - **Understanding** what you mean, not just matching words
-  - **Finding** relevant sections even with different terminology
-  - **Reducing** AI context size by 40% (faster, cheaper)
-  - **Remembering** context across multiple work sessions
-  - **Grounding** AI responses in actual codebase (fewer hallucinations)
-
-  Example: You ask "where do we handle authentication errors?" MARS finds relevant code even though it's labeled "handle_auth_failure" (different words, same meaning). Regular keyword search would miss it because you searched for "errors" not "failure."
-
-- **SysML/UML Diagram Generation**: AI-generated architecture diagrams from text descriptions (83-90% time savings)
-
-  *Think of this as an artist who draws exactly what you describe.*
-
-  You describe your system in plain English, and MARS:
-  - **Generates** professional SysML/UML diagrams
-  - **Renders** them in publication-quality format
-  - **Updates** diagrams when your system changes
-  - **Maintains** consistent notation across all projects
-  - **Versions** diagrams in git alongside your code
-
-  Example: You say "I need a diagram showing how the sensor data flows from the robot to the cloud server through three processing stages." MARS generates a professional sequence diagram in 15 minutes vs. 3-5 hours manually creating it in PowerPoint or draw.io.
-
-**Planned v1.0 (7 Use Cases)**:
-- **Automated Literature Surveillance**: Daily monitoring of 9,700 papers with multi-stage AI filtering (90%+ coverage vs. <5% manual)
-
-  *Think of this as a 24/7 news alert service that never sleeps.*
-
-  This runs automatically every night while you sleep to:
-  - **Monitor** all major science publishers (arXiv, PubMed, journals)
-  - **Scan** 9,700+ new papers published every day
-  - **Filter** them down to 10-15 most relevant to YOUR research
-  - **Summarize** each relevant paper with AI-generated abstracts
-  - **Alert** you each morning with "here's what you need to know today"
-
-  Example: You told MARS once that you care about "lithium batteries." Every morning, you get a digest: "Last night, 47 battery papers were published. Here are the 8 most relevant to your work, with AI-generated summaries." It watches the world while you sleep—90%+ coverage vs. <5% manual.
-
-- **Literature Gap Analysis**: On-demand gap analysis queries with citation recommendations and cross-domain synthesis
-
-  *Think of this as a research consultant who spots what's missing.*
-
-  When you need to find research gaps, MARS:
-  - **Analyzes** hundreds of papers in your field
-  - **Identifies** approaches that haven't been tried
-  - **Recommends** papers to read for background
-  - **Suggests** citations you should include
-  - **Connects** ideas across different research domains
-
-  Example: You ask "what haven't we tried yet for improving battery capacity?" MARS analyzes 500 papers, identifies 3 approaches that haven't been explored in your subfield, and recommends 12 papers to read for background. This used to take weeks of manual review.
-
-- **Research Program Orchestration**: Multi-month automated research workflows with agent coordination and human oversight
-
-  *Think of this as a project manager who coordinates your entire research team.*
-
-  For complex multi-month projects, MARS:
-  - **Decomposes** your goal into phases (literature → design → implementation → testing)
-  - **Assigns** tasks to specialized AI agents
-  - **Coordinates** agent work so they collaborate effectively
-  - **Alerts** you only at key decision points (not daily micromanagement)
-  - **Tracks** progress and adapts when things change
-
-  Example: You say "I want to develop a new battery electrode material." MARS breaks it into phases (literature review → simulation → synthesis → testing), assigns tasks to AI agents, and alerts you only at decision points. You review milestones and make strategic decisions, not micromanage daily tasks.
-
-- **Research Plan Authoring**: AI-generated research plans from high-level goals with publication-ready formatting
-
-  *Think of this as a grant writer who creates first drafts.*
-
-  Starting from your high-level idea, MARS:
-  - **Queries** literature for relevant background
-  - **Generates** research plan with milestones and methods
-  - **Includes** expected outcomes and success criteria
-  - **Formats** to your organization's template
-  - **Drafts** complete sections ready for your refinement
-
-  Example: You have an idea for a research project but need a detailed plan for funding. You tell MARS your goals, and it generates a 10-page research plan with background, methods, timeline, and expected outcomes. You refine the strategic direction and submit—days instead of weeks.
-
-- **Automated Code Development**: Specification-driven code generation with 95%+ accuracy and automated testing
-
-  *Think of this as a programmer who codes exactly to your blueprint.*
-
-  You write what you want (specification), MARS creates it:
-  - **Generates** formal specification from your description
-  - **Reviews** spec with you before writing code (catch errors early)
-  - **Implements** code from specification (95%+ accuracy)
-  - **Writes** automated tests to validate correctness
-  - **Validates** everything works before you review
-
-  Example: You write a 2-page specification: "I need a function that processes sensor data, filters noise, and detects anomalies." MARS generates the code, writes tests, and validates it works. You review the spec and final code, skipping the tedious implementation work.
-
-- **MARS Codebase Reverse Engineering**: AI-powered architecture understanding with diagram generation and semantic search
-
-  *Think of this as a tour guide for unfamiliar code.*
-
-  When you need to understand complex codebases, MARS:
-  - **Analyzes** code structure and relationships
-  - **Generates** architecture diagrams showing how it works
-  - **Explains** each component in plain English
-  - **Answers** questions about implementation details
-  - **Reduces** learning time from days to hours
-
-  Example: You inherit a 50,000-line codebase from another team. You ask "how does the authentication system work?" MARS analyzes the code, generates a sequence diagram showing the login flow, and explains each component. You understand in 30 minutes vs. 2 days of manually reading code.
-
-- **Documentation Maturity**: Automated publication-grade documentation with gap detection and draft generation
-
-  *Think of this as a copy editor who fills in missing sections.*
-
-  For large documentation projects, MARS:
-  - **Scans** all documents and identifies gaps
-  - **Detects** broken links, missing citations, incomplete sections
-  - **Generates** drafts for missing content
-  - **Updates** citations automatically via Zotero
-  - **Produces** publication-ready documentation package
-
-  Example: You have 50 documents for a project, but some are incomplete. MARS scans everything, identifies 15 missing sections, generates drafts for 12 of them, fixes 47 broken links, and updates all citations. You review and approve instead of spending weeks tracking down every gap.
-
-**Future/Proposed (2+ Use Cases)**:
-- **Robotics Workflow Integration**: Conversational ML robotics research with 80% reduction in manual Python coding
-
-  *Think of this as a robotics engineer you can talk to.*
-
-  For ML robotics research workflows, MARS will:
-  - **Collect** data from ROS2 sensor streams
-  - **Preprocess** datasets for training
-  - **Submit** GPU training jobs to HPC cluster
-  - **Validate** learned policies in simulation (Isaac-Sim, Isaac-Lab)
-  - **Deploy** successful models to robot hardware
-
-  Example: You say "train a navigation policy using yesterday's sensor data." MARS finds the ROS2 bag files, preprocesses them, submits a training job to the GPU cluster (4 GPUs, 8 hours), tests the result in Isaac-Lab simulation, and deploys it to the robot—all from one conversational sentence. 80% reduction in manual Python coding for ML workflows.
-
-- **Computational Workflow Management**: HPC cluster integration with pipeline orchestration for complex computational workflows
-
-  *Think of this as a supercomputer scheduler you can chat with.*
-
-  For complex computational campaigns, MARS will:
-  - **Design** multi-stage computational pipelines
-  - **Schedule** jobs across HPC cluster resources
-  - **Monitor** progress and handle failures
-  - **Optimize** resource allocation (CPU, GPU, memory)
-  - **Alert** you when results are ready for analysis
-
-  Example: You need to run 1,000 simulations with different parameters on a computing cluster (parameter sweep for materials design). You describe what you want, and MARS sets up the Nextflow/Snakemake workflow, schedules jobs via SLURM, monitors progress, and alerts you when results are ready. You don't write cluster submission scripts or babysit job queues.
-
----
-
-## What This Means For You
-
-**Today** (6 operational use cases):
-- 85-90% time savings on literature management
-- 75-85% reduction in documentation effort
-- Perfect reproducibility for all experiments
-- Institutional knowledge that survives personnel changes
-
-**Q1-Q2 2025** (7 additional v1.0 use cases):
-- 90%+ literature coverage vs. <5% manual
-- Multi-month research programs with automated coordination
-- Specification-driven code development (95%+ accuracy)
-- Publication-grade documentation automatically
-
-**Future** (2+ expansion areas + domain-specific customization):
-- Robotics workflow integration (80% reduction in manual coding)
-- HPC computational workflows (conversational job scheduling)
-- **Your domain-specific needs** (3-7 weeks to implement new capabilities)
-
-**Key Insight**: Every research group that adopts MARS will discover new use cases we haven't thought of yet. The platform is designed to grow with your needs—not just execute a fixed set of capabilities.
-
----
-
 # Part 3: Technology Primer for Research Leaders
 
 **Purpose**: Explain AI technologies in plain language, no jargon, for research scientists without deep AI expertise.
@@ -2161,19 +1923,10 @@ AI coordinator managing AI agents:
 
 **Core Concept**: Research workflows are **graphs**
 
-```
-Task: Design Next Experiment
-    ↓
-┌───────────────────────┐
-│  Orchestrator         │
-└───────────────────────┘
-    ├→ Literature Agent → "Recent papers suggest Method A"
-    ├→ Data Agent → "Our data shows Trend B"
-    ├→ Knowledge Graph Agent → "Prior work used Parameters C"
-    └→ Experiment Design Agent (synthesizes all inputs)
-        ↓
-    Present synthesis to Human Researcher
-```
+
+
+![Orchestration Flow](diagrams/orchestration-flow.pdf){ width=100% }
+
 
 **Orchestrator's Job**:
 1. **Decompose** complex task into subtasks
@@ -4869,28 +4622,9 @@ MCP is like **USB-C for AI agents** - a standardized way for agents to connect t
 
 #### How MCP Protocol Works
 
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#e1f5ff', 'primaryTextColor': '#000', 'primaryBorderColor': '#0277bd', 'lineColor': '#0277bd', 'secondaryColor': '#fff3e0', 'tertiaryColor': '#f3e5f5'}}}%%
-sequenceDiagram
-    participant Agent as Literature Monitor<br/>(MARS Agent)
-    participant MCP as Zotero MCP Server<br/>(Tool Provider)
-    participant DB as Zotero Database
+![Diagram](diagrams/mcp-protocol.pdf){ width=100% }
 
-    Note over Agent,DB: MCP Request/Response Protocol
 
-    Agent->>MCP: 1. MCP Request
-    Note right of Agent: {<br/>  "tool": "search_papers",<br/>  "params": {<br/>    "query": "neuromorphic computing",<br/>    "limit": 10<br/>  }<br/>}
-
-    MCP->>DB: 2. Execute Query<br/>(Search Zotero DB)
-    DB-->>MCP: [10 papers found]
-
-    MCP->>Agent: 3. MCP Response
-    Note left of MCP: {<br/>  "results": [<br/>    {"title": "...", ...},<br/>    {"title": "...", ...}<br/>  ],<br/>  "count": 10<br/>}
-
-    Agent->>Agent: Process results
-
-    Note over Agent,DB: Key Features:<br/>• Standard request/response<br/>• Error handling<br/>• Streaming support<br/>• Tool abstraction
-```
 
 **Key Protocol Features**:
 - **Request**: Agent asks MCP server to perform action (search, store, query)
@@ -4940,40 +4674,9 @@ A2A is like **Slack for AI agents** - a standardized way for agents to communica
 
 #### How A2A Protocol Works (with Shared Context)
 
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#e8f5e9', 'primaryTextColor': '#000', 'primaryBorderColor': '#2e7d32', 'lineColor': '#2e7d32', 'secondaryColor': '#fff3e0', 'tertiaryColor': '#f3e5f5'}}}%%
-sequenceDiagram
-    participant User
-    participant Orch as Orchestrator Agent
-    participant LitMon as Literature Monitor
-    participant Analysis as Analysis Agent
+![Diagram](diagrams/a2a-protocol.pdf){ width=100% }
 
-    Note over User,Analysis: A2A Protocol: Shared Context Example
 
-    User->>Orch: "Analyze neuromorphic papers<br/>and identify gaps"
-
-    Note over Orch: Context:<br/>• User query<br/>• Task: Analysis<br/>• Domain: Neuromorphic
-
-    Orch->>LitMon: 1. A2A Delegation Request
-    Note right of Orch: {<br/>  "task": "find_papers",<br/>  "context": {<br/>    "query": "neuromorphic computing",<br/>    "user_intent": "gap analysis",<br/>    "previous_results": []<br/>  }<br/>}
-
-    Note over LitMon: Context (received):<br/>• User wants gaps<br/>• Focus: neuromorphic<br/>• No prior results
-
-    LitMon->>LitMon: 2. Execute<br/>(Search + Filter)
-    Note right of LitMon: [50 papers found]
-
-    LitMon->>Orch: 3. A2A Response
-    Note left of LitMon: {<br/>  "papers": [...],<br/>  "context_update": {<br/>    "search_performed": "✓",<br/>    "papers_count": 50,<br/>    "next_suggested": "analyze_citations"<br/>  }<br/>}
-
-    Note over Orch: Context (updated):<br/>• User query<br/>• Task: Analysis<br/>• Papers: 50 found ✓<br/>• Next: Analyze
-
-    Orch->>Analysis: 4. Next A2A Delegation
-    Note right of Orch: {<br/>  "task": "analyze_trends",<br/>  "context": {<br/>    "papers": [50 papers],<br/>    "user_intent": "gap analysis",<br/>    "search_complete": true<br/>  }<br/>}
-
-    Note over Analysis: Context (received):<br/>• 50 papers input<br/>• Find gaps<br/>• Search done ✓
-
-    Note over User,Analysis: Key Features:<br/>• Stateful workflows (cumulative context)<br/>• Intent preservation<br/>• Suggested next steps<br/>• Provenance tracking
-```
 
 **Key Protocol Features (Shared Context)**:
 - **Stateful Workflows**: Each agent adds to shared context (cumulative knowledge)
@@ -5005,37 +4708,9 @@ LangGraph is like **Visio for AI workflows** - you design agent workflows as flo
 
 #### How LangGraph Protocol Works
 
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#f3e5f5', 'primaryTextColor': '#000', 'primaryBorderColor': '#6a1b9a', 'lineColor': '#6a1b9a', 'secondaryColor': '#fff3e0', 'tertiaryColor': '#e1f5ff'}}}%%
-flowchart TD
-    Start([User Query:<br/>neuromorphic papers]) --> InitState
+![Diagram](diagrams/langgraph-state-machine.pdf){ width=100% }
 
-    InitState[Initialize State]
-    InitState --> |"State = {<br/>  user_query: 'neuromorphic papers',<br/>  papers: [],<br/>  relevant_papers: [],<br/>  summary: null,<br/>  current_step: 'search'<br/>}"| Node1
 
-    Node1[Node 1:<br/>Search Papers]
-    Node1 --> |"State Update:<br/>papers = [50 results]<br/>current_step = 'filter'"| Node2
-
-    Node2[Node 2:<br/>Filter Relevant]
-    Node2 --> |"State Update:<br/>relevant_papers = [10 filtered]<br/>current_step = 'summarize'"| Decision
-
-    Decision{Conditional Logic:<br/>Papers > 5?}
-    Decision -->|Yes<br/>10 papers found| Node3[Node 3:<br/>Summarize Results]
-    Decision -->|No<br/>Less than 5 papers| End1([END:<br/>Insufficient results])
-
-    Node3 --> |"State Update:<br/>summary = '...'<br/>current_step = 'complete'"| End2([END:<br/>Summary complete])
-
-    style InitState fill:#e1f5ff
-    style Node1 fill:#f3e5f5
-    style Node2 fill:#fff3e0
-    style Decision fill:#ffebee
-    style Node3 fill:#e8f5e9
-    style End1 fill:#ffcdd2
-    style End2 fill:#c8e6c9
-
-    classDef stateBox fill:#fff,stroke:#333,stroke-width:2px
-    class InitState,Node1,Node2,Node3 stateBox
-```
 
 **Key Protocol Features**:
 - **State Persistence**: Workflow state saved at each node (can resume if interrupted)
@@ -5066,34 +4741,9 @@ OpenTelemetry is like **FedEx tracking for AI requests** - trace every step of a
 
 #### How OpenTelemetry Protocol Works
 
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#fff3e0', 'primaryTextColor': '#000', 'primaryBorderColor': '#e65100', 'lineColor': '#e65100', 'secondaryColor': '#e1f5ff', 'tertiaryColor': '#f3e5f5'}}}%%
-flowchart TD
-    Trace[Trace ID: abc123<br/>Research Query:<br/>neuromorphic computing]
+![Diagram](diagrams/opentelemetry-trace.pdf){ width=100% }
 
-    Trace --> Span1[Span 1: orchestrator.receive_query<br/>Duration: 2ms<br/>user: researcher, query: neuro]
 
-    Span1 --> Span2[Span 2: a2a.delegate_to_litmonitor<br/>Duration: 300ms<br/>agent: lit-monitor]
-
-    Span2 --> Span3[Span 3: mcp.call_zotero<br/>Duration: 250ms<br/>tool: search_papers]
-
-    Span3 --> Span4[Span 4: zotero.query_database<br/>Duration: 200ms<br/>results: 50 papers]
-
-    Span2 --> Span5[Span 5: litmonitor.filter_relevant<br/>Duration: 40ms<br/>filtered: 10 papers]
-
-    Span1 --> Span6[Span 6: orchestrator.synthesize_summary<br/>Duration: 50ms<br/>llm_tokens: 1500]
-
-    Span6 --> Summary[Total Duration: 350ms<br/>Cost: $0.02 LLM tokens]
-
-    style Trace fill:#fff3e0,stroke:#e65100,stroke-width:3px
-    style Span1 fill:#e1f5ff,stroke:#0277bd,stroke-width:2px
-    style Span2 fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px
-    style Span3 fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
-    style Span4 fill:#fff9c4,stroke:#f57f17,stroke-width:2px
-    style Span5 fill:#ffebee,stroke:#c62828,stroke-width:2px
-    style Span6 fill:#e0f2f1,stroke:#00695c,stroke-width:2px
-    style Summary fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px
-```
 
 **Key Protocol Features**:
 - **Parent-Child Relationships**: Trace nested operations (A calls B calls C)
@@ -5293,31 +4943,9 @@ Developer Workflow (Using mars-dev Standards)
 **Why**: Catch issues locally before pushing to GitLab (faster feedback)
 **How**: `.pre-commit-config.yaml` defines hooks executed via `husky` or `pre-commit`
 
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#e3f2fd', 'primaryTextColor': '#000', 'primaryBorderColor': '#1976d2', 'lineColor': '#1976d2', 'secondaryColor': '#fff3e0', 'tertiaryColor': '#f3e5f5'}}}%%
-flowchart TD
-    Start([Developer executes:<br/>git commit -m<br/>feat: Add new agent]) --> Hook1
+![Diagram](diagrams/precommit-hook-flow.pdf){ width=100% }
 
-    Hook1[Hook 1:<br/>Trailing Whitespace Check<br/>0.1s]
-    Hook1 -->|PASS| Hook2
 
-    Hook2[Hook 2:<br/>YAML Syntax Validation<br/>0.2s]
-    Hook2 -->|PASS| Hook3
-
-    Hook3[Hook 3:<br/>Python Linting<br/>flake8<br/>1.5s]
-    Hook3 -->|Found 2 style issues| Fail
-    Hook3 -.->|If passed| Success
-
-    Fail([Commit Aborted<br/>❌ Fix linting issues first])
-    Success([All hooks passed ✅<br/>Commit created<br/>Ready to push])
-
-    style Start fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
-    style Hook1 fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
-    style Hook2 fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
-    style Hook3 fill:#ffebee,stroke:#c62828,stroke-width:2px
-    style Fail fill:#ffcdd2,stroke:#c62828,stroke-width:3px
-    style Success fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px
-```
 
 **Business Value**: Prevents 80% of CI failures by catching issues locally (faster iteration, less GitLab CI cost)
 
@@ -5329,77 +4957,9 @@ flowchart TD
 **Why**: Multi-stage validation (lint → test → build) with parallelization
 **How**: `.gitlab-ci.yml` defines 7 stages executed by GitLab Runners
 
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#fce4ec', 'primaryTextColor': '#000', 'primaryBorderColor': '#c2185b', 'lineColor': '#c2185b', 'secondaryColor': '#fff3e0', 'tertiaryColor': '#f3e5f5'}}}%%
-flowchart TD
-    Push([Developer pushes:<br/>git push origin<br/>feat/new-agent]) --> Pipeline
+![Diagram](diagrams/gitlab-ci-pipeline.pdf){ width=100% }
 
-    Pipeline[GitLab CI Pipeline<br/>7 Stages] --> Stage1
 
-    subgraph Stage1[" Stage 1: lint - Parallel 3 jobs "]
-        Lint1[Job 1.1:<br/>flake8<br/>Python linting<br/>2s]
-        Lint2[Job 1.2:<br/>shellcheck<br/>Bash linting<br/>1s]
-        Lint3[Job 1.3:<br/>yamllint<br/>YAML validation<br/>1s]
-    end
-
-    Stage1 -->|PASS| Stage2
-
-    subgraph Stage2[" Stage 2: validate "]
-        Val1[Job 2.1:<br/>mars-dev validate<br/>• Check ADR-022 schema<br/>• Validate compose fragments<br/>• Check manifest.yaml<br/>5s]
-    end
-
-    Stage2 -->|PASS| Stage3
-
-    subgraph Stage3[" Stage 3: test-fast - Parallel 5 jobs "]
-        Test1[Job 3.1:<br/>core unit tests<br/>2s]
-        Test2[Job 3.2:<br/>mars-dev tests<br/>2s]
-        Test3[Job 3.3:<br/>agent unit tests<br/>3s]
-        Test4[Job 3.4:<br/>service unit tests<br/>3s]
-        Test5[Job 3.5:<br/>ADR-028 compliance<br/>2s]
-    end
-
-    Stage3 -->|PASS| Stage4
-
-    subgraph Stage4[" Stage 4: test-full "]
-        Full1[Job 4.1:<br/>Integration tests<br/>• Start Neo4j container<br/>• Start Zotero container<br/>• Run end-to-end tests<br/>45s]
-    end
-
-    Stage4 -->|PASS| Stage5
-
-    subgraph Stage5[" Stage 5: analyze "]
-        Analyze1[Job 5.1:<br/>Coverage report<br/>• Generate cobertura XML<br/>• Check coverage > 80%<br/>5s]
-    end
-
-    Stage5 -->|PASS| Stage6
-
-    subgraph Stage6[" Stage 6: audit "]
-        Audit1[Job 6.1:<br/>mars audit communication<br/>• Validate ADR-028 patterns<br/>• Check hardcoded URLs<br/>• Verify MCP manifests<br/>3s]
-    end
-
-    Stage6 -->|PASS| Stage7
-
-    subgraph Stage7[" Stage 7: build - Parallel 3 jobs "]
-        Build1[Job 7.1:<br/>Build agent images<br/>120s]
-        Build2[Job 7.2:<br/>Build service images<br/>180s]
-        Build3[Job 7.3:<br/>Build mars-dev image<br/>90s]
-    end
-
-    Stage7 -->|PASS| Complete
-
-    Complete([Pipeline Complete ✅<br/>Merge Request Status:<br/>All checks passed<br/>Ready for peer review])
-
-    style Push fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
-    style Pipeline fill:#fce4ec,stroke:#c2185b,stroke-width:2px
-    style Complete fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px
-
-    style Stage1 fill:#fff3e0,stroke:#e65100,stroke-width:2px
-    style Stage2 fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px
-    style Stage3 fill:#e1f5ff,stroke:#0277bd,stroke-width:2px
-    style Stage4 fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
-    style Stage5 fill:#fff9c4,stroke:#f57f17,stroke-width:2px
-    style Stage6 fill:#ffebee,stroke:#c62828,stroke-width:2px
-    style Stage7 fill:#e0f2f1,stroke:#00695c,stroke-width:2px
-```
 
 **If Any Stage Fails**: Pipeline stops, developer notified, fix required before merge
 
@@ -5413,52 +4973,9 @@ flowchart TD
 **Why**: Catch logic errors, ensure code quality, knowledge sharing
 **How**: GitLab Merge Request workflow with required approvals
 
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#e8eaf6', 'primaryTextColor': '#000', 'primaryBorderColor': '#3f51b5', 'lineColor': '#3f51b5', 'secondaryColor': '#fff3e0', 'tertiaryColor': '#f3e5f5'}}}%%
-flowchart TD
-    Start([Developer Creates MR:<br/>feat: Add Literature<br/>Monitor Agent]) --> CI
+![Diagram](diagrams/merge-request-workflow.pdf){ width=100% }
 
-    CI[CI Pipeline Runs<br/>must pass first]
-    CI -->|PASS| Review
 
-    Review[Peer Reviewer Assigned<br/>Required: 1 approval]
-    Review --> Review1
-
-    subgraph Reviews[" Peer Review Process "]
-        Review1[Review 1:<br/>Code Quality<br/>• Check MARS patterns<br/>• Verify test coverage<br/>• Validate ADR references]
-
-        Review2[Review 2:<br/>Architecture Alignment<br/>• Confirm ADR-022 schema<br/>• Check ADR-028 patterns<br/>• Verify no security anti-patterns]
-    end
-
-    Reviews --> Decision{Decision}
-
-    Decision -->|Approve ✅| Checks
-    Decision -->|Request Changes ❌| Changes
-
-    Changes[Developer addresses<br/>feedback]
-    Changes --> CI
-
-    Checks{Automated Checks}
-    Checks --> Check1[✅ CI pipeline passed]
-    Checks --> Check2[✅ At least 1 approval]
-    Checks --> Check3[✅ No merge conflicts]
-    Checks --> Check4[✅ Branch up-to-date]
-
-    Check1 & Check2 & Check3 & Check4 --> Merge
-
-    Merge[Developer clicks Merge]
-    Merge --> Complete([Code integrated to main ✅])
-
-    style Start fill:#e8eaf6,stroke:#3f51b5,stroke-width:2px
-    style CI fill:#e1f5ff,stroke:#0277bd,stroke-width:2px
-    style Review fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px
-    style Reviews fill:#fff3e0,stroke:#e65100,stroke-width:2px
-    style Decision fill:#ffebee,stroke:#c62828,stroke-width:2px
-    style Changes fill:#fff9c4,stroke:#f57f17,stroke-width:2px
-    style Checks fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
-    style Merge fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px
-    style Complete fill:#a5d6a7,stroke:#2e7d32,stroke-width:3px
-```
 
 **Automated Checks Before Merge**:
 - ✅ CI pipeline passed
@@ -5476,60 +4993,9 @@ flowchart TD
 **Why**: Institutional knowledge, prevent architecture drift, compliance
 **How**: Structured ADR template + review process
 
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#e0f7fa', 'primaryTextColor': '#000', 'primaryBorderColor': '#00838f', 'lineColor': '#00838f', 'secondaryColor': '#fff3e0', 'tertiaryColor': '#f3e5f5'}}}%%
-flowchart TD
-    Start([Developer Proposes<br/>Architectural Change]) --> Step1
+![Diagram](diagrams/adr-authoring-workflow.pdf){ width=100% }
 
-    Step1[Step 1:<br/>Create ADR Draft<br/>Use template]
-    Step1 --> Template
 
-    subgraph Template[" ADR Template Sections "]
-        T1[• Context:<br/>What problem are we solving?]
-        T2[• Decision:<br/>What solution did we choose?]
-        T3[• Rationale:<br/>Why this solution?<br/>Alternatives considered?]
-        T4[• Consequences:<br/>What are the trade-offs?]
-    end
-
-    Template --> Step2
-
-    Step2[Step 2:<br/>Draft Review<br/>Technical Lead]
-    Step2 --> Feedback1[Feedback:<br/>Consider security<br/>implications of choice A]
-
-    Feedback1 --> Step3
-
-    Step3[Step 3:<br/>Stakeholder Review<br/>Affected Teams]
-    Step3 --> Feedback2[Feedback:<br/>This impacts our<br/>deployment pipeline...]
-
-    Feedback2 --> Step4
-
-    Step4[Step 4:<br/>Finalize ADR<br/>• Address feedback<br/>• Assign ADR number<br/>• Commit to git]
-
-    Step4 --> Step5
-
-    Step5[Step 5:<br/>Implementation Begins<br/>ADR referenced in commits]
-    Step5 --> Commit
-
-    Commit([Example commit:<br/>feat: Implement ADR-042<br/>MCP-based literature search])
-
-    subgraph Categories[" ADR Categories "]
-        Cat1[Strategic ADRs:<br/>docs/wiki/adr/<br/>High-level architecture]
-        Cat2[Core ADRs:<br/>core/docs/adr/<br/>SDK/framework decisions]
-        Cat3[mars-dev ADRs:<br/>mars-dev/docs/adr/<br/>Development infrastructure]
-    end
-
-    style Start fill:#e0f7fa,stroke:#00838f,stroke-width:2px
-    style Step1 fill:#e1f5ff,stroke:#0277bd,stroke-width:2px
-    style Template fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px
-    style Step2 fill:#fff3e0,stroke:#e65100,stroke-width:2px
-    style Feedback1 fill:#fff9c4,stroke:#f57f17,stroke-width:2px
-    style Step3 fill:#ffebee,stroke:#c62828,stroke-width:2px
-    style Feedback2 fill:#fff9c4,stroke:#f57f17,stroke-width:2px
-    style Step4 fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
-    style Step5 fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px
-    style Commit fill:#a5d6a7,stroke:#2e7d32,stroke-width:3px
-    style Categories fill:#e0f2f1,stroke:#00695c,stroke-width:2px
-```
 
 **ADR Categories**:
 - **Strategic ADRs** (`docs/wiki/adr/`): High-level architectural decisions (e.g., "Why LangGraph?")
@@ -5584,360 +5050,8 @@ This diagram shows **everything** in MARS-RT (runtime system) - current, planned
 
 ### The Complete MARS-RT Architecture
 
-```
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                                  MARS RUNTIME ARCHITECTURE                                         │
-│                       (Modular Agentic Research System - Production Deployment)                    │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│                                                                                                     │
-│  ┌─────────────────────────────────────────────────────────────────────────────────────────────┐  │
-│  │                                   USER INTERFACE LAYER                                       │  │
-│  ├─────────────────────────────────────────────────────────────────────────────────────────────┤  │
-│  │                                                                                              │  │
-│  │   Human Researcher                                                                           │  │
-│  │        │                                                                                     │  │
-│  │        ├─ CLI (mars commands)                                                                │  │
-│  │        ├─ Web UI (via webapi-gateway:8000)                                                   │  │
-│  │        └─ Claude Code CLI (MCP integration)                                                  │  │
-│  │                │                                                                             │  │
-│  └────────────────┼─────────────────────────────────────────────────────────────────────────────┘  │
-│                   │                                                                                 │
-│                   ▼                                                                                 │
-│  ┌─────────────────────────────────────────────────────────────────────────────────────────────┐  │
-│  │                                  AGENT ORCHESTRATION LAYER                                   │  │
-│  ├─────────────────────────────────────────────────────────────────────────────────────────────┤  │
-│  │                                                                                              │  │
-│  │  ┌──────────────────┐       A2A Protocol (Agent-to-Agent Communication)                     │  │
-│  │  │  Orchestrator    │◄──────────────────────────────────────────────────────────┐           │  │
-│  │  │    Agent         │                                                           │           │  │
-│  │  │  ─────────────   │  Built: LangGraph                                         │           │  │
-│  │  │  • LangGraph     │  LLM: via LiteLLM (AskSage/CAPRA/Ollama)                  │           │  │
-│  │  │  • State Machine │  Protocols: A2A (delegate to other agents)                │           │  │
-│  │  │  • Workflow      │  MCP: All MCP servers (Neo4j, Zotero, GitLab, RAG)        │           │  │
-│  │  │    Coordinator   │  Purpose: Coordinate multi-agent research workflows       │           │  │
-│  │  └──────┬───────────┘                                                           │           │  │
-│  │         │ A2A                                                                   │           │  │
-│  │         ├──────────────►┌──────────────────┐                                   │           │  │
-│  │         │               │ Literature       │                                   │           │  │
-│  │         │               │   Monitor        │                                   │           │  │
-│  │         │               │ ─────────────    │  Built: Python                    │           │  │
-│  │         │               │ • Paper search   │  LLM: via LiteLLM                 │           │  │
-│  │         │               │ • Trend analysis │  MCP: Zotero, RAG Indexer         │           │  │
-│  │         │               │ • Citation track │  Purpose: Literature discovery    │           │  │
-│  │         │               └──────────────────┘       & monitoring                │           │  │
-│  │         │ A2A                          │ MCP                                    │           │  │
-│  │         ├──────────────►┌──────────────────┐                                   │           │  │
-│  │         │               │ Provenance       │                                   │           │  │
-│  │         │               │   Logger         │                                   │           │  │
-│  │         │               │ ─────────────    │  Built: Python                    │           │  │
-│  │         │               │ • Track lineage  │  MCP: Neo4j, GitLab               │           │  │
-│  │         │               │ • Citation graph │  Purpose: Data provenance         │           │  │
-│  │         │               │ • Code tracking  │       & traceability              │           │  │
-│  │         │               └──────────────────┘                                   │           │  │
-│  │         │ A2A                          │ MCP                                    │           │  │
-│  │         ├──────────────►┌──────────────────┐                                   │           │  │
-│  │         │               │ Security         │                                   │           │  │
-│  │         │               │   Guard          │                                   │           │  │
-│  │         │               │ ─────────────    │  Built: Python                    │           │  │
-│  │         │               │ • Access control │  MCP: Neo4j (policy rules)        │           │  │
-│  │         │               │ • Audit logging  │  Purpose: Security validation     │           │  │
-│  │         │               │ • Policy enforce │       & access control            │           │  │
-│  │         │               └──────────────────┘                                   │           │  │
-│  │         │ A2A                          │ MCP                                    │           │  │
-│  │         ├──────────────►┌──────────────────┐                                   │           │  │
-│  │         │               │ Test             │                                   │           │  │
-│  │         │               │   Runner         │                                   │           │  │
-│  │         │               │ ─────────────    │  Built: Python                    │           │  │
-│  │         │               │ • Run tests      │  MCP: GitLab (test results)       │           │  │
-│  │         │               │ • Coverage       │  Purpose: Automated testing       │           │  │
-│  │         │               │ • Validation     │       & quality assurance         │           │  │
-│  │         │               └──────────────────┘                                   │           │  │
-│  │         │ A2A                          │ MCP                                    │           │  │
-│  │         ├──────────────►┌──────────────────┐                                   │           │  │
-│  │         │               │ Doc              │                                   │           │  │
-│  │         │               │   Enforcer       │                                   │           │  │
-│  │         │               │ ─────────────    │  Built: Python                    │           │  │
-│  │         │               │ • Validate docs  │  MCP: GitLab (markdown files)     │           │  │
-│  │         │               │ • Check coverage │  Purpose: Documentation           │           │  │
-│  │         │               │ • Enforce style  │       compliance                  │           │  │
-│  │         │               └──────────────────┘                                   │           │  │
-│  │         │ A2A                          │ MCP                                    │           │  │
-│  │         ├──────────────►┌──────────────────┐                                   │           │  │
-│  │         │               │ Sync             │                                   │           │  │
-│  │         │               │   Coordinator    │                                   │           │  │
-│  │         │               │ ─────────────    │  Built: Python                    │           │  │
-│  │         │               │ • Cross-service  │  MCP: All services                │           │  │
-│  │         │               │ • Data sync      │  Purpose: Data synchronization    │           │  │
-│  │         │               │ • Consistency    │       across services             │           │  │
-│  │         │               └──────────────────┘                                   │           │  │
-│  │         │                                                                       │           │  │
-│  │         │  PLANNED AGENTS (v1.0 - Feb-Mar 2026)                                │           │  │
-│  │         │  ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─                                │           │  │
-│  │         │ A2A                                                                   │           │  │
-│  │         ├──────────────►┌ ─ ─ ─ ─ ─ ─ ─ ─ ┐                                   │           │  │
-│  │         │               │ Research-        │                                   │           │  │
-│  │         │               │  Orchestrator    │                                   │           │  │
-│  │         │               │ ─ ─ ─ ─ ─ ─ ─    │  Built: LangGraph                 │           │  │
-│  │         │               │ • Multi-agent    │  LLM: via LiteLLM                 │           │  │
-│  │         │               │   workflows      │  MCP: All MCP servers             │           │  │
-│  │         │               │ • Research mgmt  │  Purpose: Coordinate literature   │           │  │
-│  │         │               └ ─ ─ ─ ─ ─ ─ ─ ─ ┘       research workflows (C5)    │           │  │
-│  │         │ A2A                          │ MCP                                    │           │  │
-│  │         ├──────────────►┌ ─ ─ ─ ─ ─ ─ ─ ─ ┐                                   │           │  │
-│  │         │               │ Coder Agent      │                                   │           │  │
-│  │         │               │ ─ ─ ─ ─ ─ ─ ─    │  Built: LangGraph                 │           │  │
-│  │         │               │ • Code gen       │  LLM: via LiteLLM                 │           │  │
-│  │         │               │ • Test gen       │  MCP: GitLab, Neo4j               │           │  │
-│  │         │               │ • Refactoring    │  Purpose: Multi-instance parallel │           │  │
-│  │         │               └ ─ ─ ─ ─ ─ ─ ─ ─ ┘       development (C12)          │           │  │
-│  │         │ A2A                          │ MCP                                    │           │  │
-│  │         ├──────────────►┌ ─ ─ ─ ─ ─ ─ ─ ─ ┐                                   │           │  │
-│  │         │               │ Research-Program │                                   │           │  │
-│  │         │               │  Orchestrator    │                                   │           │  │
-│  │         │               │ ─ ─ ─ ─ ─ ─ ─    │  Built: LangGraph                 │           │  │
-│  │         │               │ • Program mgmt   │  LLM: via LiteLLM                 │           │  │
-│  │         │               │ • Parallel coord │  MCP: All MCP servers             │           │  │
-│  │         │               │ • Multi-team     │  Purpose: Coordinate multiple     │           │  │
-│  │         │               └ ─ ─ ─ ─ ─ ─ ─ ─ ┘       research programs (C13)     │           │  │
-│  │         │ A2A                          │ MCP                                    │           │  │
-│  │         ├──────────────►┌ ─ ─ ─ ─ ─ ─ ─ ─ ┐                                   │           │  │
-│  │         │               │ Publication-     │                                   │           │  │
-│  │         │               │  Writer          │                                   │           │  │
-│  │         │               │ ─ ─ ─ ─ ─ ─ ─    │  Built: LangGraph                 │           │  │
-│  │         │               │ • Paper draft    │  LLM: via LiteLLM                 │           │  │
-│  │         │               │ • LaTeX gen      │  MCP: Zotero, GitLab              │           │  │
-│  │         │               │ • Citations      │  Purpose: Automated publication   │           │  │
-│  │         │               └ ─ ─ ─ ─ ─ ─ ─ ─ ┘       generation (C15)            │           │  │
-│  │         │                                                                       │           │  │
-│  │         └───────────────────────────────────────────────────────────────────────┘           │  │
-│  │                                  │                                                           │  │
-│  │                                  │ All agents communicate via:                               │  │
-│  │                                  │ • A2A Protocol (agent-to-agent)                           │  │
-│  │                                  │ • MCP Protocol (agent-to-tool via MCP servers)            │  │
-│  │                                  │                                                           │  │
-│  └──────────────────────────────────┼───────────────────────────────────────────────────────────┘  │
-│                                     │                                                               │
-│                                     ▼                                                               │
-│  ┌──────────────────────────────────────────────────────────────────────────────────────────────┐  │
-│  │                                    MCP SERVER LAYER                                           │  │
-│  ├──────────────────────────────────────────────────────────────────────────────────────────────┤  │
-│  │                                                                                               │  │
-│  │  MCP Servers (Expose Tools via Model Context Protocol)                                       │  │
-│  │                                                                                               │  │
-│  │  ┌─────────────────┐   ┌─────────────────┐   ┌─────────────────┐   ┌─────────────────┐     │  │
-│  │  │  Zotero MCP     │   │  GitLab MCP     │   │  Neo4j KG MCP   │   │  RAG Indexer    │     │  │
-│  │  │  ─────────────  │   │  ─────────────  │   │  ─────────────  │   │    MCP          │     │  │
-│  │  │  Tools:         │   │  Tools:         │   │  Tools:         │   │  ─────────────  │     │  │
-│  │  │  • search       │   │  • list_projects│   │  • query_graph  │   │  Tools:         │     │  │
-│  │  │  • add_paper    │   │  • create_issue │   │  • add_entity   │   │  • semantic_    │     │  │
-│  │  │  • get_citation │   │  • get_commits  │   │  • add_relation │   │    search       │     │  │
-│  │  │  • export_bib   │   │  • sync_repos   │   │  • traverse     │   │  • embed_text   │     │  │
-│  │  └────────┬────────┘   └────────┬────────┘   └────────┬────────┘   └────────┬────────┘     │  │
-│  │           │ REST/gRPC           │ REST                 │ Bolt                │ HTTP          │  │
-│  └───────────┼─────────────────────┼──────────────────────┼─────────────────────┼──────────────┘  │
-│              │                     │                      │                     │                  │
-│              ▼                     ▼                      ▼                     ▼                  │
-│  ┌──────────────────────────────────────────────────────────────────────────────────────────────┐  │
-│  │                                  FOUNDATION SERVICES LAYER                                    │  │
-│  ├──────────────────────────────────────────────────────────────────────────────────────────────┤  │
-│  │                                                                                               │  │
-│  │  Knowledge & Memory Services                                                                  │  │
-│  │  ┌──────────────────┐   ┌──────────────────┐   ┌──────────────────┐                         │  │
-│  │  │  graph-db        │   │  vector-db       │   │  artifact-store  │                         │  │
-│  │  │  (Neo4j)         │   │  (Milvus)        │   │  (MinIO)         │                         │  │
-│  │  │  ──────────      │   │  ──────────      │   │  ──────────      │                         │  │
-│  │  │  Port: 7474      │   │  Port: 19530     │   │  Port: 9000      │                         │  │
-│  │  │  Knowledge Graph │   │  Vector Store    │   │  Object Storage  │                         │  │
-│  │  │  Citation Links  │   │  Embeddings      │   │  Documents       │                         │  │
-│  │  │  Entity Relations│   │  Semantic Search │   │  Datasets        │                         │  │
-│  │  └──────────────────┘   └──────────────────┘   └──────────────────┘                         │  │
-│  │                                                                                               │  │
-│  │  AI Integration Services                                                                      │  │
-│  │  ┌──────────────────┐   ┌──────────────────┐                                                 │  │
-│  │  │  litellm         │   │  selfhosted-     │                                                 │  │
-│  │  │  (LiteLLM)       │   │    models        │                                                 │  │
-│  │  │  ──────────      │   │  (Ollama)        │                                                 │  │
-│  │  │  Port: 4000      │   │  ──────────      │                                                 │  │
-│  │  │  Unified LLM API │   │  Port: 11434     │                                                 │  │
-│  │  │  • AskSage       │   │  Local LLMs      │                                                 │  │
-│  │  │  • CAPRA         │   │  • Llama         │                                                 │  │
-│  │  │  • Claude        │   │  • CodeLlama     │                                                 │  │
-│  │  │  • GPT-4         │   │  • nomic-embed   │                                                 │  │
-│  │  └──────────────────┘   └──────────────────┘                                                 │  │
-│  │                                                                                               │  │
-│  │  Research Tool Services                                                                       │  │
-│  │  ┌──────────────────┐   ┌──────────────────┐   ┌──────────────────┐                         │  │
-│  │  │  experiment-     │   │  ml-viz          │   │  uml-server      │                         │  │
-│  │  │    tracker       │   │  (TensorBoard)   │   │  (PlantUML)      │                         │  │
-│  │  │  (MLflow)        │   │  ──────────      │   │  ──────────      │                         │  │
-│  │  │  ──────────      │   │  Port: 6006      │   │  Port: 8080      │                         │  │
-│  │  │  Port: 5000      │   │  Metrics Viz     │   │  Diagram Gen     │                         │  │
-│  │  │  Track Exps      │   │  Training Curves │   │  Architecture    │                         │  │
-│  │  │  Store Models    │   │  Loss Plots      │   │  Workflow Docs   │                         │  │
-│  │  └──────────────────┘   └──────────────────┘   └──────────────────┘                         │  │
-│  │                                                                                               │  │
-│  │  Infrastructure Services                                                                      │  │
-│  │  ┌──────────────────┐   ┌──────────────────┐   ┌──────────────────┐   ┌──────────────────┐ │  │
-│  │  │  proxy-gateway   │   │  metrics-store   │   │  webapi-gateway  │   │  container-      │ │  │
-│  │  │  (Squid)         │   │  (Prometheus)    │   │  (FastAPI)       │   │    metrics       │ │  │
-│  │  │  ──────────      │   │  ──────────      │   │  ──────────      │   │  (cAdvisor)      │ │  │
-│  │  │  Port: 3128      │   │  Port: 9090      │   │  Port: 8000      │   │  ──────────      │ │  │
-│  │  │  HTTP Proxy      │   │  Metrics DB      │   │  REST API        │   │  Port: 8088      │ │  │
-│  │  │  Egress Control  │   │  Scrape Targets  │   │  Orchestration   │   │  Docker Stats    │ │  │
-│  │  │  Content Filter  │   │  Dashboards      │   │  Endpoint        │   │  Resource Usage  │ │  │
-│  │  └──────────────────┘   └──────────────────┘   └──────────────────┘   └──────────────────┘ │  │
-│  │                                                                                               │  │
-│  │  GitLab Integration Services                                                                  │  │
-│  │  ┌──────────────────┐   ┌──────────────────┐                                                 │  │
-│  │  │  gitlab-mcp      │   │  gitlab-sync     │                                                 │  │
-│  │  │  ──────────      │   │  ──────────      │                                                 │  │
-│  │  │  79 MCP Tools    │   │  Sync Service    │                                                 │  │
-│  │  │  • Projects      │   │  • Repo Sync     │                                                 │  │
-│  │  │  • Issues        │   │  • Metadata      │                                                 │  │
-│  │  │  • MRs           │   │  • Provenance    │                                                 │  │
-│  │  │  • Commits       │   │  • Change Track  │                                                 │  │
-│  │  └──────────────────┘   └──────────────────┘                                                 │  │
-│  │                                                                                               │  │
-│  │  Planned Services (v1.0 - Feb-Mar 2026)                                                       │  │
-│  │  ┌ ─ ─ ─ ─ ─ ─ ─ ─ ┐   ┌ ─ ─ ─ ─ ─ ─ ─ ─ ┐   ┌ ─ ─ ─ ─ ─ ─ ─ ─ ┐                         │  │
-│  │  │  langgraph-      │   │  openmemory      │   │  agentic-        │                         │  │
-│  │  │    orchestration │   │  (OpenMemory)    │   │    postgres      │                         │  │
-│  │  │  ─ ─ ─ ─ ─ ─     │   │  ─ ─ ─ ─ ─ ─     │   │  ─ ─ ─ ─ ─ ─     │                         │  │
-│  │  │  LangGraph Hub   │   │  Port: TBD       │   │  Port: 5432      │                         │  │
-│  │  │  State Mgmt      │   │  Agent Memory    │   │  Agentic SQL     │                         │  │
-│  │  │  Workflow Engine │   │  Context Store   │   │  AI Queries      │                         │  │
-│  │  │  (C11)           │   │  (C24)           │   │  (C26)           │                         │  │
-│  │  └ ─ ─ ─ ─ ─ ─ ─ ─ ┘   └ ─ ─ ─ ─ ─ ─ ─ ─ ┘   └ ─ ─ ─ ─ ─ ─ ─ ─ ┘                         │  │
-│  │                                                                                               │  │
-│  │  Future Services (v1.6+ - 2026+)                                                              │  │
-│  │  ┌ · · · · · · · · ┐   ┌ · · · · · · · · ┐   ┌ · · · · · · · · ┐   ┌ · · · · · · · · ┐   │  │
-│  │  :  ros2-mcp       :   :  kafka-broker   :   :  hpc-scheduler  :   :  workflow-      :   │  │
-│  │  :  · · · · · · ·  :   :  · · · · · · ·  :   :  · · · · · · ·  :   :    engine       :   │  │
-│  │  :  ROS2 Tools     :   :  Event Bus      :   :  HPC Queue      :   :  · · · · · · ·  :   │  │
-│  │  :  Robotics Msgs  :   :  Message Queue  :   :  Slurm/PBS      :   :  Workflow Mgmt  :   │  │
-│  │  :  (C30)          :   :  (C31)          :   :  (C32)          :   :  (C33)          :   │  │
-│  │  └ · · · · · · · · ┘   └ · · · · · · · · ┘   └ · · · · · · · · ┘   └ · · · · · · · · ┘   │  │
-│  │                                                                                               │  │
-│  │  Research Domain Services (v1.6+ - 2026+)                                                     │  │
-│  │  ┌ · · · · · · · · ┐   ┌ · · · · · · · · ┐                                                 │  │
-│  │  :  nvidia-        :   :  capsules       :                                                 │  │
-│  │  :    omniverse    :   :  (AgenticDB)    :                                                 │  │
-│  │  :  · · · · · · ·  :   :  · · · · · · ·  :                                                 │  │
-│  │  :  Robotics Sim   :   :  Persistent Mem :                                                 │  │
-│  │  :  Isaac Sim      :   :  Agent Context  :                                                 │  │
-│  │  :  Future         :   :  Future         :                                                 │  │
-│  │  └ · · · · · · · · ┘   └ · · · · · · · · ┘                                                 │  │
-│  │                                                                                               │  │
-│  └───────────────────────────────────────────────────────────────────────────────────────────────┘  │
-│                                                                                                     │
-│  ┌─────────────────────────────────────────────────────────────────────────────────────────────┐  │
-│  │                                 DOCKER NETWORKING LAYER                                      │  │
-│  ├─────────────────────────────────────────────────────────────────────────────────────────────┤  │
-│  │                                                                                              │  │
-│  │  Docker Networks (Isolation & Security)                                                      │  │
-│  │  ┌──────────────────────────────────────────────────────────────────────────────────────┐   │  │
-│  │  │  mars-network (default bridge)                                                        │   │  │
-│  │  │  ────────────────────────────                                                         │   │  │
-│  │  │  • All services communicate via Docker DNS                                            │   │  │
-│  │  │  • Service discovery: graph-db.mars-network, litellm.mars-network                     │   │  │
-│  │  │  • Deny-by-default: Only explicitly allowed connections                               │   │  │
-│  │  │  • No external access unless via proxy-gateway                                        │   │  │
-│  │  └──────────────────────────────────────────────────────────────────────────────────────┘   │  │
-│  │                                                                                              │  │
-│  │  Security Boundaries                                                                          │  │
-│  │  ┌──────────────────────────────────────────────────────────────────────────────────────┐   │  │
-│  │  │  Sysbox Isolation (P2: Security by Design)                                            │   │  │
-│  │  │  ──────────────────────────────────────────────                                       │   │  │
-│  │  │  • Rootless containers (non-privileged)                                               │   │  │
-│  │  │  • No --privileged flag needed                                                        │   │  │
-│  │  │  • Nested Docker support (Docker-in-Docker without security holes)                    │   │  │
-│  │  │  • DoD air-gap compatible (no external dependencies)                                  │   │  │
-│  │  └──────────────────────────────────────────────────────────────────────────────────────┘   │  │
-│  │                                                                                              │  │
-│  └──────────────────────────────────────────────────────────────────────────────────────────────┘  │
-│                                                                                                     │
-│  ┌─────────────────────────────────────────────────────────────────────────────────────────────┐  │
-│  │                              OBSERVABILITY & MONITORING LAYER                                │  │
-│  ├─────────────────────────────────────────────────────────────────────────────────────────────┤  │
-│  │                                                                                              │  │
-│  │  OpenTelemetry Tracing (Planned Q1 2025)                                                     │  │
-│  │  ┌──────────────────────────────────────────────────────────────────────────────────────┐   │  │
-│  │  │  Distributed Traces Across All Agents & Services                                      │   │  │
-│  │  │  ───────────────────────────────────────────────                                      │   │  │
-│  │  │  User Request → Orchestrator → LitMonitor → Zotero MCP → Neo4j                        │   │  │
-│  │  │     (Trace ID: abc123, spans track each hop, total latency: 350ms)                    │   │  │
-│  │  └──────────────────────────────────────────────────────────────────────────────────────┘   │  │
-│  │                                                                                              │  │
-│  │  Prometheus Metrics                                                                           │  │
-│  │  ┌──────────────────────────────────────────────────────────────────────────────────────┐   │  │
-│  │  │  Service Health Metrics                                                               │   │  │
-│  │  │  ───────────────────────                                                              │   │  │
-│  │  │  • CPU/Memory usage per container (via container-metrics)                             │   │  │
-│  │  │  • Request rates per service                                                          │   │  │
-│  │  │  • Error rates (5xx responses)                                                        │   │  │
-│  │  │  • Database query latency (Neo4j, Milvus)                                             │   │  │
-│  │  └──────────────────────────────────────────────────────────────────────────────────────┘   │  │
-│  │                                                                                              │  │
-│  └──────────────────────────────────────────────────────────────────────────────────────────────┘  │
-│                                                                                                     │
-│  ┌─────────────────────────────────────────────────────────────────────────────────────────────┐  │
-│  │                                 DATA PERSISTENCE LAYER                                       │  │
-│  ├─────────────────────────────────────────────────────────────────────────────────────────────┤  │
-│  │                                                                                              │  │
-│  │  Docker Volumes (Persistent Storage)                                                          │  │
-│  │  ┌──────────────────────────────────────────────────────────────────────────────────────┐   │  │
-│  │  │  graph-data/         → Neo4j database files                                           │   │  │
-│  │  │  vector-data/        → Milvus vector index                                            │   │  │
-│  │  │  artifact-data/      → MinIO object storage                                           │   │  │
-│  │  │  mlflow-data/        → MLflow experiments & models                                    │   │  │
-│  │  │  zotero-data/        → Zotero library database                                        │   │  │
-│  │  │  prometheus-data/    → Metrics time-series database                                   │   │  │
-│  │  └──────────────────────────────────────────────────────────────────────────────────────┘   │  │
-│  │                                                                                              │  │
-│  └──────────────────────────────────────────────────────────────────────────────────────────────┘  │
-│                                                                                                     │
-└──────────────────────────────────────────────────────────────────────────────────────────────────────┘
+![MARS Runtime Architecture](diagrams/mars-rt-architecture.pdf){ width=100% }
 
-                                       LEGEND
-                              ─────────────────────
-    A2A Protocol:    Agent-to-Agent communication (Google/Linux Foundation standard)
-    MCP Protocol:    Model Context Protocol - Agent-to-Tool communication (Anthropic standard)
-    REST/HTTP:       Standard web APIs (for external integrations)
-    Docker Network:  Isolated container networking (Sysbox-secured)
-    LangGraph:       Orchestration framework (state machines, workflows)
-    OpenTelemetry:   Observability standard (distributed tracing)
-
-    COMPONENT STATUS:
-    ┌────────────┐   Solid box lines:  Current (operational as of Nov 2025)
-    │  Current   │
-    └────────────┘
-
-    ┌ ─ ─ ─ ─ ─ ┐   Dashed box lines:  Planned (v1.0 - Feb-Mar 2026)
-    │  Planned  │
-    └ ─ ─ ─ ─ ─ ┘
-
-    ┌ · · · · · ┐   Dotted box lines:  Future (v1.6+ - 2026+)
-    :  Future   :
-    └ · · · · · ┘
-
-                              MARS-RT SUMMARY
-                         ──────────────────────────
-    Current (Operational):
-      - Agents:     8 (orchestrator, lit-monitor, provenance, security, test, doc, sync, shared utilities)
-      - Services:   23 (knowledge graph, vector DB, LLM APIs, research tools, infrastructure)
-      - MCP Servers: 4 (Zotero, GitLab, Neo4j, RAG Indexer)
-
-    Planned v1.0 (Feb-Mar 2026):
-      - Agents:     4 (research-orchestrator, coder, research-program-orchestrator, publication-writer)
-      - Services:   3 (langgraph-orchestration, openmemory, agentic-postgres)
-
-    Future v1.6+ (2026+):
-      - Services:   4 (ros2-mcp, kafka-broker, hpc-scheduler, workflow-engine)
-
-    Standards Used:   MCP, A2A, LangGraph, OpenTelemetry, Docker Compose
-    Security:         Sysbox isolation, deny-by-default networking, proxy-gateway egress control
-    Observability:    Prometheus metrics, OpenTelemetry traces (planned), health checks on all services
-```
 
 ---
 
@@ -5981,331 +5095,8 @@ This diagram shows **mars-dev infrastructure** - the tools and processes used to
 
 ### The Complete mars-dev Architecture
 
-```
-┌───────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                                    MARS-DEV INFRASTRUCTURE                                         │
-│                         (Development Tools & Processes for Building MARS)                          │
-├───────────────────────────────────────────────────────────────────────────────────────────────────┤
-│                                                                                                    │
-│  ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│  │                                   DEVELOPER WORKSPACE                                       │   │
-│  ├────────────────────────────────────────────────────────────────────────────────────────────┤   │
-│  │                                                                                             │   │
-│  │  Developer Machine                                                                           │   │
-│  │  ├─ IDE (VSCode, PyCharm, Neovim)                                                           │   │
-│  │  ├─ Git (version control)                                                                   │   │
-│  │  ├─ mars-dev CLI (infrastructure management)                                                │   │
-│  │  ├─ Docker (local container runtime)                                                        │   │
-│  │  └─ Python 3.11 (pyenv + virtualenv)                                                        │   │
-│  │         │                                                                                    │   │
-│  │         │  1. Clone Repository                                                              │   │
-│  │         │     git clone https://gitlab.com/org/mars-v2                                      │   │
-│  │         │                                                                                    │   │
-│  │         │  2. Setup Environment                                                             │   │
-│  │         │     source mars-env.config   # Load MARS environment                              │   │
-│  │         │                                                                                    │   │
-│  │         │  3. Start Development Infrastructure                                              │   │
-│  │         │     mars-dev up -d           # Launch E6 super-container                          │   │
-│  │         │                                                                                    │   │
-│  │         ▼                                                                                    │   │
-│  └─────────┼────────────────────────────────────────────────────────────────────────────────────┘   │
-│            │                                                                                        │
-│            │  4. Make Changes (Edit Code)                                                           │
-│            │                                                                                        │
-│            ▼                                                                                        │
-│  ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│  │                                   LOCAL VALIDATION LAYER                                    │   │
-│  ├────────────────────────────────────────────────────────────────────────────────────────────┤   │
-│  │                                                                                             │   │
-│  │  Pre-Commit Hooks (.pre-commit-config.yaml)                                                 │   │
-│  │  ┌──────────────────────────────────────────────────────────────────────────────────────┐  │   │
-│  │  │                                                                                       │  │   │
-│  │  │  Developer Runs: git commit -m "feat: Add new agent"                                 │  │   │
-│  │  │      │                                                                                │  │   │
-│  │  │      ├─ Hook 1: Trailing Whitespace Check (0.1s)       [PASS]                        │  │   │
-│  │  │      ├─ Hook 2: YAML Syntax Validation (0.2s)          [PASS]                        │  │   │
-│  │  │      ├─ Hook 3: Python Linting (flake8) (1.5s)         [PASS]                        │  │   │
-│  │  │      ├─ Hook 4: Unit Tests (pytest -m unit) (2s)       [PASS]                        │  │   │
-│  │  │      ├─ Hook 5: ADR-028 Validation (0.5s)              [PASS]                        │  │   │
-│  │  │      │    • Check for hardcoded URLs                                                 │  │   │
-│  │  │      │    • Verify MCP manifests present                                             │  │   │
-│  │  │      │    • Validate A2A endpoints (LangGraph agents)                                │  │   │
-│  │  │      │                                                                                │  │   │
-│  │  │      └─ All Hooks Passed → Commit Created ✅                                          │  │   │
-│  │  │                                                                                       │  │   │
-│  │  └──────────────────────────────────────────────────────────────────────────────────────┘  │   │
-│  │                                                                                             │   │
-│  │  Local Testing (pytest)                                                                      │   │
-│  │  ┌──────────────────────────────────────────────────────────────────────────────────────┐  │   │
-│  │  │                                                                                       │  │   │
-│  │  │  Developer Runs: pytest tests/                                                       │  │   │
-│  │  │      │                                                                                │  │   │
-│  │  │      ├─ Unit Tests (pytest -m unit)                  [1,596 passed, 2s]              │  │   │
-│  │  │      ├─ Integration Tests (pytest -m integration)    [Skip - needs services]         │  │   │
-│  │  │      └─ Coverage Report                              [85% coverage]                  │  │   │
-│  │  │                                                                                       │  │   │
-│  │  └──────────────────────────────────────────────────────────────────────────────────────┘  │   │
-│  │                                                                                             │   │
-│  │  Local Build Testing (mars-dev build)                                                        │   │
-│  │  ┌──────────────────────────────────────────────────────────────────────────────────────┐  │   │
-│  │  │                                                                                       │  │   │
-│  │  │  Developer Runs: mars-dev build orchestrator                                         │  │   │
-│  │  │      │                                                                                │  │   │
-│  │  │      ├─ Docker Build Context: modules/agents/orchestrator/                           │  │   │
-│  │  │      ├─ Dockerfile Lint                               [PASS]                         │  │   │
-│  │  │      ├─ Build Image (120s)                            [PASS]                         │  │   │
-│  │  │      └─ Smoke Test (health check)                     [PASS]                         │  │   │
-│  │  │                                                                                       │  │   │
-│  │  └──────────────────────────────────────────────────────────────────────────────────────┘  │   │
-│  │                                                                                             │   │
-│  └─────────────────────────────────────────────────────────────────────────────────────────────┘   │
-│                │                                                                                    │
-│                │  5. Push to GitLab                                                                │
-│                │     git push origin feat/new-agent                                                │
-│                ▼                                                                                    │
-│  ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│  │                                  GITLAB CI/CD PIPELINE                                      │   │
-│  ├────────────────────────────────────────────────────────────────────────────────────────────┤   │
-│  │                                                                                             │   │
-│  │  .gitlab-ci.yml Pipeline (7 Stages, Parallel Where Possible)                                │   │
-│  │  ┌──────────────────────────────────────────────────────────────────────────────────────┐  │   │
-│  │  │                                                                                       │  │   │
-│  │  │  Stage 1: LINT (Parallel - 3 jobs, ~2s total)                                        │  │   │
-│  │  │  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐                      │  │   │
-│  │  │  │ Job 1.1:        │  │ Job 1.2:        │  │ Job 1.3:        │                      │  │   │
-│  │  │  │ Python Linting  │  │ Bash Linting    │  │ YAML Validation │                      │  │   │
-│  │  │  │ (flake8, black) │  │ (shellcheck)    │  │ (yamllint)      │                      │  │   │
-│  │  │  │ [2s]            │  │ [1s]            │  │ [1s]            │                      │  │   │
-│  │  │  └────────┬────────┘  └────────┬────────┘  └────────┬────────┘                      │  │   │
-│  │  │           └──────────────────────┴──────────────────────┘                            │  │   │
-│  │  │                          Result: [PASS] → Continue                                   │  │   │
-│  │  │                                  │                                                    │  │   │
-│  │  │  ────────────────────────────────────────────────────────────────────────────────    │  │   │
-│  │  │                                  │                                                    │  │   │
-│  │  │  Stage 2: VALIDATE (1 job, ~5s)                                                      │  │   │
-│  │  │  ┌─────────────────────────────────────────────────────┐                            │  │   │
-│  │  │  │ Job 2.1: mars-dev validate                          │                            │  │   │
-│  │  │  │ • Check ADR-022 module directory schema             │                            │  │   │
-│  │  │  │ • Validate docker-compose fragments                 │                            │  │   │
-│  │  │  │ • Check manifest.yaml syntax (all modules)          │                            │  │   │
-│  │  │  │ • Verify mcp-manifest.yaml (MCP servers)            │                            │  │   │
-│  │  │  │ [5s]                                                │                            │  │   │
-│  │  │  └────────────────────────┬────────────────────────────┘                            │  │   │
-│  │  │                           Result: [PASS] → Continue                                  │  │   │
-│  │  │                                  │                                                    │  │   │
-│  │  │  ────────────────────────────────────────────────────────────────────────────────    │  │   │
-│  │  │                                  │                                                    │  │   │
-│  │  │  Stage 3: TEST-FAST (Parallel - 5 jobs, ~3s total)                                   │  │   │
-│  │  │  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  ┌────────┐│  │   │
-│  │  │  │ Job 3.1:     │  │ Job 3.2:     │  │ Job 3.3:     │  │ Job 3.4:     │  │ Job 3.5││  │   │
-│  │  │  │ Core Unit    │  │ mars-dev     │  │ Agent Unit   │  │ Service Unit │  │ ADR-028││  │   │
-│  │  │  │ Tests        │  │ Tests        │  │ Tests        │  │ Tests        │  │ Audit  ││  │   │
-│  │  │  │ (pytest -m   │  │ (56 tests)   │  │ (50 tests)   │  │ (319 tests)  │  │ (comm) ││  │   │
-│  │  │  │  unit)       │  │ [2s]         │  │ [3s]         │  │ [3s]         │  │ [2s]   ││  │   │
-│  │  │  │ (18 tests)   │  │              │  │              │  │              │  │        ││  │   │
-│  │  │  │ [2s]         │  │              │  │              │  │              │  │        ││  │   │
-│  │  │  └──────┬───────┘  └──────┬───────┘  └──────┬───────┘  └──────┬───────┘  └────┬───┘│  │   │
-│  │  │         └──────────────────┴──────────────────┴──────────────────┴───────────────┘    │  │   │
-│  │  │                          Result: [PASS] → Continue                                   │  │   │
-│  │  │                                  │                                                    │  │   │
-│  │  │  ────────────────────────────────────────────────────────────────────────────────    │  │   │
-│  │  │                                  │                                                    │  │   │
-│  │  │  Stage 4: TEST-FULL (Sequential - needs running services, ~45s)                      │  │   │
-│  │  │  ┌─────────────────────────────────────────────────────┐                            │  │   │
-│  │  │  │ Job 4.1: Integration Tests (pytest -m integration)  │                            │  │   │
-│  │  │  │ • Start Neo4j container (docker run)                │                            │  │   │
-│  │  │  │ • Start Zotero container (docker run)               │                            │  │   │
-│  │  │  │ • Start Milvus containers (docker-compose up)       │                            │  │   │
-│  │  │  │ • Run end-to-end tests (47 tests)                   │                            │  │   │
-│  │  │  │ • Cleanup containers (docker-compose down)          │                            │  │   │
-│  │  │  │ [45s]                                               │                            │  │   │
-│  │  │  └────────────────────────┬────────────────────────────┘                            │  │   │
-│  │  │                           Result: [PASS] → Continue                                  │  │   │
-│  │  │                                  │                                                    │  │   │
-│  │  │  ────────────────────────────────────────────────────────────────────────────────    │  │   │
-│  │  │                                  │                                                    │  │   │
-│  │  │  Stage 5: ANALYZE (1 job, ~5s)                                                       │  │   │
-│  │  │  ┌─────────────────────────────────────────────────────┐                            │  │   │
-│  │  │  │ Job 5.1: Coverage Report                            │                            │  │   │
-│  │  │  │ • Generate cobertura XML (pytest --cov)             │                            │  │   │
-│  │  │  │ • Check coverage threshold > 80%                    │                            │  │   │
-│  │  │  │ • Upload to GitLab (coverage visualization)         │                            │  │   │
-│  │  │  │ Result: 85% coverage ✅                             │                            │  │   │
-│  │  │  │ [5s]                                                │                            │  │   │
-│  │  │  └────────────────────────┬────────────────────────────┘                            │  │   │
-│  │  │                           Result: [PASS] → Continue                                  │  │   │
-│  │  │                                  │                                                    │  │   │
-│  │  │  ────────────────────────────────────────────────────────────────────────────────    │  │   │
-│  │  │                                  │                                                    │  │   │
-│  │  │  Stage 6: AUDIT (1 job, ~3s)                                                         │  │   │
-│  │  │  ┌─────────────────────────────────────────────────────┐                            │  │   │
-│  │  │  │ Job 6.1: mars audit communication                   │                            │  │   │
-│  │  │  │ • Validate ADR-028 Pattern 1 (No hardcoded URLs)    │                            │  │   │
-│  │  │  │ • Validate ADR-028 Pattern 2 (MCP manifests)        │                            │  │   │
-│  │  │  │ • Validate ADR-028 Pattern 3 (A2A endpoints)        │                            │  │   │
-│  │  │  │ • Validate ADR-028 Pattern 4 (OpenTelemetry)        │                            │  │   │
-│  │  │  │ Result: All patterns compliant ✅                   │                            │  │   │
-│  │  │  │ [3s]                                                │                            │  │   │
-│  │  │  └────────────────────────┬────────────────────────────┘                            │  │   │
-│  │  │                           Result: [PASS] → Continue                                  │  │   │
-│  │  │                                  │                                                    │  │   │
-│  │  │  ────────────────────────────────────────────────────────────────────────────────    │  │   │
-│  │  │                                  │                                                    │  │   │
-│  │  │  Stage 7: BUILD (Parallel - 3 jobs, ~120s total)                                     │  │   │
-│  │  │  ┌──────────────────┐  ┌──────────────────┐  ┌──────────────────┐                  │  │   │
-│  │  │  │ Job 7.1:         │  │ Job 7.2:         │  │ Job 7.3:         │                  │  │   │
-│  │  │  │ Build Agent      │  │ Build Service    │  │ Build mars-dev   │                  │  │   │
-│  │  │  │ Images           │  │ Images           │  │ Image            │                  │  │   │
-│  │  │  │ • orchestrator   │  │ • graph-db       │  │ • E6 container   │                  │  │   │
-│  │  │  │ • lit-monitor    │  │ • vector-db      │  │ (Docker-in-Docker)│                 │  │   │
-│  │  │  │ • provenance     │  │ • litellm        │  │ [90s]            │                  │  │   │
-│  │  │  │ • security-guard │  │ • selfhosted-    │  │                  │                  │  │   │
-│  │  │  │ • test-runner    │  │   models         │  │                  │                  │  │   │
-│  │  │  │ • doc-enforcer   │  │ • rag-indexer    │  │                  │                  │  │   │
-│  │  │  │ • sync-coord     │  │ • gitlab-mcp     │  │                  │                  │  │   │
-│  │  │  │ [120s]           │  │ • gitlab-sync    │  │                  │                  │  │   │
-│  │  │  │                  │  │ [180s]           │  │                  │                  │  │   │
-│  │  │  └────────┬─────────┘  └────────┬─────────┘  └────────┬─────────┘                  │  │   │
-│  │  │           └─────────────────────┴──────────────────────┘                            │  │   │
-│  │  │                          Result: [PASS] → Pipeline Complete ✅                       │  │   │
-│  │  │                                                                                       │  │   │
-│  │  └───────────────────────────────────────────────────────────────────────────────────────┘  │   │
-│  │                                                                                             │   │
-│  │  Pipeline Summary                                                                            │   │
-│  │  ├─ Total Duration: 3m 45s (parallelization reduces from ~10m)                              │   │
-│  │  ├─ Total Jobs: 17 jobs across 7 stages                                                     │   │
-│  │  ├─ Total Tests Run: 1,596 tests                                                              │   │
-│  │  └─ Result: [PASS] → Merge Request approved for merging ✅                                  │   │
-│  │                                                                                             │   │
-│  └─────────────────────────────────────────────────────────────────────────────────────────────┘   │
-│                │                                                                                    │
-│                │  6. Create Merge Request                                                           │
-│                │                                                                                    │
-│                ▼                                                                                    │
-│  ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│  │                              MERGE REQUEST REVIEW PROCESS                                   │   │
-│  ├────────────────────────────────────────────────────────────────────────────────────────────┤   │
-│  │                                                                                             │   │
-│  │  GitLab Merge Request (MR)                                                                   │   │
-│  │  ┌──────────────────────────────────────────────────────────────────────────────────────┐  │   │
-│  │  │                                                                                       │  │   │
-│  │  │  MR Title: "feat: Add Literature Monitor Agent"                                      │  │   │
-│  │  │  ───────────────────────────────────────────                                         │  │   │
-│  │  │                                                                                       │  │   │
-│  │  │  ✅ CI Pipeline Passed (all 7 stages, 17 jobs)                                       │  │   │
-│  │  │  ✅ 1,596 tests passed                                                               │  │   │
-│  │  │  ✅ 85% code coverage                                                                │  │   │
-│  │  │  ✅ ADR-028 compliance validated                                                     │  │   │
-│  │  │  ✅ No merge conflicts                                                               │  │   │
-│  │  │                                                                                       │  │   │
-│  │  │  Peer Review Checklist:                                                              │  │   │
-│  │  │  ├─ Code Quality: Check follows MARS patterns                 [Reviewer: John]       │  │   │
-│  │  │  ├─ Architecture: Verify ADR-022 module schema                [Reviewer: John]       │  │   │
-│  │  │  ├─ Communication: Confirm ADR-028 patterns                   [Reviewer: John]       │  │   │
-│  │  │  ├─ Tests: Validate coverage of new functionality             [Reviewer: John]       │  │   │
-│  │  │  └─ Documentation: Check README/API docs complete             [Reviewer: John]       │  │   │
-│  │  │                                                                                       │  │   │
-│  │  │  Review Status: Approved ✅                                                           │  │   │
-│  │  │                                                                                       │  │   │
-│  │  │  [Merge Button Enabled]                                                              │  │   │
-│  │  │                                                                                       │  │   │
-│  │  └───────────────────────────────────────────────────────────────────────────────────────┘  │   │
-│  │                                                                                             │   │
-│  └─────────────────────────────────────────────────────────────────────────────────────────────┘   │
-│                │                                                                                    │
-│                │  7. Merge to Main Branch                                                           │
-│                │                                                                                    │
-│                ▼                                                                                    │
-│  ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│  │                              DOCUMENTATION & ADR WORKFLOW                                   │   │
-│  ├────────────────────────────────────────────────────────────────────────────────────────────┤   │
-│  │                                                                                             │   │
-│  │  Architecture Decision Records (ADRs)                                                        │   │
-│  │  ┌──────────────────────────────────────────────────────────────────────────────────────┐  │   │
-│  │  │                                                                                       │  │   │
-│  │  │  37 ADRs Document MARS Architectural Evolution                                       │  │   │
-│  │  │  ───────────────────────────────────────────────                                     │  │   │
-│  │  │                                                                                       │  │   │
-│  │  │  Strategic ADRs (docs/wiki/adr/)                                                     │  │   │
-│  │  │  ├─ ADR-001: Multi-Agent Architecture                                                │  │   │
-│  │  │  ├─ ADR-002: Self-Hosted vs Cloud                                                    │  │   │
-│  │  │  ├─ ADR-003: Memory & Context Management (P3)                                        │  │   │
-│  │  │  ├─ ADR-009: Module Directory Schema (ADR-022)                                       │  │   │
-│  │  │  ├─ ADR-012: Constraint System Split (E15)                                           │  │   │
-│  │  │  ├─ ADR-015: mars-dev Module                                                         │  │   │
-│  │  │  └─ ADR-028: Agent Communication Architecture ⭐                                     │  │   │
-│  │  │                                                                                       │  │   │
-│  │  │  Core ADRs (core/docs/adr/)                                                          │  │   │
-│  │  │  └─ 20+ SDK framework decisions                                                      │  │   │
-│  │  │                                                                                       │  │   │
-│  │  │  mars-dev ADRs (mars-dev/docs/adr/)                                                  │  │   │
-│  │  │  └─ 10 development infrastructure decisions                                          │  │   │
-│  │  │                                                                                       │  │   │
-│  │  │  Each ADR Contains:                                                                  │  │   │
-│  │  │  • Context: What problem are we solving?                                            │  │   │
-│  │  │  • Decision: What solution did we choose?                                           │  │   │
-│  │  │  • Rationale: Why this solution? (alternatives considered)                          │  │   │
-│  │  │  • Consequences: What are the trade-offs?                                           │  │   │
-│  │  │                                                                                       │  │   │
-│  │  └───────────────────────────────────────────────────────────────────────────────────────┘  │   │
-│  │                                                                                             │   │
-│  └─────────────────────────────────────────────────────────────────────────────────────────────┘   │
-│                                                                                                    │
-│  ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│  │                              DEVELOPMENT STANDARDS ENFORCEMENT                              │   │
-│  ├────────────────────────────────────────────────────────────────────────────────────────────┤   │
-│  │                                                                                             │   │
-│  │  E15 Constraint System (machine-readable rules)                                             │   │
-│  │  ┌──────────────────────────────────────────────────────────────────────────────────────┐  │   │
-│  │  │                                                                                       │  │   │
-│  │  │  mars-dev/requirements/dev-requirements.json                                         │  │   │
-│  │  │  ─────────────────────────────────────────────                                       │  │   │
-│  │  │                                                                                       │  │   │
-│  │  │  18 Development Constraints:                                                         │  │   │
-│  │  │  ├─ DEV-COMM-001: No hardcoded service URLs (error)                                  │  │   │
-│  │  │  ├─ DEV-COMM-002: MCP servers require manifests (error)                              │  │   │
-│  │  │  ├─ DEV-COMM-003: LangGraph agents require A2A endpoints (error)                     │  │   │
-│  │  │  ├─ DEV-COMM-004: OpenTelemetry recommended (warning)                                │  │   │
-│  │  │  ├─ DEV-COMPOSE-001: No top-level version key in compose files                       │  │   │
-│  │  │  ├─ DEV-CLI-001: Always use mars CLI (never docker compose directly)                 │  │   │
-│  │  │  ├─ DEV-ENV-001: .env.generated is mandatory                                         │  │   │
-│  │  │  ├─ DEV-BUILD-PROXY-001: Proxy-safe reproducible Dockerfiles                         │  │   │
-│  │  │  ├─ DEV-STYLE-PY-001: Python Sphinx-style docstrings                                 │  │   │
-│  │  │  ├─ DEV-GIT-001: Track .claude/settings.local.json (150+ patterns)                   │  │   │
-│  │  │  ├─ DEV-FILEORG-001: Repo root file organization (modular architecture)              │  │   │
-│  │  │  └─ ... (7 more development rules)                                                   │  │   │
-│  │  │                                                                                       │  │   │
-│  │  │  Enforced Via:                                                                       │  │   │
-│  │  │  • Pre-commit hooks (local)                                                          │  │   │
-│  │  │  • GitLab CI validation (remote)                                                     │  │   │
-│  │  │  • mars-dev validate command                                                         │  │   │
-│  │  │  • mars audit communication command                                                  │  │   │
-│  │  │                                                                                       │  │   │
-│  │  └───────────────────────────────────────────────────────────────────────────────────────┘  │   │
-│  │                                                                                             │   │
-│  └─────────────────────────────────────────────────────────────────────────────────────────────┘   │
-│                                                                                                    │
-└────────────────────────────────────────────────────────────────────────────────────────────────────┘
+![mars-dev Architecture](diagrams/mars-dev-architecture.pdf){ width=100% }
 
-                                           LEGEND
-                                  ──────────────────────
-    Pre-Commit Hooks:  Local validation before git commit (80% faster feedback than CI)
-    GitLab CI:         7-stage pipeline (lint → validate → test-fast → test-full → analyze → audit → build)
-    Merge Request:     Peer review process with required approval (catch 60% of bugs pre-production)
-    ADRs:              Architecture Decision Records (37 total, document WHY decisions were made)
-    E15 Constraints:   Machine-readable rules enforced via pre-commit + CI (18 development rules)
-    Parallelization:   Run independent jobs concurrently (reduces pipeline time 70%: 10m → 3m)
-
-                                      MARS-DEV SUMMARY
-                                 ───────────────────────────
-    Total Tests:        1,596 tests (179 core, 542 mars-dev, 288 agents, 422 services, 165 other)
-    CI Pipeline:        7 stages, 17 jobs, 3m 45s duration (parallelized)
-    ADRs:               65 architectural decisions documented
-    E15 Constraints:    18 development rules (4 ADR-028 communication rules)
-    Pre-Commit Hooks:   5 hooks (catch 80% of CI failures locally)
-    Code Coverage:      85% (enforced via CI)
-    Development Time:   2-command setup (mars-dev up -d), 1,596 tests validate quality
-```
 
 ---
 
@@ -7409,75 +6200,34 @@ For readers interested in technical details of MARS implementation.
 
 ### System Architecture
 
-```mermaid
-graph TB
-    subgraph "Strategic Layer"
-        Human["Human Researcher<br/>(Strategic Direction)"]
-    end
-
-    subgraph "Orchestration Layer"
-        Orch["LangGraph Orchestrator<br/>(Multi-Agent Coordination)<br/>• Task decomposition<br/>• Agent selection and routing<br/>• Output synthesis<br/>• Human escalation"]
-    end
-
-    subgraph "Agent Layer"
-        LitAgent["Literature<br/>Agent"]
-        ExpAgent["Experiment<br/>Design Agent"]
-        CodeAgent["Code<br/>Agent"]
-        DataAgent["Data<br/>Agent"]
-        DocAgent["Documentation<br/>Agent"]
-        TestAgent["Test<br/>Agent"]
-        KGAgent["Knowledge Graph<br/>Agent"]
-    end
-
-    subgraph "Foundation Services (via MCP Protocol)"
-        Zotero["Zotero<br/>(Literature - 40+ tools)"]
-        GitLab["GitLab<br/>(Project Mgmt - 79+ tools)"]
-        Neo4j["Neo4j<br/>(Knowledge Graph)"]
-        Milvus["Milvus<br/>(Vector DB / RAG)"]
-        MLflow["MLflow<br/>(Experiment Tracking)"]
-        Ollama["Ollama<br/>(Local LLMs)"]
-        LiteLLM["LiteLLM<br/>(Unified AI API)"]
-    end
-
-    Human --> Orch
-    Orch --> LitAgent
-    Orch --> ExpAgent
-    Orch --> CodeAgent
-    Orch --> DataAgent
-    Orch --> DocAgent
-    Orch --> TestAgent
-    Orch --> KGAgent
-
-    LitAgent --> Zotero
-    LitAgent --> Neo4j
-    ExpAgent --> MLflow
-    ExpAgent --> GitLab
-    CodeAgent --> GitLab
-    DataAgent --> Milvus
-    DataAgent --> Neo4j
-    DocAgent --> GitLab
-    TestAgent --> GitLab
-    KGAgent --> Neo4j
-
-    LitAgent -.-> LiteLLM
-    ExpAgent -.-> LiteLLM
-    CodeAgent -.-> LiteLLM
-    DataAgent -.-> LiteLLM
-    DocAgent -.-> LiteLLM
-    TestAgent -.-> LiteLLM
-    KGAgent -.-> LiteLLM
-
-    LiteLLM -.-> Ollama
-
-    classDef human fill:#e1f5ff,stroke:#01579b,stroke-width:3px
-    classDef orch fill:#fff3e0,stroke:#e65100,stroke-width:3px
-    classDef agent fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
-    classDef service fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px
-
-    class Human human
-    class Orch orch
-    class LitAgent,ExpAgent,CodeAgent,DataAgent,DocAgent,TestAgent,KGAgent agent
-    class Zotero,GitLab,Neo4j,Milvus,MLflow,Ollama,LiteLLM service
+```
+┌─────────────────────────────────────────────────────────────┐
+│ Human Researcher (Strategic Direction)                       │
+└────────────────────────┬────────────────────────────────────┘
+                         │
+┌────────────────────────▼────────────────────────────────────┐
+│ LangGraph Orchestrator (Multi-Agent Coordination)            │
+│ - Task decomposition                                         │
+│ - Agent selection and routing                                │
+│ - Output synthesis                                           │
+│ - Human escalation for strategic decisions                   │
+└──────┬──────┬──────┬──────┬──────┬──────┬──────┬────────────┘
+       │      │      │      │      │      │      │
+┌──────▼─┐ ┌─▼────┐ ┌▼─────┐ ┌──▼───┐ ┌─▼───┐ ┌▼────┐ ┌▼─────┐
+│Lit     │ │Exp   │ │Code  │ │Data  │ │Doc  │ │Test │ │KG    │
+│Agent   │ │Design│ │Agent │ │Agent │ │Agent│ │Agent│ │Agent │
+└────────┘ └──────┘ └──────┘ └──────┘ └─────┘ └─────┘ └──────┘
+     │         │         │         │         │       │       │
+┌────▼─────────▼─────────▼─────────▼─────────▼───────▼───────▼─┐
+│ Foundation Services (via MCP Protocol)                         │
+│ - Zotero (Literature - 40+ tools)                              │
+│ - GitLab (Project Management - 79+ tools)                      │
+│ - Neo4j (Knowledge Graph)                                      │
+│ - Milvus (Vector DB / RAG)                                     │
+│ - MLflow (Experiment Tracking)                                 │
+│ - Ollama (Local LLMs)                                          │
+│ - LiteLLM (Unified AI API)                                     │
+└─────────────────────────────────────────────────────────────────┘
 ```
 
 ### Technology Stack
@@ -7604,4 +6354,5 @@ This concludes the comprehensive leadership brief. The document now:
 - ✅ Structured around Heilmeier Catechism
 - ✅ Written for research scientist audience (no jargon)
 - ✅ Emphasizes existential risk if organization doesn't adapt
+
 

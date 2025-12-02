@@ -1,0 +1,37 @@
+graph TB
+    subgraph Research["Research Project (battery-research/)"]
+        RROOT["Repository Root<br/>🔬<br/>.git, .gitmodules"]
+        RALGO["src/battery_sim/<br/>📊<br/>Your algorithms"]
+        RDATA["data/<br/>💾<br/>Experiment data"]
+        RRESULTS["results/<br/>📈<br/>Analysis results"]
+        RMARS["src/framework/<br/>⚙️<br/>MARS (submodule)"]
+    end
+
+    subgraph MARS["MARS Framework (mars-v2)"]
+        MROOT["MARS Repository<br/>🚀<br/>Pinned to v1.0.2"]
+        MCORE["core/<br/>🧠<br/>MARS SDK"]
+        MMODULES["modules/<br/>🔧<br/>Agents, Services"]
+        MBIN["bin/mars<br/>💻<br/>CLI command"]
+    end
+
+    RROOT --> RALGO
+    RROOT --> RDATA
+    RROOT --> RRESULTS
+    RROOT -->|git submodule| RMARS
+
+    RMARS -.->|Points to commit abc123| MROOT
+    MROOT --> MCORE
+    MROOT --> MMODULES
+    MROOT --> MBIN
+
+    style Research fill:#e1f5ff,stroke:#01579b,stroke-width:3px
+    style RROOT fill:#e1f5ff,stroke:#01579b,stroke-width:2px
+    style RALGO fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    style RDATA fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    style RRESULTS fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    style RMARS fill:#e8f5e9,stroke:#1b5e20,stroke-width:3px
+    style MARS fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px
+    style MROOT fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px
+    style MCORE fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px
+    style MMODULES fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px
+    style MBIN fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px

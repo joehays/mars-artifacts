@@ -1,0 +1,16 @@
+graph TD
+    L3["Level 3: 🏛️  Military Base MARS<br/>DoD classified, air-gap capable<br/>- Deny-by-default networking Squid proxy<br/>- Rootless containers Sysbox isolation<br/>- Bearer token auth DoD PKI/CAC support<br/>- 100% self-hosted local LLMs via Ollama<br/>- Audit logging append-only provenance"]
+    L2["Level 2: 🏘️  Gated Community<br/>Some classified with waivers"]
+    L1["Level 1: 🔑 Lock & Key<br/>Limited classified use"]
+    L0["Level 0: 🚪 Open Door<br/>Public research only"]
+
+    STATUS["MARS Security:<br/>Production-ready for DoD classified networks<br/>and air-gap environments"]
+
+    L3 --> L2 --> L1 --> L0
+    STATUS -.-> L3
+
+    style L3 fill:#1f77b4,stroke:#333,stroke-width:2px,color:#fff
+    style L2 fill:#2ca02c,stroke:#333,stroke-width:2px,color:#fff
+    style L1 fill:#ff7f0e,stroke:#333,stroke-width:2px,color:#fff
+    style L0 fill:#7f7f7f,stroke:#333,stroke-width:2px,color:#fff
+    style STATUS fill:#90EE90,stroke:#333,stroke-width:2px

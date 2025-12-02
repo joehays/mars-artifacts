@@ -1,0 +1,27 @@
+graph TB
+    subgraph Personal["mars-user-plugin (Personal Layer)"]
+        P1["Developer dotfiles<br/>(.vimrc, .bashrc, .tmux.conf)"]
+        P2["Custom scripts & tools"]
+        P3["IDE configurations"]
+    end
+
+    subgraph Development["mars-dev (Development Layer)"]
+        D1["E6 Docker-in-Docker container"]
+        D2["Build infrastructure<br/>(mars-dev build)"]
+        D3["Testing & validation"]
+        D4["Claude Code CLI workspace"]
+    end
+
+    subgraph Runtime["mars-rt (Runtime Layer)"]
+        R1["Research project deployment"]
+        R2["Agent orchestration"]
+        R3["Service management"]
+        R4["Production operations"]
+    end
+
+    Personal -->|"Customizes"| Development
+    Development -->|"Builds"| Runtime
+
+    style Personal fill:#e1f5fe,stroke:#01579b,stroke-width:3px
+    style Development fill:#fff3e0,stroke:#e65100,stroke-width:3px
+    style Runtime fill:#f3e5f5,stroke:#4a148c,stroke-width:3px

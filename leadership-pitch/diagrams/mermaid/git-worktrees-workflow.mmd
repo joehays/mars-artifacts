@@ -1,0 +1,50 @@
+graph TB
+    subgraph Main["Main Repository (/workspace/mars-v2)"]
+        MAIN[("main branch<br/>🏠<br/>Read-only during sprints")]
+    end
+
+    subgraph Worktrees["Parallel Worktrees (5-25 concurrent)"]
+        WT1["Worktree 1<br/>📁 c2-zotero-fixes<br/>🌿 Component 2"]
+        WT2["Worktree 2<br/>📁 c4-infrastructure<br/>🌿 Component 4"]
+        WT3["Worktree 3<br/>📁 s7-wave2-agent<br/>🌿 Sprint 7"]
+        WT4["Worktree 4<br/>📁 mars-writing<br/>🌿 Documentation"]
+        WT5["Worktree 5<br/>📁 testing<br/>🌿 Integration Tests"]
+    end
+
+    subgraph CCC["Claude Code CLI Sessions"]
+        CCC1["CCC Session 1<br/>🤖 Agent development"]
+        CCC2["CCC Session 2<br/>🏗️ Infrastructure"]
+        CCC3["CCC Session 3<br/>🚀 Sprint task"]
+        CCC4["CCC Session 4<br/>📝 Docs"]
+        CCC5["CCC Session 5<br/>🧪 Testing"]
+    end
+
+    MAIN -.-> WT1
+    MAIN -.-> WT2
+    MAIN -.-> WT3
+    MAIN -.-> WT4
+    MAIN -.-> WT5
+
+    WT1 --> CCC1
+    WT2 --> CCC2
+    WT3 --> CCC3
+    WT4 --> CCC4
+    WT5 --> CCC5
+
+    CCC1 -.->|Merge when ready| MAIN
+    CCC2 -.->|Merge when ready| MAIN
+    CCC3 -.->|Merge when ready| MAIN
+    CCC4 -.->|Merge when ready| MAIN
+    CCC5 -.->|Merge when ready| MAIN
+
+    style MAIN fill:#e1f5ff,stroke:#01579b,stroke-width:3px
+    style WT1 fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    style WT2 fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    style WT3 fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    style WT4 fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    style WT5 fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    style CCC1 fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px
+    style CCC2 fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px
+    style CCC3 fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px
+    style CCC4 fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px
+    style CCC5 fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px

@@ -1,0 +1,36 @@
+graph TB
+    subgraph Host["Host System"]
+        DOCKER["Docker Daemon<br/>🐳<br/>System service<br/>/var/run/docker.sock"]
+        SYSBOX["Sysbox Runtime<br/>🔒<br/>sysbox-runc, sysbox-fs"]
+    end
+
+    subgraph Container["MARS Container (Sysbox)"]
+        INNER["Inside View<br/>👁️<br/>UID 0 (root)<br/>Can run Docker<br/>Has systemd"]
+        DIND["Docker-in-Docker<br/>🐳🐳<br/>Isolated daemon<br/>Own images"]
+    end
+
+    subgraph Isolation["Security Isolation"]
+        NAMESPACE["User Namespace<br/>🗂️<br/>UID 0 → 100000+"]
+        FUSE["FUSE Filesystem<br/>📁<br/>Emulated /proc, /sys"]
+        NOPRIVILEGED["No Privileged Mode<br/>🚫<br/>No --privileged flag"]
+    end
+
+    DOCKER -->|Creates with runtime| SYSBOX
+    SYSBOX -->|Applies isolation| Container
+    SYSBOX --> NAMESPACE
+    SYSBOX --> FUSE
+    SYSBOX --> NOPRIVILEGED
+
+    INNER -.->|Believes it's root| DIND
+    NAMESPACE -.->|Actually UID 100000+| INNER
+
+    style Host fill:#e1f5ff,stroke:#01579b,stroke-width:2px
+    style DOCKER fill:#e1f5ff,stroke:#01579b,stroke-width:2px
+    style SYSBOX fill:#fff3e0,stroke:#e65100,stroke-width:3px
+    style Container fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px
+    style INNER fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px
+    style DIND fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px
+    style Isolation fill:#fce4ec,stroke:#880e4f,stroke-width:2px
+    style NAMESPACE fill:#fce4ec,stroke:#880e4f,stroke-width:2px
+    style FUSE fill:#fce4ec,stroke:#880e4f,stroke-width:2px
+    style NOPRIVILEGED fill:#fce4ec,stroke:#880e4f,stroke-width:2px

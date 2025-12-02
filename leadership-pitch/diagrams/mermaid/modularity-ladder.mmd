@@ -1,0 +1,16 @@
+graph TD
+    L3["Level 3: 🏨 Modular Hotel MARS<br/>3-7 weeks per new domain<br/>┌─────────┬─────────┬─────────┐<br/>│Foundation│Built Once│ Shared  │<br/>├─────────┼─────────┼─────────┤<br/>│ Room 1  │ Room 2  │ Room 3  │<br/>│Materials│Chemistry│ Biology │<br/>└─────────┴─────────┴─────────┘<br/>Plug-and-play modules"]
+    L2["Level 2: 🏢 Apartment Building<br/>1-3 months<br/>microservices"]
+    L1["Level 1: 🏗️  Prefab Sections<br/>3-6 months<br/>brittle integration"]
+    L0["Level 0: 🏠 Custom Home<br/>6-12 months per capability<br/>monolithic"]
+
+    ARCH["MARS 'Hotel Rooms' Architecture:<br/>Foundation built once: Docker, Neo4j, MinIO, LiteLLM, Squid, MLflow<br/>Modular 'Rooms' add as needed: Agents, services, domain workflows<br/>Standardized Interfaces: MCP protocol plug-and-play"]
+
+    L3 --> L2 --> L1 --> L0
+    ARCH -.-> L3
+
+    style L3 fill:#1f77b4,stroke:#333,stroke-width:2px,color:#fff
+    style L2 fill:#2ca02c,stroke:#333,stroke-width:2px,color:#fff
+    style L1 fill:#ff7f0e,stroke:#333,stroke-width:2px,color:#fff
+    style L0 fill:#7f7f7f,stroke:#333,stroke-width:2px,color:#fff
+    style ARCH fill:#90EE90,stroke:#333,stroke-width:2px

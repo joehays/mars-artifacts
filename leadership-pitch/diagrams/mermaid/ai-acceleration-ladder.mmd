@@ -1,0 +1,25 @@
+graph TD
+    L4["Level 4: 🛸 Starship Enterprise<br/>200-400% faster<br/>LangGraph Orchestration"]
+    L3["Level 3: 🚀 Fighter Jet<br/>100-150% faster<br/>Manual Orchestration"]
+    L2["Level 2: ✈️  Cessna<br/>40-55% faster<br/>AI Coding Agents"]
+    L1["Level 1: 🏎️  Formula 1<br/>21-26% faster<br/>LLM Chat"]
+    L0["Level 0: 🚗 Corvette<br/>Baseline<br/>Traditional PhD Teams"]
+
+    TRANS["TRANSFORMATIONAL"]
+    INCR["INCREMENTAL"]
+
+    L4 -.-> TRANS
+    L3 -.-> TRANS
+    L2 -.-> TRANS
+    L1 -.-> INCR
+    L0 -.-> INCR
+
+    L4 --> L3 --> L2 --> L1 --> L0
+
+    style L4 fill:#1f77b4,stroke:#333,stroke-width:2px,color:#fff
+    style L3 fill:#2ca02c,stroke:#333,stroke-width:2px,color:#fff
+    style L2 fill:#ff7f0e,stroke:#333,stroke-width:2px,color:#fff
+    style L1 fill:#d62728,stroke:#333,stroke-width:2px,color:#fff
+    style L0 fill:#7f7f7f,stroke:#333,stroke-width:2px,color:#fff
+    style TRANS fill:#90EE90,stroke:#333,stroke-width:1px
+    style INCR fill:#FFB6C1,stroke:#333,stroke-width:1px

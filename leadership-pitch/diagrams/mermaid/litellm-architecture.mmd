@@ -1,0 +1,36 @@
+graph TB
+    subgraph Agents["MARS Agents"]
+        A1["Research Orchestrator"]
+        A2["Literature Monitor"]
+        A3["Doc Czar"]
+        A4["Test Czar"]
+    end
+
+    subgraph LiteLLM["LiteLLM Proxy<br/>localhost:4000"]
+        LITE["Unified Gateway<br/>🔀<br/>OpenAI API Format"]
+    end
+
+    subgraph Providers["AI Providers (3 simultaneous)"]
+        ASKSAGE["AskSage/CAPRA<br/>🏛️<br/>DoD Classified<br/>GPT-4, Claude, Llama"]
+        ANTHROPIC["Anthropic Direct<br/>☁️<br/>Unclassified<br/>Claude 3.5 Sonnet"]
+        OLLAMA["Ollama Local<br/>💻<br/>Air-Gap Fallback<br/>Llama 3.1:70b"]
+    end
+
+    A1 -->|OpenAI API| LITE
+    A2 -->|OpenAI API| LITE
+    A3 -->|OpenAI API| LITE
+    A4 -->|OpenAI API| LITE
+
+    LITE -->|Route: classified| ASKSAGE
+    LITE -->|Route: unclass| ANTHROPIC
+    LITE -->|Route: offline| OLLAMA
+
+    ASKSAGE -.->|Fallback if down| ANTHROPIC
+    ANTHROPIC -.->|Fallback if down| OLLAMA
+
+    style Agents fill:#e1f5ff,stroke:#01579b,stroke-width:2px
+    style LiteLLM fill:#fff3e0,stroke:#e65100,stroke-width:3px
+    style LITE fill:#fff3e0,stroke:#e65100,stroke-width:3px
+    style ASKSAGE fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
+    style ANTHROPIC fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px
+    style OLLAMA fill:#fce4ec,stroke:#880e4f,stroke-width:2px

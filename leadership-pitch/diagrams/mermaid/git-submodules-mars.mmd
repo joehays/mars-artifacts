@@ -1,0 +1,38 @@
+graph TB
+    subgraph MARS["MARS Repository (mars-v2/)"]
+        MROOT["Repository Root<br/>🚀<br/>.git, .gitmodules"]
+        MCORE["core/<br/>🧠<br/>MARS SDK"]
+        MMODULES["modules/<br/>🔧<br/>Agents, Services"]
+    end
+
+    subgraph External["External Dependencies (submodules)"]
+        LITELLM["external/litellm/<br/>🔀<br/>AI Gateway<br/>AskSage provider"]
+        GITLAB["external/gitlab-mcp/<br/>🦊<br/>79 GitLab tools"]
+        ZOTERO["external/zotero-mcp/<br/>📚<br/>Literature mgmt"]
+        ZSERVER["external/zotero-selfhost/<br/>🏠<br/>Self-hosted server"]
+        GENERIC["external/generic-infra/<br/>🏗️<br/>Infra patterns"]
+    end
+
+    MROOT -->|git submodule| LITELLM
+    MROOT -->|git submodule| GITLAB
+    MROOT -->|git submodule| ZOTERO
+    MROOT -->|git submodule| ZSERVER
+    MROOT -->|git submodule| GENERIC
+
+    MROOT --> MCORE
+    MROOT --> MMODULES
+
+    LITELLM -.->|Fork with patches| LITELLM_UPSTREAM["LiteLLM<br/>upstream"]
+    GITLAB -.->|Fork with features| GITLAB_UPSTREAM["GitLab MCP<br/>upstream"]
+    ZOTERO -.->|Fork with 10 tools| ZOTERO_UPSTREAM["Zotero MCP<br/>upstream"]
+
+    style MARS fill:#e1f5ff,stroke:#01579b,stroke-width:3px
+    style MROOT fill:#e1f5ff,stroke:#01579b,stroke-width:2px
+    style MCORE fill:#e1f5ff,stroke:#01579b,stroke-width:2px
+    style MMODULES fill:#e1f5ff,stroke:#01579b,stroke-width:2px
+    style External fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    style LITELLM fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px
+    style GITLAB fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px
+    style ZOTERO fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px
+    style ZSERVER fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px
+    style GENERIC fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px

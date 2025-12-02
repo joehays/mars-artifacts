@@ -1,52 +1,42 @@
 #!/bin/bash
 #
-# Build Leadership Brief PDF with Mermaid diagrams
+# Build Leadership Brief PDF with pre-generated PNG diagrams
+#
+# This script uses orchestrated_ai_presentation_final.md which has PNG image
+# references instead of mermaid code blocks, avoiding the need for mermaid-filter
+# and browser rendering (which has file access issues).
 #
 # Requirements:
 #   - pandoc (markdown → LaTeX/PDF converter)
 #   - lualatex (LaTeX engine with emoji support)
-#   - mermaid-filter (Mermaid diagram support via NPM)
-#   - mermaid-cli (mmdc command for diagram rendering)
-#   - google-chrome-stable (for mermaid-cli to render diagrams)
+#   - Pre-generated PNG diagrams in diagrams/png/ directory
 #
-# Install:
-#   npm install -g mermaid-filter
-#   npm install -g @mermaid-js/mermaid-cli
-#   apt-get install google-chrome-stable
+# To regenerate PNG diagrams (if needed):
+#   python3 generate_pptx_diagrams.py
 
-# Configure puppeteer to use system Chrome/Chromium
-# Try multiple common browser locations (works on both container and host)
-if [ -x /usr/bin/google-chrome-stable ]; then
-    export PUPPETEER_EXECUTABLE_PATH=/usr/bin/google-chrome-stable
-elif [ -x /usr/bin/google-chrome ]; then
-    export PUPPETEER_EXECUTABLE_PATH=/usr/bin/google-chrome
-elif [ -x /usr/bin/chromium-browser ]; then
-    export PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
-elif [ -x /usr/bin/chromium ]; then
-    export PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
-elif command -v google-chrome-stable &> /dev/null; then
-    export PUPPETEER_EXECUTABLE_PATH=$(command -v google-chrome-stable)
-elif command -v google-chrome &> /dev/null; then
-    export PUPPETEER_EXECUTABLE_PATH=$(command -v google-chrome)
-elif command -v chromium-browser &> /dev/null; then
-    export PUPPETEER_EXECUTABLE_PATH=$(command -v chromium-browser)
-elif command -v chromium &> /dev/null; then
-    export PUPPETEER_EXECUTABLE_PATH=$(command -v chromium)
-else
-    echo "❌ Error: No Chrome/Chromium browser found!"
-    echo "Please install one of: google-chrome, chromium-browser, chromium"
+echo "📄 Building Leadership Brief PDF (using pre-generated PNG diagrams)..."
+echo ""
+
+# Check if source file exists
+if [ ! -f "orchestrated_ai_presentation_final.md" ]; then
+    echo "❌ Error: orchestrated_ai_presentation_final.md not found!"
     exit 1
 fi
 
-echo "Using browser: $PUPPETEER_EXECUTABLE_PATH"
+# Check if PNG diagrams exist
+if [ ! -d "diagrams/png" ] || [ -z "$(ls -A diagrams/png/*.png 2>/dev/null)" ]; then
+    echo "❌ Error: No PNG diagrams found in diagrams/png/"
+    echo "Generate them with: python3 generate_pptx_diagrams.py"
+    exit 1
+fi
 
-# Configure puppeteer for headless operation
-# These flags are critical for running in containers or headless environments
-export PUPPETEER_ARGS="--no-sandbox --disable-setuid-sandbox --disable-dev-shm-usage --disable-gpu"
+PNG_COUNT=$(ls diagrams/png/*.png 2>/dev/null | wc -l)
+echo "✅ Found $PNG_COUNT PNG diagrams in diagrams/png/"
+echo ""
 
+echo "🔨 Building PDF with pandoc..."
 pandoc -f markdown+emoji \
   --pdf-engine=lualatex \
-  --filter mermaid-filter \
   -L emoji-direct.lua \
   -H header.tex \
   -V monofont="DejaVu Sans Mono" \
@@ -55,10 +45,18 @@ pandoc -f markdown+emoji \
   -V geometry:bottom=0.75in \
   -V geometry:left=0.75in \
   -V geometry:right=0.75in \
-  LEADERSHIP_BRIEF_ORCHESTRATED_AI.md \
-  -o orchestrated_ai_draft.pdf
+  orchestrated_ai_presentation_final.md \
+  -o orchestrated_ai_presentation_final.pdf
 
-echo "✅ PDF generated: orchestrated_ai_draft.pdf"
+if [ $? -eq 0 ]; then
+    echo ""
+    echo "✅ PDF generated: orchestrated_ai_presentation_final.pdf"
+    ls -lh orchestrated_ai_presentation_final.pdf
+else
+    echo ""
+    echo "❌ PDF generation failed"
+    exit 1
+fi
 
 #  -L emoji-wrap.lua \
 #pandoc -f markdown+emoji \

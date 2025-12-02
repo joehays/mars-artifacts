@@ -1,0 +1,76 @@
+%%{init: {'theme': 'base', 'themeVariables': {
+  'primaryColor': '#e1f5ff',
+  'secondaryColor': '#fff3e0',
+  'tertiaryColor': '#f3e5f5',
+  'primaryBorderColor': '#01579b',
+  'secondaryBorderColor': '#e65100',
+  'tertiaryBorderColor': '#4a148c'
+}}}%%
+graph TB
+    subgraph "Strategic Layer"
+        Human["Human Researcher<br/>(Strategic Direction)"]
+    end
+
+    subgraph "Orchestration Layer"
+        Orch["LangGraph Orchestrator<br/>(Multi-Agent Coordination)<br/>• Task decomposition<br/>• Agent selection and routing<br/>• Output synthesis<br/>• Human escalation"]
+    end
+
+    subgraph "Agent Layer"
+        LitAgent["Literature<br/>Agent"]
+        ExpAgent["Experiment<br/>Design Agent"]
+        CodeAgent["Code<br/>Agent"]
+        DataAgent["Data<br/>Agent"]
+        DocAgent["Documentation<br/>Agent"]
+        TestAgent["Test<br/>Agent"]
+        KGAgent["Knowledge Graph<br/>Agent"]
+    end
+
+    subgraph "Foundation Services (via MCP Protocol)"
+        Zotero["Zotero<br/>(Literature - 40+ tools)"]
+        GitLab["GitLab<br/>(Project Mgmt - 79+ tools)"]
+        Neo4j["Neo4j<br/>(Knowledge Graph)"]
+        Milvus["Milvus<br/>(Vector DB / RAG)"]
+        MLflow["MLflow<br/>(Experiment Tracking)"]
+        Ollama["Ollama<br/>(Local LLMs)"]
+        LiteLLM["LiteLLM<br/>(Unified AI API)"]
+    end
+
+    Human --> Orch
+    Orch --> LitAgent
+    Orch --> ExpAgent
+    Orch --> CodeAgent
+    Orch --> DataAgent
+    Orch --> DocAgent
+    Orch --> TestAgent
+    Orch --> KGAgent
+
+    LitAgent --> Zotero
+    LitAgent --> Neo4j
+    ExpAgent --> MLflow
+    ExpAgent --> GitLab
+    CodeAgent --> GitLab
+    DataAgent --> Milvus
+    DataAgent --> Neo4j
+    DocAgent --> GitLab
+    TestAgent --> GitLab
+    KGAgent --> Neo4j
+
+    LitAgent -.-> LiteLLM
+    ExpAgent -.-> LiteLLM
+    CodeAgent -.-> LiteLLM
+    DataAgent -.-> LiteLLM
+    DocAgent -.-> LiteLLM
+    TestAgent -.-> LiteLLM
+    KGAgent -.-> LiteLLM
+
+    LiteLLM -.-> Ollama
+
+    classDef human fill:#e1f5ff,stroke:#01579b,stroke-width:3px
+    classDef orch fill:#fff3e0,stroke:#e65100,stroke-width:3px
+    classDef agent fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
+    classDef service fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px
+
+    class Human human
+    class Orch orch
+    class LitAgent,ExpAgent,CodeAgent,DataAgent,DocAgent,TestAgent,KGAgent agent
+    class Zotero,GitLab,Neo4j,Milvus,MLflow,Ollama,LiteLLM service

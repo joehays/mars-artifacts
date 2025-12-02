@@ -1,0 +1,24 @@
+graph TD
+    L6["Level 6: 🏛️  Library of Congress<br/>Full institutional memory<br/>Shared across all agents<br/>Survives researcher turnover"]
+    L5["Level 5: 🏫 University Library<br/>OpenMemory<br/>5 memory sectors<br/>conversation, session, episodic, entity, semantic<br/>learns over time"]
+    L4["Level 4: 📚 Library with Cross-References<br/>Knowledge Graphs<br/>Relationship understanding<br/>paper → experiment → result"]
+    L3["Level 3: 🗂️  Library Card Catalog<br/>RAG/Semantic Search<br/>~40% token reduction<br/>automatic context retrieval"]
+    L2["Level 2: 📖 Reference Manual<br/>CLAUDE.md<br/>Static context<br/>consistent behavior"]
+    L1["Level 1: 📓 Personal Notebook<br/>Session memory only<br/>forgets when session ends"]
+    L0["Level 0: 📝 Post-It Notes<br/>ChatGPT<br/>No memory<br/>starts from scratch every time"]
+
+    MARS["MARS Status:<br/>Level 2 ✅<br/>Level 3 ⏳ 80%<br/>Level 4 ✅ agent integration pending"]
+
+    L6 --> L5 --> L4 --> L3 --> L2 --> L1 --> L0
+    MARS -.-> L2
+    MARS -.-> L3
+    MARS -.-> L4
+
+    style L6 fill:#1f77b4,stroke:#333,stroke-width:2px,color:#fff
+    style L5 fill:#2ca02c,stroke:#333,stroke-width:2px,color:#fff
+    style L4 fill:#ff7f0e,stroke:#333,stroke-width:2px,color:#fff
+    style L3 fill:#d62728,stroke:#333,stroke-width:2px,color:#fff
+    style L2 fill:#9467bd,stroke:#333,stroke-width:2px,color:#fff
+    style L1 fill:#8c564b,stroke:#333,stroke-width:2px,color:#fff
+    style L0 fill:#7f7f7f,stroke:#333,stroke-width:2px,color:#fff
+    style MARS fill:#90EE90,stroke:#333,stroke-width:2px
